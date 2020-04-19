@@ -1,0 +1,23 @@
+# Spring properties
+spring:
+  application:
+    name: auth-service
+
+  # Neo4j properties
+  data:
+    neo4j:
+      username: neo4j
+      password: secret
+      uri: bolt://localhost:7687
+
+# HTTP Server
+server:
+  port: @http.port@
+
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 5   # DO NOT DO THIS IN PRODUCTION

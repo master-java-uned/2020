@@ -3,8 +3,8 @@ package com.covid19.common.exception;
 
 public class DataAccessException extends Exception {
 
-	private static final long serialVersionUID = -1227936014166460133L;
-	public static final int PROCESSING_FAILED = 1;
+    private static final long serialVersionUID = -1227936014166460133L;
+    public static final int PROCESSING_FAILED = 1;
     public static final int VALIDATION_FAILED = 2;
 
     private int code;
@@ -12,7 +12,7 @@ public class DataAccessException extends Exception {
     public DataAccessException() {
         super();
     }
-    
+
     public DataAccessException(Exception e) {
         super(e);
     }

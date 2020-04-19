@@ -3,11 +3,11 @@ package com.covid19.common.exception;
 public class ServiceException extends Exception {
 
     /**
-	 * 
-	 */
-	private static final long serialVersionUID = -6790978749789863233L;
+     *
+     */
+    private static final long serialVersionUID = -6790978749789863233L;
 
-	public ServiceException(String message) {
+    public ServiceException(String message) {
         super(message);
     }
 
