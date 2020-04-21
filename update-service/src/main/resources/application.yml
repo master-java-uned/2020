@@ -1,23 +1,19 @@
+
 # Spring properties
 spring:
   application:
-    name: auth-service
-
-  # Neo4j properties
-  data:
-    neo4j:
-      username: neo4j
-      password: secret
-      uri: bolt://localhost:7687
-  # Apache Kafka
+    name: update-service
   kafka:
-    bootstrap-servers: localhost:9092
     consumer:
-      group-id: myGroup
-
-# HTTP Server
-server:
-  port: @http.port@
+      bootstrap-servers: localhost:9092
+      group-id: group_id
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
 
 # Discovery Server Access
 eureka:
@@ -26,3 +22,8 @@ eureka:
       defaultZone: http://localhost:1111/eureka/
   instance:
     leaseRenewalIntervalInSeconds: 5   # DO NOT DO THIS IN PRODUCTION
+
+# HTTP Server
+server:
+  port: @http.port@
+
