@@ -1,5 +1,6 @@
 package com.covid19.authservice.model;
 
+import com.covid19.common.exception.DataAccessException;
 import com.covid19.common.model.Permission;
 import org.neo4j.ogm.annotation.GeneratedValue;
 import org.neo4j.ogm.annotation.Id;
@@ -11,7 +12,7 @@ import java.util.List;
 
 
 @NodeEntity
-public class User {
+public class User extends DataAccessException {
 
     @Id
     @GeneratedValue
