@@ -8,4 +8,4 @@ eureka:
 
 # HTTP Server
 server:
-  port: @http.port@
+  port: 1111

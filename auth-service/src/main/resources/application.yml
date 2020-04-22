@@ -12,7 +12,7 @@ spring:
 
 # HTTP Server
 server:
-  port: @http.port@
+  port: 8080
 
 # Discovery Server Access
 eureka:
@@ -21,3 +21,8 @@ eureka:
       defaultZone: http://localhost:1111/eureka/
   instance:
     leaseRenewalIntervalInSeconds: 5   # DO NOT DO THIS IN PRODUCTION
+
+# App JWT Properties
+  jwt:
+    secret: auth-service-secret
+    expiration: 172800 #seconds
