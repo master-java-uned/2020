@@ -3,6 +3,7 @@ package com.covid19.authservice.controller;
 import com.covid19.authservice.model.User;
 import com.covid19.authservice.service.UserService;
 import com.covid19.common.exception.DataAccessException;
+import com.covid19.authservice.config.JwtTokenUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,8 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private JwtTokenUtils jwtTokenUtil;
     @Autowired
     private AuthenticationManager authenticationManager;
     @Autowired
