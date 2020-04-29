@@ -18,11 +18,11 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:1111/eureka/
+      defaultZone: http://localhost:8761/eureka
   instance:
     leaseRenewalIntervalInSeconds: 5   # DO NOT DO THIS IN PRODUCTION
 
 # App JWT Properties
-  jwt:
-    secret: auth-service-secret
-    expiration: 172800 #seconds
+jwt:
+  secret: auth-service-secret
+  expiration: 172800 #seconds

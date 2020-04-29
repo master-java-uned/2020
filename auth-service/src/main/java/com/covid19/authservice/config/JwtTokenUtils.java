@@ -19,10 +19,10 @@ import java.util.function.Function;
 public class JwtTokenUtils implements Serializable {
     private static final long serialVersionUID = -2550185165626007488L;
 
-    @Value("${jwtExpirationMs}")
+    @Value("${jwt.expiration}")
     public long JwtTokenValidity;
 
-    @Value("${jwtSecret}")
+    @Value("${jwt.secret}")
     private String secret;
 
     //retrieve username from jwt token

@@ -34,6 +34,7 @@ public class User extends DataAccessException {
 
     private Integer attempts;
 
+    private String role;
 
     private List<Role> roles = new ArrayList<>();
 
@@ -144,5 +145,7 @@ public class User extends DataAccessException {
         this.lastPasswordResetDate = lastPasswordResetDate;
     }
 
+    public String getRole() { return role; }
 
+    public void setRole(String role) { this.role = role; }
 }

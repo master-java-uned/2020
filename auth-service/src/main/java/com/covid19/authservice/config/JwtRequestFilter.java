@@ -1,6 +1,6 @@
 package com.covid19.authservice.config;
 
-import com.app.psicologia.service.JwtUserDetailsService;
+import com.covid19.authservice.service.JwtUserDetailsService;
 import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

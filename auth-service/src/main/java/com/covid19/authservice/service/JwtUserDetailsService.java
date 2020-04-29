@@ -1,8 +1,9 @@
 package com.covid19.authservice.service;
 
 
-import com.app.psicologia.model.User;
-import com.app.psicologia.repository.UserRepository;
+import com.covid19.authservice.dao.UserDao;
+import com.covid19.authservice.model.User;
+import com.covid19.common.exception.DataAccessException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -18,12 +19,17 @@ import java.util.List;
 @Component
 public class JwtUserDetailsService implements UserDetailsService {
     @Autowired
-    private UserRepository userRepository;
+    private UserDao userDao;
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        User user = userRepository.findByUserName(s);
-        
+        User user = null;
+        try {
+            user = userDao.findByUsername(s);
+        } catch (DataAccessException e) {
+            e.printStackTrace();
+        }
+
         if(user == null) {
             throw new UsernameNotFoundException(String.format("The username %s doesn't exist", s));
         }
@@ -35,7 +41,7 @@ public class JwtUserDetailsService implements UserDetailsService {
         //GrantedAuthority authorities= new SimpleGrantedAuthority(user.getRole().getRole());
         
         UserDetails userDetails = new org.springframework.security.core.userdetails.
-                User(user.getUserName() , user.getPassword(), authorities);
+                User(user.getUsername() , user.getPassword(), authorities);
 
         return userDetails ;
      /* } else {

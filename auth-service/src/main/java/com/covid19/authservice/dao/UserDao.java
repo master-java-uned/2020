@@ -7,7 +7,7 @@ import org.springframework.data.neo4j.repository.Neo4jRepository;
 public interface UserDao extends Neo4jRepository<User, Long> {
 
     User findByEmail(String email) throws DataAccessException;
-
+    User findByUsername(String username) throws DataAccessException;
 //    List<Permission> findUserPermissions() throws DataAccessException;
 //
 //    User findByUsernameOrEmail(String username, String email) throws DataAccessException;
