@@ -1,0 +1,24 @@
+/*Peter Fight*/
+/*09/05/2020*/
+/*CSS del componente que gestiona el registro de usuarios*/
+
+
+
+/*
+    EVITO QUE SE MUESTRE EL BOTÓN ANTIESTÉTICO DEL FILEUPLOAD
+*/
+.inputFile {
+  text-align: center;
+  display: inline-block;
+}
+.inputFile:focus,
+.inputFile:hover {
+  /*background-color: blue;*/
+}
+.inputFile input {
+  display: none;
+}
+.inputFile{
+  width:100%;
+  cursor: pointer;
+}

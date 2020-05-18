@@ -1,5 +1,13 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+// @ts-ignore
+import { expect } from 'jasmine';
+// @ts-ignore
+import { it } from 'jasmine';
+// @ts-ignore
+import { beforeEach } from 'jasmine';
+// @ts-ignore
+import { describe } from 'jasmine';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({

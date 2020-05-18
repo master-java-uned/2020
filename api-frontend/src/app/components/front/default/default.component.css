@@ -1,0 +1,46 @@
+
+
+/*Peter Fight*/
+/*09/05/2020*/
+/*CSS de la default*/
+
+/*PARA EL EFECTO PARALLAX*/
+#box-1 {
+  height: 100vh;
+  width: 100%;
+  background-image: url("/assets/img/pasillo-hospital.jpg");
+  background-size: cover;
+  -webkit-filter: grayscale(70%);
+  display: table;
+  background-attachment: fixed;
+}
+
+#box-2 {
+  height: 100vh;
+  width: 100%;
+  background-image: url("/assets/img/back-covid.jpg");
+  /*-webkit-filter: grayscale(70%);*/
+  background-size: cover;
+  display: table;
+  background-attachment: fixed;
+}
+
+#box-3 {
+  height: 100vh;
+  width: 100%;
+  background-image: url("/assets/img/estudios.jpg");
+  background-size: cover;
+  display: table;
+  background-attachment: fixed;
+  -webkit-filter: grayscale(70%);
+}
+
+h1 {
+  font-family: arial black;
+  font-size: 50px;
+  color: white;
+  margin: 0px;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}

@@ -1,3 +1,3 @@
-export const environment = {
-  production: true
+export const environmentProd = {
+  baseUrl: "https://www.uned.es/covid" // Ouh yeah baby!!!
 };

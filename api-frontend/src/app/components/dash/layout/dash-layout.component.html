@@ -1,0 +1,58 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../../../../assets/css/fontawesome5-overrides.min.css">
+
+<div id="wrapper">
+  <nav  class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0"
+       style="background-image:linear-gradient(to bottom right, #000000 , #024b72); background-size: cover;filter:grayscale(.5);">
+    <div class="container-fluid d-flex flex-column p-0">
+      <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0 mt-3" href="#">
+        <div class="sidebar-brand-icon"><i class="fas fa-biohazard"></i>
+          <div class="sidebar-brand-icon"><small>COVID-19</small></div>
+        </div>
+      </a>
+      <hr class="sidebar-divider my-1">
+      <ul class="nav navbar-nav text-light" id="accordionSidebar">
+        <li class="nav-item" role="presentation"><a class="nav-link" href="/dash/perfil"><i
+          class="fas fa-user"></i><span>Mis datos</span></a>
+        </li>
+        <li *ngIf="!esSuper" class="nav-item" role="presentation"><a class="nav-link" href="/dash/clonar"><i
+          class="fas fa-clone"></i><span>Clonar mi usuario</span></a>
+        </li>
+        <li *ngIf="esSuper" class="nav-item" role="presentation"><a class="nav-link" href="/dash/usuarios"><i
+          class="fas fa-table"></i><span>Listado de usuarios</span></a>
+        </li>
+
+<!--        PARA CUANDO TENGA TIEMPO-->
+<!--        <li *ngIf="esSuper" class="nav-item" role="presentation"><a class="nav-link" href="table.html"><i-->
+<!--          class="fas fa-user-astronaut"></i><span>Dar de alta otro admin</span></a>-->
+<!--        </li>-->
+
+        <li class="nav-item" role="presentation"><a class="nav-link" href="/logout"><i
+          class="fas fa-remove"></i><span>Cerrar sesión</span></a>
+        </li>
+      </ul>
+      <div class="text-center d-none d-md-inline">
+        <button class="btn rounded-circle border-0" id="sidebarToggle" onclick="$('.sidebar').toggleClass('toggled')" type="button"></button>
+      </div>
+    </div>
+  </nav>
+
+
+  <div style="border-left:10px solid black;" class="d-flex flex-column" id="content-wrapper" style="">
+    <div id="content" class="p-3">
+      <router-outlet (activate)="scrollTop()"></router-outlet>
+    </div>
+  </div>
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+<script src="assets/js/Contact-Form-v2-Modal--Full-with-Google-Map.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+<style>
+  body {
+    margin: 0 !important;
+  }
+</style>

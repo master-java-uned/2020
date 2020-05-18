@@ -1,0 +1,43 @@
+<!--Peter Fight-->
+<!--10/05/2020-->
+
+<!--HTML DE RECUPERAR PASS-->
+<div class="card shadow-lg o-hidden border-0 height:100% mt-5">
+  <div class="card-body p-0">
+    <div class="row" style="min-width: 100vw;min-height: 100vh;">
+<!--      CORONAVIRUS GIGANTE-->
+      <div class="col-lg-6 d-none d-lg-flex" style="/*height: 100vh;*/">
+        <div class="flex-grow-1 bg-login-image" style="filter:grayscale(0.4);background-image: url('assets/img/COVID.jpg');background-position: left;background-size: cover;background-repeat: space;"></div>
+      </div>
+      <div class="col-lg-6" style="/*height: 100vh;*/">
+        <!--
+LISTADO DE ERRORES
+Lleva una animación de animate.css para la primera vez que se muestre
+-->
+        <div *ngIf="errores?.length > 0" class="mt-5 validation-summary alert alert-warning animated bounceIn" >
+          <p>Por favor, corrije los siguientes errores:</p>
+          <ul>
+            <li *ngFor="let error of errores">
+              {{error}}
+            </li>
+          </ul>
+        </div>
+        <div class="p-5">
+          <div class="text-center">
+            <h4 class="text-dark mb-2">Recupera tu Password</h4>
+          </div>
+<!--          FORMULARIO-->
+          <form class="user" [formGroup]="datosFormulario" (ngSubmit)="onSubmit(datosFormulario.value)" >
+          <div class="form-group">
+              <input  (change)="validacionDinamica(null)" formControlName="Email"  name="Email" class="col-11 float-left form-control form-control-user" type="email" id="Email" aria-describedby="emailHelp" placeholder="Correo electrónico..." name="email">
+              <span class="text-danger col-1">*</span>
+            </div>
+            <button class="btn btn-primary btn-block text-white btn-user" type="submit">Resetear el Password</button></form>
+          <div class="text-center">
+            <hr><a class="small" routerLink="/registro">Crea tu cuenta!</a></div>
+          <div class="text-center"><a class="small" routerLink="/login">¿Ya tienes una cuenta? Accede!</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
