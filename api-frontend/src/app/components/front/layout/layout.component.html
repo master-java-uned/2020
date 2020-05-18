@@ -1,0 +1,70 @@
+<!--Peter Fight-->
+<!--09/05/2020-->
+<!--HTML DEL LAYOUT DEL FRONT-->
+
+
+
+<!--IMPORTO EL FONT-AWESOME DE UN CDN PARA LOS ICONOS-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../../../../assets/css/fontawesome5-overrides.min.css">
+
+<!--AÑADO LA CLASE ANIMATED PARA QUE HAGA UN EFECTO EN LA PRIMERA CARGA-->
+<nav class="animated slideInDown navbar navbar-light navbar-expand-md navigation-clean-button fixed-top bg-light" >
+  <div class="container"><a class="navbar-brand" routerLink="">Situación COVID-19</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+  <!--
+    NAVBAR
+    -->
+    <div class="collapse navbar-collapse"
+         id="navcol-1">
+      <ul class="nav navbar-nav mr-auto">
+        <li class="nav-item" role="presentation"><a class="nav-link" routerLink="/sobre-nosotros">Sobre nosotros</a></li>
+        <li class="nav-item" role="presentation"><a class="nav-link" routerLink="/contacto">Contacto</a></li>
+        <li class="nav-item" *ngIf="getModeloDatosCovid().distinctContinentes == undefined || getModeloDatosCovid().distinctContinentes.length == 0">
+          <div class="spinner-grow text-info" role="status">
+            <span class="sr-only"></span>
+          </div>
+          Cargando mapas, por favor, espere...
+        </li>
+        <li class="nav-item dropdown" *ngIf="getModeloDatosCovid().distinctContinentes != undefined && getModeloDatosCovid().distinctContinentes.length > 0">
+<!--          <a class="dropdown-toggle nav-link"  data-toggle="dropdown" aria-expanded="false" href="#">Seleccione un mapa</a>-->
+<!--          <div class="dropdown-menu" role="menu" >-->
+<!--            <a *ngFor="let continente of getModeloDatosCovid().distinctContinentes" class="dropdown-item" role="presentation" routerLink="/mapa/{{continente}}">{{continente}}</a>-->
+<!--          </div>-->
+          <a class="nav-link" routerLink="/mapa/Mapa">Ir al mapa</a>
+        </li>
+
+      </ul>
+      <span *ngIf="isUserLogged() == false" class="navbar-text actions">
+        <a class="login" routerLink="/login">Entrar</a>
+        <a class="btn btn-light action-button" routerLink="/registro">Registro</a>
+      </span>
+      <span *ngIf="isUserLogged()" class="navbar-text actions">
+        <a class="login" routerLink="/dash">Zona Privada</a>
+      </span>
+    </div>
+  </div>
+</nav>
+
+<!--AQUÍ VIENE EL CONTENIDO DE LAS RUTAS INTERNAS-->
+<div>
+  <router-outlet (activate)="scrollTop()"></router-outlet>
+  <!--le meto el scrolltop para que al cambiar de page, haga scroll hasta el tope de la página-->
+</div>
+
+<!--FOOTER-->
+<footer id="footerpad"  data-aos="zoom-in-up" >
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-lg-8 mx-auto">
+        <ul class="list-inline text-center">
+          <li class="list-inline-item"><a class="text-dark" href="#"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x fa-inverse"></i></span></a></li>
+          <li class="list-inline-item"><a class="text-dark" href="#"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></span></a></li>
+          <li class="list-inline-item"><a class="text-dark" href="#"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-instagram fa-stack-1x fa-inverse"></i></span></a></li>
+          <li class="list-inline-item"><a class="text-dark" href="#"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-linkedin fa-stack-1x fa-inverse"></i></span></a></li>
+        </ul>
+        <p class="copyright text-muted text-center">Copyright © UNED 2020 | Desarrollado por Víctor y Peter Fight</p>
+      </div>
+    </div>
+  </div>
+</footer>

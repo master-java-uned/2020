@@ -1,0 +1,12 @@
+/*Peter Fight*/
+/*10/05/2020*/
+/*CSS PARA LOS MAPAS*/
+
+#world-map{
+  width: 80%;
+  margin-left:10%;
+  height: 400px;
+}
+.jvectormap-container{
+  background:lightblue!important;
+}
