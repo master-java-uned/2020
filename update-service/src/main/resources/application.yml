@@ -6,24 +6,37 @@ spring:
   kafka:
     consumer:
       bootstrap-servers: localhost:9092
-      group-id: group_id
+      group-id: up-service
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      properties:
+        max.partition.fetch.bytes: 100000000
+        fetch.message.max.bytes: 100000000
     producer:
       bootstrap-servers: localhost:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      properties:
+        max.request.size: 100000000
+        max.message.bytes: 100000000
+        send.buffer.bytes: 100000000
 
 # Discovery Server Access
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:1111/eureka/
+      defaultZone: http://localhost:8761/eureka
   instance:
     leaseRenewalIntervalInSeconds: 5   # DO NOT DO THIS IN PRODUCTION
 
 # HTTP Server
 server:
-  port: @http.port@
+  port: 8081
+
+kafka:
+  output:
+    topic: map-data-output
+  input:
+    topic: map-data-input
 
