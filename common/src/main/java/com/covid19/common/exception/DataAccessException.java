@@ -38,4 +38,14 @@ public class DataAccessException extends Exception {
     public void setCode(int code) {
         this.code = code;
     }
+
+    public SuppressedExceptions getSuppressedExceptions() {
+        return suppressedExceptions;
+    }
+
+    public void setSuppressedExceptions(SuppressedExceptions suppressedExceptions) {
+        this.suppressedExceptions = suppressedExceptions;
+    }
+
+    SuppressedExceptions suppressedExceptions;
 }

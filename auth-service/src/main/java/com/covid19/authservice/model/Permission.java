@@ -5,69 +5,56 @@
  * ya si eso si es admin o user... Yo manoseo y ya.
  */
 
+
 package com.covid19.authservice.model;
 
-
+import com.covid19.common.exception.DataAccessException;
 import org.neo4j.ogm.annotation.GeneratedValue;
 import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @NodeEntity
-public class Role {
-
+public class Permission  extends DataAccessException {
     /**
-     * Le meto un enum de los posibles. Para mí no tenía sentido tener dos variables user y admin en role,
+     * Le meto un enum de los posibles. Para mí no tenía sentido tener dos variables user y admin en permisos,
      * no pillo de qué va el rollo, y me he puesto muy nervioso... Óstia!! así que lo hago My Waaaaaay!!!
      * New York, New Yooork!!!
      */
-    public static enum rolesPosibles{
-        ANONIMO (new Long(1)),
-        ADMIN (new Long(2)),
-        SUPERADMIN(new Long(3));
+    public static enum permisosPosibles{
+        USER (new Long(1)),
+        ADMIN (new Long(2));
         private final Long value;
-        rolesPosibles(Long i) {
+        permisosPosibles(Long i) {
             this.value = i;
         }
         public Long getId(){
             return this.value;
         }
     }
+
     /**
      * Si no pillas que hago aquí, a estudiar POO!!!
-     * @param rol
+     * @param permisoConcreto
      */
-    public Role(rolesPosibles rol)
+    public Permission(permisosPosibles permisoConcreto)
     {
-        this.rolName = rol.name();
-        this.refId = rol.value;
+        this.permisoName = permisoConcreto.name();
+        this.refId = permisoConcreto.value;
     }
+
 
 
     /**
      * SECCIÓN VARIABLES Y OTRAS PARIDETAS AL USO
      */
-    private List<Permission> permissions = new ArrayList<Permission>();
+    public Permission(){}//Constructor por defecto, para las cosas de las entidades
 
-    public Role() {
+    public String getPermisoName() {
+        return permisoName;
     }
 
-    public List<Permission> getPermissions() {
-        return permissions;
-    }
-
-    public void setPermissions(List<Permission> permissions) {
-        this.permissions = permissions;
-    }
-
-        public String getRolName() {
-        return rolName;
-    }
-
-    public void setRolName(String permisoName) {
-        this.rolName = permisoName;
+    public void setPermisoName(String permisoName) {
+        this.permisoName = permisoName;
     }
 
     public Long getId() {
@@ -78,7 +65,7 @@ public class Role {
         this.id = id;
     }
 
-    public String rolName;
+    public String permisoName;
 
     public Long getRefId() {
         return refId;

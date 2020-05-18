@@ -1,7 +1,7 @@
 package com.covid19.authservice.service;
 
 
-import com.covid19.authservice.dao.UserDao;
+import com.covid19.authservice.dao.User.UserDao;
 import com.covid19.authservice.model.User;
 import com.covid19.common.exception.DataAccessException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,12 +36,17 @@ public class JwtUserDetailsService implements UserDetailsService {
      // if (user.getStatus() != 2) {
        List<GrantedAuthority> authorities = new ArrayList<>();
        
-           authorities.add(new SimpleGrantedAuthority(user.getRole()));
+//           authorities.add(new SimpleGrantedAuthority(user.getRole().rolName));
+        /**
+         * Rehago el grantedAuthoritie por rolname para que la app pueda funcionar con rolId(internal)
+         */
+        authorities.add(new SimpleGrantedAuthority(user.getRole().getRefId().toString()));
           
         //GrantedAuthority authorities= new SimpleGrantedAuthority(user.getRole().getRole());
         
         UserDetails userDetails = new org.springframework.security.core.userdetails.
                 User(user.getUsername() , user.getPassword(), authorities);
+
 
         return userDetails ;
      /* } else {
