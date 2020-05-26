@@ -59,9 +59,24 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         protected void configure(HttpSecurity httpSecurity) throws Exception {
 // We don't need CSRF for this example
             httpSecurity.csrf().disable()
-// dont authenticate this particular request
-
-                    .authorizeRequests().antMatchers("/users/login").permitAll()
+                    .authorizeRequests()
+                    .antMatchers("/users/login").permitAll()
+                    .antMatchers("/users/register").permitAll()
+                    .antMatchers("/users/ovejitasDolly").permitAll()
+                    .antMatchers("/users/getAll").permitAll()
+                    .antMatchers("/users/getJson").permitAll()
+                    /**
+                     * Lo siguiente viene copiado de stack overflow, lo dejo comentado a modo de inspiración
+                     * para nuestro y futuro
+                     */
+//                    .antMatchers("/high_level_url_A/sub_level_2").hasRole('USER2')
+//                    .somethingElse() // for /high_level_url_A/**
+//                    .antMatchers("/high_level_url_A/**").authenticated()
+//                    .antMatchers("/high_level_url_B/sub_level_1").permitAll()
+//                    .antMatchers("/high_level_url_B/sub_level_2").hasRole('USER3')
+//                    .somethingElse() // for /high_level_url_B/**
+//                    .antMatchers("/high_level_url_B/**").authenticated()
+//                    .anyRequest().permitAll()
 
 
 // all other requests need to be authenticated

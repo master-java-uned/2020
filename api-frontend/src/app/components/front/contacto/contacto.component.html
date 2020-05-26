@@ -1,0 +1,115 @@
+<!--/**-->
+<!--*  Peter Fight-->
+<!--*  09/05/2020-->
+<!--*-->
+<!--*  HTML FORMULARIO CONTACTO-->
+<!--*/-->
+
+<div class="row no-gutters mt-5">
+  <div class="container">
+    <!--
+LISTADO DE ERRORES
+Lleva una animación de animate.css para la primera vez que se muestre
+-->
+    <div *ngIf="errores?.length > 0" class="mt-5 validation-summary alert alert-warning animated bounceIn" >
+      <p>Por favor, corrije los siguientes errores:</p>
+      <ul>
+        <li *ngFor="let error of errores">
+          {{error}}
+        </li>
+      </ul>
+    </div>
+    <div class="row" >
+<!--      MEDIA MITAD PÁGINA CON IMAGEN MIGUEL ÁNGEL-->
+      <div class="col-lg-6 mt-5 d-inline-flex flex-row" >
+        <div class="card-shadow" >
+          <img style="height:90%; width:95%;box-shadow: 1px 1px 20px black;filter:grayscale(1)" src="/assets/img/telefonista.jpg" class="img-fluid">
+        </div>
+      </div>
+<!--      MITAD FORMULARIO-->
+      <div class="col-lg-6 mt-5">
+        <div class="contact-box">
+          <h2 class="font-weight-light mt-2">Contacto</h2>
+          <form class="mt-4" [formGroup]="datosFormulario" (ngSubmit)="onSubmit(datosFormulario.value)" >
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="form-group mt-2">
+                  <input  (change)="validacionDinamica(null)" formControlName="Nombre" class="col-11 float-left form-control form-control-user" type="text" id="Nombre" aria-describedby="Nombre" placeholder="Nombre..." name="Nombre">
+                  <span class="text-danger col-1">*</span>
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="form-group mt-2">
+                  <input  (change)="validacionDinamica(null)" formControlName="Email"  name="Email" class="col-11 float-left form-control form-control-user" type="email" id="Email" aria-describedby="Email" placeholder="Correo electrónico..." name="email">
+                  <span class="text-danger col-1">*</span>
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="form-group mt-2">
+                  <input  (change)="validacionDinamica(null)" formControlName="Telefono"  name="Telefono" class="col-11 float-left form-control form-control-user" type="text" id="Telefono" aria-describedby="Telefono" placeholder="Teléfono..." name="Telefono">
+                  <span class="text-danger col-1">*</span>
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="form-group mt-2">
+                  <textarea  (change)="validacionDinamica(null)" formControlName="Mensaje"  name="Mensaje" class="col-11 float-left form-control form-control-user" type="text" id="Mensaje" aria-describedby="Mensaje" placeholder="Mensaje..." name="Mensaje"></textarea>
+                  <span class="text-danger col-1">*</span>
+                </div>
+              </div>
+              <div class="col-lg-12 text-center">
+                <br/>
+                <button type="submit" style="width: 70%" class=" btn btn-outline-info d-inline">Enviar</button>
+                <br>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--PARTE IMÁGENES INFORMACIÓN CONTACTO-->
+<div class="col-lg-12">
+  <div class="card border-0 mb-4">
+    <div class="row">
+      <div class="col-lg-4 col-md-4">
+        <div class="card-body d-flex align-items-center c-detail pl-0">
+          <div class=" align-self-center">
+            <img height="50" width="50" src="assets/img/sitio.png">
+          </div>
+          <div class="">
+            <h6 class="font-weight-medium">Dirección</h6>
+            <p class="">	1600 Amphitheatre Parkway
+              <br> Santa Clara
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4">
+        <div class="card-body d-flex align-items-center c-detail">
+          <div class="mr-3 align-self-center">
+            <img height="50" width="50" src="assets/img/telefono.svg">
+          </div>
+          <div class="">
+            <h6 class="font-weight-medium">Teléfono</h6>
+            <p class="">Att. Larry Page
+              <br> 917 486 400</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4">
+        <div class="card-body d-flex align-items-center c-detail">
+          <div class="mr-3 align-self-center">
+            <img height="50" width="50" src="assets/img/correo.svg">
+          </div>
+          <div class="">
+            <h6 class="font-weight-medium">Correo</h6>
+            <p class="">
+              superadmin@google.biz
+              <br>Por favor, insista.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

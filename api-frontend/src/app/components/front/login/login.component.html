@@ -1,0 +1,60 @@
+<!--Peter Fight-->
+<!--10/05/2020-->
+
+<!--HTML DEL LOGIN-->
+
+<div class="card shadow-lg o-hidden border-0 height:100% mt-5">
+  <div class="card-body p-0">
+    <div class="row" style="min-width: 100vw;min-height: 100vh;">
+      <!--      IMAGEN CORONAVIRUS GIGANTE-->
+      <div class="col-lg-6 d-none d-lg-flex" style="/*height: 100vh;*/">
+        <div class="flex-grow-1 bg-login-image"
+             style="filter:grayscale(.4);background-image: url('assets/img/COVID.jpg');background-position: left;background-size: cover;background-repeat: space;"></div>
+      </div>
+      <!--      FORMULARIO-->
+      <div class="col-lg-6" style="/*height: 100vh;*/">
+        <!--
+LISTADO DE ERRORES
+Lleva una animación de animate.css para la primera vez que se muestre
+-->
+        <div *ngIf="errores?.length > 0" class="mt-5 validation-summary alert alert-warning animated bounceIn">
+          <p>Por favor, corrije los siguientes errores:</p>
+          <ul>
+            <li *ngFor="let error of errores">
+              {{error}}
+            </li>
+          </ul>
+        </div>
+        <div class="p-5" style="background-position: right;">
+          <div class="text-center">
+            <h4 class="text-dark mb-4">Formulario de entrada</h4>
+          </div>
+          <form class="user" [formGroup]="datosFormulario" (ngSubmit)="onSubmit(datosFormulario.value)">
+            <div class="form-group">
+              <input (change)="validacionDinamica()" formControlName="Email" name="Email"
+                     class="col-11 float-left form-control form-control-user" type="email" id="Email"
+                     aria-describedby="emailHelp" placeholder="Correo electrónico..." name="email">
+              <span class="text-danger col-1">*</span>
+            </div>
+            <div class="form-group mt-5">
+              <input (change)="validacionDinamica()" formControlName="Password" name="Password"
+                     class="col-11 float-left form-control form-control-user" type="password" id="Pasword"
+                     placeholder="Password..." name="password">
+              &nbsp;<span class="text-danger float-left col-1">*</span>
+            </div>
+            <!--            <div class="form-group">-->
+            <!--              <div class="custom-control custom-checkbox small">-->
+            <!--                <div class="form-check"><input class="form-check-input custom-control-input" type="checkbox" id="formCheck-1"><label class="form-check-label custom-control-label" for="formCheck-1">Recuérdame</label></div>-->
+            <!--              </div>-->
+            <!--            </div>-->
+            <button class="mt-5 btn btn-primary btn-block text-white btn-user" type="submit">Login</button>
+            <hr>
+            <hr>
+          </form>
+          <div class="text-center"><a class="small" routerLink="/recupera-pass">¿Olvidaste el password?</a></div>
+          <div class="text-center"><a class="small" routerLink="/registro">Crear una cuenta</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+.card-img-top{
+  width: 80%;
+  margin-left: 10%;
+  height:40%;/*40% para alinear*/
+  padding:1em;
+}
+.card{
+  background: #edeff5;
+  border:1px solid lightslategray;
+  box-shadow: 1px 1px 10px lightslategray;
+}

@@ -1,0 +1,81 @@
+<div class="container-fluid">
+  <h3 class="text-dark mb-4">Listado de usuarios</h3>
+  <div class="card shadow">
+    <div class="card-header py-3">
+      <p class="text-primary m-0 font-weight-bold">Listado de usuario registrados</p>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6 text-nowrap">
+          <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
+            <label>Mostrar&nbsp;
+              <select (change)="setPageSize(this.$event)" class="form-control form-control-sm custom-select custom-select-sm">
+                <option value="2">2</option>
+                <option value="5" selected="">5</option>
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+              </select>&nbsp;
+            </label>
+          </div>
+        </div>
+        <div class="col-md-6">
+<!--          DE MOMENTO ME ESCACEO DE BUSCAR ... -->
+<!--          <div class="text-md-right dataTables_filter" id="dataTable_filter"><label>-->
+<!--            <input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Buscar"></label>-->
+<!--          </div>-->
+        </div>
+      </div>
+      <div class="table-responsive table mt-2" id="" role="grid" aria-describedby="dataTable_info">
+        <table class="table dataTable my-0" id="dataTable">
+          <thead>
+          <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Mail</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let usu of this.users">
+            <td><img class="rounded-circle mr-2" width="30" height="30" src="{{usu.imageBase64}}"/></td>
+            <td>{{usu.firstName + " " + usu.lastName}}</td>
+            <td>{{usu.email}}</td>
+          </tr>
+          </tbody>
+          <tfoot>
+          <tr>
+            <th>Imagen</th>
+            <td><strong>Nombre</strong></td>
+            <td><strong>Mail</strong></td>
+          </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div class="row">
+        <div class="col-md-6 align-self-center">
+          <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">Mostrando {{inicioPaginaActual()}} a {{finPaginaActual()}} de {{totalElements}}</p>
+        </div>
+        <div class="col-md-6">
+          <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
+            <ul class="pagination">
+              <li (click)="previo()" class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">«</span>
+                </a>
+              </li>
+              <li *ngFor="let pagina of this.totalPagesArray;" class="page-item">
+                <a (click)="setPage(pagina)" class="page-link" href="#">{{pagina}}</a>
+              </li>
+              <li (click)="next()" class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">»</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
