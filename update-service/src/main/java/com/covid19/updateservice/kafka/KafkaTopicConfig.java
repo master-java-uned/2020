@@ -21,24 +21,10 @@ public class KafkaTopicConfig {
     @Value("${kafka.output.topic}")
     private String kafkaOutputMapData;
 
-    @Value("${spring.kafka.consumer.bootstrap-servers}")
-    private String kafkaBootstrapServer;
-
-    @Bean
-    public KafkaAdmin kafkaAdmin() {
-        Map<String, Object> configs = new HashMap<>();
-        configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG,kafkaBootstrapServer);
-        configs.put(AdminClientConfig.SEND_BUFFER_CONFIG,100000000);
-        return new KafkaAdmin(configs);
-    }
 
     @Bean
     public NewTopic inputTopic() {
-       return TopicBuilder.name(kafkaInputMapData)
-                .partitions(1)
-                .replicas(1)
-                .config(TopicConfig.COMPRESSION_TYPE_CONFIG, "zstd")
-                .build();
+        return new NewTopic(kafkaInputMapData, 1, (short) 1);
     }
 
     @Bean

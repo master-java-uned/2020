@@ -10,9 +10,9 @@ public class MessageConsumer {
     private String stompTopic = "/topic/updateData";
     @Autowired
     private SimpMessagingTemplate messagingTemplate;
+
     @KafkaListener(topics = "${kafka.output.topic}", groupId = "${spring.kafka.consumer.group-id}")
     public void consumeMessage(String msg) {
-        System.out.println("connsume *******************************************");
         System.out.println("Message received: " + msg);
         messagingTemplate.convertAndSend(stompTopic, msg);
     }

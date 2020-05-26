@@ -22,23 +22,12 @@ public class PollingServiceImpl implements PollingService {
         ResponseEntity<Records> response = restTemplate.getForEntity(uri,Records.class);
         System.out.println("response" + response);
         if (response.getStatusCode().value() == 200) {
-          countries = response.getBody();
-            if (countries != null) {
-                for (int i=0;i < countries.getRecords().size();i++) {
-
-
-                }
-                System.out.println("**Countries" +  countries.getRecords().size());
-            }
-
+            countries = response.getBody();
         }
     }
 
     public String outputMapData(){
         String outputData = new Gson().toJson(countries.getRecords() );
-//        String outputData = new Gson().toJson("hola mundo" );
-        System.out.println("**Countries in outputData" +  countries.getRecords().size());
-//        System.out.println("**Countries Json in outputData**" +  outputData);
         return outputData;
     }
 

@@ -23,10 +23,7 @@ public class MessageProducer {
     @Scheduled(fixedRate = 30000)
     public void produce() {
         String msg = pollingService.outputMapData();
-        System.out.println("**producer*****************************");
-//        System.out.println("**producer json **" +  msg);
         kafkaTemplate.send(kafkaInputMapData, msg);
-        System.out.println("** message producer enviado");
     }
 
 }

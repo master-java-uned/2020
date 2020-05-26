@@ -10,17 +10,10 @@ spring:
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      properties:
-        max.partition.fetch.bytes: 100000000
-        fetch.message.max.bytes: 100000000
     producer:
       bootstrap-servers: localhost:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
-      properties:
-        max.request.size: 100000000
-        max.message.bytes: 100000000
-        send.buffer.bytes: 100000000
 
 # Discovery Server Access
 eureka:

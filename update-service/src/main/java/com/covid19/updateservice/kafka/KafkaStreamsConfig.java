@@ -46,9 +46,6 @@ public class KafkaStreamsConfig {
         props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaBootstrapServer);
         props.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass());
         props.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass());
-        props.put(StreamsConfig.RECEIVE_BUFFER_CONFIG,100000000 );
-        props.put(StreamsConfig.SEND_BUFFER_CONFIG,100000000 );
-        props.put(StreamsConfig.CACHE_MAX_BYTES_BUFFERING_CONFIG,100000000 );
         props.put("max.request.size",100000000 );
         StreamsBuilder streamsBuilder = new StreamsBuilder();
 
@@ -64,41 +61,7 @@ public class KafkaStreamsConfig {
         return stream;
     }
 
-    @Bean
-    public ConsumerFactory<Integer, String> consumerFactory() {
-        return new DefaultKafkaConsumerFactory<>(consumerConfigs());
-    }
 
-    @Bean
-    public Map<String, Object> consumerConfigs() {
-        Map<String, Object> props = new HashMap<>();
-        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaBootstrapServer);
-        props.put(ConsumerConfig.FETCH_MAX_BYTES_CONFIG, 100000000);
-        props.put(ConsumerConfig.MAX_PARTITION_FETCH_BYTES_CONFIG, 100000000);
-        return props;
-    }
-    @Bean
-    public ProducerFactory<String, String> producerFactory() {
-        return new DefaultKafkaProducerFactory<>(producerConfigs());
-    }
-
-
-    @Bean
-    public Map<String, Object> producerConfigs() {
-        Map<String, Object> props = new HashMap<>();
-        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaBootstrapServer);
-        props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-        props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-        props.put(ProducerConfig.MAX_REQUEST_SIZE_CONFIG, 100000000);
-
-
-        return props;
-    }
-
-    @Bean
-    public KafkaTemplate<String, String> kafkaTemplate() {
-        return new KafkaTemplate<String, String>(producerFactory());
-    }
 
 
 }
