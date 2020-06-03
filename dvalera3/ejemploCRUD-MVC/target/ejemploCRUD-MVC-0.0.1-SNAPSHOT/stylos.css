@@ -1,0 +1,74 @@
+@charset "UTF-8";
+/* CSS Document */
+
+ form#reg {
+	margin:auto;
+	background:#EEEEEE;
+	color: black;
+	font-size: 15px;
+	padding: 30px;
+	width: 350px;
+	border:solid 5px LightSteelBlue;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+}
+
+form#reg fieldset {
+	border: yes;
+} 
+
+form#reg input{
+	font-size:12px;
+	background:#FFFFEE;         
+	border:solid 1px Green;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	float: right;
+	margin-right: 15px;
+	width: 200px;
+}
+
+form#reg ol li {
+	line-height: 25px;
+	list-style: none;
+}
+
+form#reg [required]{
+	border:solid 1px red;
+} 
+
+input:required {
+	outline: 1px solid red;
+}
+
+#mensaje p {
+
+	text-align: center;
+
+	color: red;
+}
+
+#reg .error p {
+
+	text-align: center;
+
+	color: red;
+}
+
+form#reg button#sumit {
+	font-size:12px;
+	background:#FFFFEE;         
+	border:solid 1px Green;
+	border-radius: 3px;
+	width:105x;
+	height: 25px;
+	top: 90px;
+	float: left;
+	margin-left: 110px;
+	cursor: pointer;
+
+}
+
+ 
