@@ -10,7 +10,7 @@ public class Error {
 	String error = "";
 	
 	/**
-	 * Construcgtor vacio de la class Error
+	 * Constructor vacio de la class Error
 	 */
 	public Error() {}
 	
