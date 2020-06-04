@@ -312,6 +312,6 @@ nav a {
   </main>
   <footer class="page-footer">
     <small>© Copyright 2020. All rights reserved.</small>   
-    <a href=""><img class="github" src="github.png" width="20" height="20" /></a> 
+    <a href="https://github.com/dvalera3/ej_master.git"><img class="github" src="github.png" width="20" height="20" /></a> 
   </footer>
 </div>
