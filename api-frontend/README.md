@@ -1,10 +1,9 @@
 # ApiFrontend COVID 
-######...nividivinchi...
+###### ...nividivinchi...
 
-##Aplicación Angular para correr junto al back de microservicios
+## Aplicación Angular para correr junto al back de microservicios
 
 #### FAQ
-######U¿?
  - Pasos para resolver: "Esta cosa no arranca, le doy al primer botón que veo y no hace nada..."
     1) Evita cualquier contacto con un teclado.
     2) Daré por sentado que no atenderás al primer punto, así que asumiremos que tienes instalado el paquete npm.
@@ -13,7 +12,7 @@
 npm install
 ```
  
-####ESTRUCTURA DEL POJECT
+#### ESTRUCTURA DEL POJECT
 Básicamente exprópiese lo siguiente.
  - FRONT:
 	 - Default
@@ -32,7 +31,7 @@ Básicamente exprópiese lo siguiente.
 		 - Ver usuarios
 		 - Cerrar sesión
 
-####CONSIDERACICONES IMPORTANTES
+#### CONSIDERACICONES IMPORTANTES
  - Obviamente para poder arrancar la aplicación, debes haber arrancado previamente la bbdd neo4j, el microservicio *config* y el microservicio *auth*.
  - Al arrancar la aplicación de authorización Java, si no existe el usuario admin creamos un _**admin@admin.com**_ / _**123456**_.
  - El código está a tope con la COPE de comentarios... Resuelve tus dudas con ellos.
