@@ -7,7 +7,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../userServices/auth.service';
 import { Router } from '@angular/router';
-import {alertas} from "../../../commons/Alertas";
+import {alertas} from "../../../app_code/viewsUtils/Alertas";
 @Component({
   selector: 'app-logout',
   templateUrl: './logout.component.html',

@@ -7,8 +7,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {DomSanitizer, Meta, Title} from "@angular/platform-browser";
-import {Roles, rolesPosibles} from "../../../commons/GestorRoles";
-import {alertas} from "../../../commons/Alertas";
+import {Roles, rolesPosibles} from "../../../app_code/userUtils/GestorRoles";
+import {alertas} from "../../../app_code/viewsUtils/Alertas";
 import {UserService} from "../../../userServices/user.service";
 
 @Component({

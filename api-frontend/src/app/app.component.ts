@@ -6,7 +6,7 @@ import * as SockJS from 'sockjs-client';
 import {HttpClient} from "@angular/common/http";
 
 import {ModeloDatosCovid} from "./models/ModeloDatosCovid";
-import {HeadersHelpers} from "./commons/HeadersHelpers";
+import {HeadersHelpers} from "./app_code/viewsUtils/HeadersHelpers";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -18,6 +18,9 @@ export class AppComponent {
   client: any;
   message:string;
   scrollTop() {
+    /**
+     * Sube el scroll arriba.
+     */
     window.scroll(0,0);
   }
 
@@ -31,8 +34,8 @@ export class AppComponent {
     /**
      * Peter Fight
      *
-     * No me funciona y no tengo tiempo ni energía para averiguar por qué no va. Lo monto con un get entendible
-     * por cualquiera y a funcionar.
+     * No me funciona la descarga del mapa por kafka y no tengo tiempo ni energía para averiguar por qué no va.
+     * Lo monto con un get a un controlador del back, entendible por cualquiera, y a funcionar.
      *
      * Por otro lado, tener un servicio que descarga el JSON entero y lo envía a todos los usuarios conectados parece
      * ineficiente no, lo siguiente. Mejor que el trabajo lo haga el navegador del cliente, nop¿? No molará tanto,
@@ -49,6 +52,10 @@ export class AppComponent {
         headers: HeadersHelpers.getHeadersANON()
       })
       .toPromise().then(function(JSON){
+        /**
+         * ModeloDatosCovid es una clase estática compartida por toda la aplicación que contiene los datos
+         * descargados del servidor.
+         */
         ModeloDatosCovid.init(JSON);
       });
 

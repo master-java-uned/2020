@@ -7,7 +7,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {UserService} from "../../../userServices/user.service";
-import {alertas} from "../../../commons/Alertas";
+import {alertas} from "../../../app_code/viewsUtils/Alertas";
 import {User} from "../../../userServices/auth.service";
 import {UserModel} from "../../../models/user.model";
 

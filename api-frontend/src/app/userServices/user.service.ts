@@ -6,7 +6,7 @@
  */
 
 import {HttpClient} from "@angular/common/http";
-import {HeadersHelpers} from "../commons/HeadersHelpers";
+import {HeadersHelpers} from "../app_code/viewsUtils/HeadersHelpers";
 import {Injectable} from '@angular/core';
 import {map} from 'rxjs/operators';
 import {Observable} from "rxjs";

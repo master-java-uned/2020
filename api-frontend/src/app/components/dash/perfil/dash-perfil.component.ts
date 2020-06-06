@@ -10,9 +10,9 @@ import {DomSanitizer, Meta, Title} from '@angular/platform-browser';
 import {FormGroup, FormControl, Validators, AbstractControl, ValidatorFn, FormBuilder} from '@angular/forms';
 import {ValidationErrors} from "@angular/forms/src/directives/validators";
 import {Router} from "@angular/router";
-import {BaseLayout} from "../../../commons/BaseLayout";
+import {BaseLayout} from "../../../app_code/viewsUtils/BaseLayout";
 import {userAdapters} from "../../../adapters/userAdapters";
-import {alertas} from "../../../commons/Alertas";
+import {alertas} from "../../../app_code/viewsUtils/Alertas";
 import * as bcrypt from 'bcryptjs';
 import {UserService} from "../../../userServices/user.service";
 

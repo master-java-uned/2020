@@ -8,7 +8,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {Observable} from "rxjs";
-import {HeadersHelpers} from "../commons/HeadersHelpers";
+import {HeadersHelpers} from "../app_code/viewsUtils/HeadersHelpers";
 import {authenticationRequest} from "../models/authenticationRequest";
 
 export class User {
@@ -77,7 +77,7 @@ export class AuthService {
 
   /**
    * Checamos si existe la variable username en sesión. Se puede hacer de muchas maneras pero como esto es el front
-   * si el user va al back con hackeando la app pero no dispone de credenciales, los métodos del servidor no le
+   * si el user va al back de la app pero no dispone de credenciales, los métodos del servidor no le
    * funcarán
    */
   isUserLoggedIn() {

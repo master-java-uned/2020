@@ -11,10 +11,10 @@ import {Router} from '@angular/router';
 // @ts-ignore
 import {AuthService} from '../../../userServices/auth.service';
 import {DomSanitizer, Meta, Title} from "@angular/platform-browser";
-import {BaseLayout} from "../../../commons/BaseLayout";
+import {BaseLayout} from "../../../app_code/viewsUtils/BaseLayout";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {userAdapters} from "../../../adapters/userAdapters";
-import {alertas} from "../../../commons/Alertas";
+import {alertas} from "../../../app_code/viewsUtils/Alertas";
 import {authenticationRequest} from "../../../models/authenticationRequest";
 import * as bcrypt from 'bcryptjs';
 

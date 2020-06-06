@@ -3,7 +3,7 @@
 // CODEBEHIND DEL LAYOUT DEL FRONT
 
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {BaseLayout} from "../../../commons/BaseLayout";
+import {BaseLayout} from "../../../app_code/viewsUtils/BaseLayout";
 import {DomSanitizer, Meta} from "@angular/platform-browser";
 import {Router, NavigationEnd, NavigationStart} from '@angular/router';
 

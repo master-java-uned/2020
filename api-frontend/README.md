@@ -1,20 +1,19 @@
-# ApiFrontend
+# ApiFrontend COVID 
+######...nividivinchi...
 
-#### Atention please
-1) npm cache clean -f
-2) npm install npm@latest -g -> Instala el npm
-3) npm install -g n -> Instala el node.js
-4) npm install -> Instala los paquetes **con múltiples conflictos de versiones**
-5) rezarle a una estampita¿?
+##Aplicación Angular para correr junto al back de microservicios
 
-En MAC (léase linux, léase sáltese en Wirndous)
-Ante Unsupported engine for watchpack-chokidar2@2.0.0: (... o errores similares)
-1) npm i --package-lock-only --> Te lo puedes saltar si tienes un packagej
-3) npm install -g @angular/cli --force ("--force", como un valiente...)
-4) npm audit fix
-...Estoy en ello, en windows arranca y en MAC arrancaba antes de subir a GIT
-
-
+#### FAQ
+######U¿?
+ - Pasos para resolver: "Esta cosa no arranca, le doy al primer botón que veo y no hace nada..."
+    1) Evita cualquier contacto con un teclado.
+    2) Daré por sentado que no atenderás al primer punto, así que asumiremos que tienes instalado el paquete npm.
+    3) Dirígete a la carpeta del proyecto por línea de comandos. y le das a:
+```bash
+npm install
+```
+ 
+####ESTRUCTURA DEL POJECT
 Básicamente exprópiese lo siguiente.
  - FRONT:
 	 - Default
@@ -32,3 +31,9 @@ Básicamente exprópiese lo siguiente.
 		 - Mis datos (modificables)
 		 - Ver usuarios
 		 - Cerrar sesión
+
+####CONSIDERACICONES IMPORTANTES
+ - Obviamente para poder arrancar la aplicación, debes haber arrancado previamente la bbdd neo4j, el microservicio *config* y el microservicio *auth*.
+ - Al arrancar la aplicación de authorización Java, si no existe el usuario admin creamos un _**admin@admin.com**_ / _**123456**_.
+ - El código está a tope con la COPE de comentarios... Resuelve tus dudas con ellos.
+ 

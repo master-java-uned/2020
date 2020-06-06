@@ -5,7 +5,7 @@
 <div class="row mx-3">
   <div class="card col-md-3  text-center">
     <img class="card-img-top" src="/assets/img/datosPersonales.png" alt="imagenPerfil">
-    <a href="/dash/perfil" class="stretched-link text-dark">
+    <a routerLink="/dash/perfil" class="stretched-link text-dark">
       <div class="card-body">
         <h5 class="card-title">Mis datos</h5>
         <p class="card-text">Consulta y modifica tus datos personales.</p>
@@ -15,7 +15,7 @@
   <span class="col ">&nbsp;</span>
   <div  *ngIf="!esSuper" class="card col-md-3 text-center">
     <img class="card-img-top" src="/assets/img/dolly.png" alt="imagenPerfil">
-    <a href="/dash/clonar" class="stretched-link text-dark">
+    <a routerLink="/dash/clonar" class="stretched-link text-dark">
       <div class="card-body">
         <h5 class="card-title">Ovejitas Dolly</h5>
         <p class="card-text">Clonarme <b><i>n</i></b> veces para most longer listados.</p>
@@ -24,7 +24,7 @@
   </div>
   <div  *ngIf="esSuper" class="card col-md-3 text-center">
     <img class="card-img-top" src="/assets/img/people.png" alt="imagenPerfil">
-    <a href="/dash/usuarios" class="stretched-link text-dark">
+    <a routerLink="/dash/usuarios" class="stretched-link text-dark">
       <div class="card-body">
         <h5 class="card-title">Listado de usuarios</h5>
         <p class="card-text">Consulta el listado de todos los usuarios registrados.</p>
@@ -34,7 +34,7 @@
   <span class="col">&nbsp;</span>
   <div  class="card col-md-3 text-center">
     <img class="card-img-top" style="" src="/assets/img/salir.png" alt="imagenPerfil">
-    <a href="/logout" class="stretched-link text-dark">
+    <a routerLink="/logout" class="stretched-link text-dark">
       <div class="card-body">
         <h5 class="card-title">Cerrar sesión</h5>
         <p class="card-text">Cierra esta aburrida sesión de usuario iniciada.</p>

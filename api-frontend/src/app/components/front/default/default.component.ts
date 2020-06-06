@@ -5,7 +5,7 @@
  */
 
 import { Component, OnInit } from '@angular/core';
-import {BaseLayout} from "../../../commons/BaseLayout";
+import {BaseLayout} from "../../../app_code/viewsUtils/BaseLayout";
 import {DomSanitizer, Meta, Title} from "@angular/platform-browser";
 import {Router} from "@angular/router";
 

@@ -6,8 +6,8 @@
 
 
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {BaseLayout} from "../../../../commons/BaseLayout";
-import {Almacen} from "../../../../commons/Almacen";
+import {BaseLayout} from "../../../../app_code/viewsUtils/BaseLayout";
+import {Almacen} from "../../../../app_code/configUtils/Almacen";
 import {DomSanitizer, Meta, Title} from "@angular/platform-browser";
 
 @Component({

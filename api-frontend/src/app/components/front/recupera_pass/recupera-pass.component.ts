@@ -6,7 +6,7 @@
  */
 
 import { Component, OnInit } from '@angular/core';
-import {BaseLayout} from "../../../commons/BaseLayout";
+import {BaseLayout} from "../../../app_code/viewsUtils/BaseLayout";
 import {Router} from "@angular/router";
 import {DomSanitizer, Meta, Title} from "@angular/platform-browser";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";

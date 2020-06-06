@@ -43,7 +43,8 @@ import { ClonarComponent } from './components/dash/clonar/clonar.component';
     ClonarComponent
   ],
     imports: [
-        BrowserModule,
+        // BrowserModule,
+      BrowserModule.withServerTransition({ appId: 'app-root' }),//Para angularUniversal, yeah
         AppRoutingModule,
         FormsModule,
         HttpClientModule,

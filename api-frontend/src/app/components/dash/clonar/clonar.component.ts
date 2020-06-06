@@ -10,7 +10,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {userAdapters} from "../../../adapters/userAdapters";
 import {Title} from "@angular/platform-browser";
 import {UserService} from "../../../userServices/user.service";
-import {alertas} from "../../../commons/Alertas";
+import {alertas} from "../../../app_code/viewsUtils/Alertas";
 
 @Component({
   selector: 'app-clonar',

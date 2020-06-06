@@ -5,11 +5,11 @@
  */
 
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {BaseLayout} from "../../../commons/BaseLayout";
+import {BaseLayout} from "../../../app_code/viewsUtils/BaseLayout";
 import {DomSanitizer, Meta, Title} from "@angular/platform-browser";
-import {Roles, rolesPosibles} from "../../../commons/GestorRoles";
+import {Roles, rolesPosibles} from "../../../app_code/userUtils/GestorRoles";
 import {Router} from "@angular/router";
-import {alertas} from "../../../commons/Alertas";
+import {alertas} from "../../../app_code/viewsUtils/Alertas";
 
 @Component({
   selector: 'app-usuarios',
