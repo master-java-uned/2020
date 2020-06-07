@@ -72,7 +72,7 @@ Aqui un par de maneras de hacerlo funcionar.
   - Run as Maven Clean.
   - Run as Maven Install. La ruta y nombre de la creacion: `/target/coviddivstats.war`
   - Abre docker.
-  - En el siguiente fichero: `/target/coviddivstats.war` se debe modificar los siguiente:
+  - En el siguiente fichero: `/src/main/java/database/DataBase.java` se debe modificar los siguiente:
   ```java
     runInDocker = true;
   ```
