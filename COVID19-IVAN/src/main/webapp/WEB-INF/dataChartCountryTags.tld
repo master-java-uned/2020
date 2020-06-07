@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE taglib>
+<taglib>
+	<tlib-version>1.2.5</tlib-version>
+	<jsp-version>1.2</jsp-version>
+	<short-name>dataMapCountryTag</short-name>
+	<description>Printa los valores del pais en formato javascript para el chart.</description>
+	<tag>
+		<name>country-chart</name>
+		<tag-class>util.tag.DataChartCountryTag</tag-class>
+	</tag>
+</taglib>

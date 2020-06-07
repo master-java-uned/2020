@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE taglib>
+<taglib>
+	<tlib-version>1.2.5</tlib-version>
+	<jsp-version>1.2</jsp-version>
+	<short-name>CheckLoginTags</short-name>
+	<description>Comprueba si tiene el login hecho.</description>
+	<tag>
+		<name>user-auth</name>
+		<tag-class>util.tag.CheckLoginTag</tag-class>
+	</tag>
+</taglib>

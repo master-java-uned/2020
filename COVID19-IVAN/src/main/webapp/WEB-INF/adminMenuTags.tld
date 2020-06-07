@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE taglib>
+<taglib>
+	<tlib-version>1.2.5</tlib-version>
+	<jsp-version>1.2</jsp-version>
+	<short-name>adminMenuTags</short-name>
+	<description>Menu del administrador.</description>
+	<tag>
+		<name>admin</name>
+		<tag-class>util.tag.AdminMenuTag</tag-class>
+	</tag>
+</taglib>

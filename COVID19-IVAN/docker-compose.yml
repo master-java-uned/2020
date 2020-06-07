@@ -1,0 +1,29 @@
+db:
+  image: mysql:latest
+  restart: always
+  command: --sql_mode=""
+  environment:
+    MYSQL_ROOT_PASSWORD: 123456
+    MYSQL_DATABASE: covid
+    MYSQL_USER: coviduser
+    MYSQL_PASSWORD: 123456
+
+  ports:
+    - "3306:3306"
+  volumes:
+   - ./db/init.sql:/docker-entrypoint-initdb.d/mysql-init.sql
+
+web:
+  image: tomcat:latest
+  # Environment variables do not appear to be getting loaded the first time Tomcat starts!
+  restart: on-failure
+  environment:
+    JDBC_URL: jdbc:mysql://db/covid
+    JDBC_USER: coviduser
+    JDBC_PASS: 123456
+  ports:
+   - "8080:8080"
+  volumes:
+   - ./target:/usr/local/tomcat/webapps
+  links:
+    - db

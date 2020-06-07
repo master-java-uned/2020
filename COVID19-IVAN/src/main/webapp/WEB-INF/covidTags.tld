@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE taglib>
+<taglib>
+	<tlib-version>1.2.5</tlib-version>
+	<jsp-version>1.2</jsp-version>
+	<short-name>covidTags</short-name>
+	<description>Printa una tabla con el Covid.</description>
+	<tag>
+		<name>covid</name>
+		<tag-class>util.tag.CovidTag</tag-class>
+	</tag>
+</taglib>
