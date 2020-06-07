@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home page</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">        
+</head>
+    
+<body class="m-3">
+
+<h1>Enseña Paises</h1>
+
+<form action="leercovid">
+
+    <input type="hidden" name="currentPage" value="1">
+    
+    <div class="form-group col-md-4">
+
+        <label for="records">Selecciona registros por página:</label>
+
+        <select class="form-control" id="records" name="recordsPerPage"> 
+            <option value="100">100</option> 
+            <option value="200" selected>200</option>
+            <option value="300">300</option>
+        </select>
+
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" ></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" ></script>
+
+</body>
+</html>
