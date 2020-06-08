@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<de:comments xmlns:de="http://de.tukl.softech.agileReview">
+  <de:author name="carlosl.sanchez"/>
+  <de:files>
+    <de:project name="covid19-partecero">
+      <de:folder name="src">
+        <de:folder name="tomas">
+          <de:folder name="es">
+            <de:file name="BorrarUsuarioServlet.java">
+              <de:comment id="c0" author="carlosl.sanchez" reviewID="Revisión Prácitca" creation-date="2020-05-25T22:24:24.785+02:00" last-modified="2020-05-25T22:24:47.183+02:00" priority="0" recipient="" status="1" revision="0">
+                <de:text>Bien por usar PreparedStatment</de:text>
+                <de:replies/>
+              </de:comment>
+              <de:comment id="c1" author="carlosl.sanchez" reviewID="Revisión Prácitca" creation-date="2020-05-25T22:25:38.904+02:00" last-modified="2020-05-25T22:25:58.976+02:00" priority="0" recipient="" status="0" revision="0">
+                <de:text>Falta indicar la documentación de manera más concreta.</de:text>
+                <de:replies/>
+              </de:comment>
+              <de:comment id="c2" author="carlosl.sanchez" reviewID="Revisión Prácitca" creation-date="2020-05-25T22:26:53.118+02:00" last-modified="2020-05-25T22:27:11.102+02:00" priority="2" recipient="" status="0" revision="0">
+                <de:text>OJO mezclamos el controlador con la vista al tener código mezclado con HTML.</de:text>
+                <de:replies/>
+              </de:comment>
+            </de:file>
+            <de:file name="CargarExcelServlet.java">
+              <de:comment id="c3" author="carlosl.sanchez" reviewID="Revisión Prácitca" creation-date="2020-05-25T22:29:59.822+02:00" last-modified="2020-05-25T22:30:19.756+02:00" priority="0" recipient="" status="0" revision="0">
+                <de:text>Que pasa si es una ruta distinta? no es mejor usar constantes globales.</de:text>
+                <de:replies/>
+              </de:comment>
+              <de:comment id="c4" author="carlosl.sanchez" reviewID="Revisión Prácitca" creation-date="2020-05-25T22:33:08.959+02:00" last-modified="2020-05-25T22:33:20.672+02:00" priority="0" recipient="" status="1" revision="0">
+                <de:text>Bien por usar recursos !</de:text>
+                <de:replies/>
+              </de:comment>
+              <de:comment id="c5" author="carlosl.sanchez" reviewID="Revisión Prácitca" creation-date="2020-05-25T22:34:03.193+02:00" last-modified="2020-05-25T22:34:40.830+02:00" priority="2" recipient="" status="0" revision="0">
+                <de:text>Métodos sin documentación y muy extensos. Recomiendo maś modularidad en los mismos. Especialmente en la carga de código.</de:text>
+                <de:replies/>
+              </de:comment>
+            </de:file>
+            <de:file name="Conexion.java">
+              <de:comment id="c6" author="carlosl.sanchez" reviewID="Revisión Prácitca" creation-date="2020-05-25T22:34:59.526+02:00" last-modified="2020-05-25T22:35:27.954+02:00" priority="2" recipient="" status="0" revision="0">
+                <de:text>Bien, códgio escuetoy con control de errores, pero recomiendo recuperar tu propia excepción de errores como te expliqué antes.</de:text>
+                <de:replies/>
+              </de:comment>
+              <de:comment id="c7" author="carlosl.sanchez" reviewID="Revisión Prácitca" creation-date="2020-05-25T22:35:30.250+02:00" last-modified="2020-05-25T22:36:07.848+02:00" priority="0" recipient="" status="0" revision="0">
+                <de:text>Por qué no lanzas tu propia excepción ? es mejor que se gestione en su caso en la vista si hay error como haces en otras clases.</de:text>
+                <de:replies/>
+              </de:comment>
+              <de:comment id="c9" author="carlosl.sanchez" reviewID="Revisión Prácitca" creation-date="2020-05-25T22:44:27.176+02:00" last-modified="2020-05-25T22:44:35.459+02:00" priority="0" recipient="" status="0" revision="0">
+                <de:text>OJO con las deprecated</de:text>
+                <de:replies/>
+              </de:comment>
+            </de:file>
+            <de:file name="CrearUsuarioServlet.java">
+              <de:comment id="c8" author="carlosl.sanchez" reviewID="Revisión Prácitca" creation-date="2020-05-25T22:36:49.998+02:00" last-modified="2020-05-25T22:37:06.909+02:00" priority="0" recipient="" status="0" revision="0">
+                <de:text>Lo mismo, la documentación es clave, aunque se que no has tenido mucho tiempo pero lo recuerdo.</de:text>
+                <de:replies/>
+              </de:comment>
+            </de:file>
+          </de:folder>
+        </de:folder>
+      </de:folder>
+      <de:folder name="WebContent">
+        <de:file name="index.jsp">
+          <de:comment id="c10" author="carlosl.sanchez" reviewID="Revisión Prácitca" creation-date="2020-05-26T13:52:41.811+02:00" last-modified="2020-05-26T13:53:50.723+02:00" priority="2" recipient="Porque no usas web.xml?" status="2" revision="0">
+            <de:text>Aunque es correcto, no ves mejor crear servlet-mapping en la llamada al servlet?
+
+Veo que web.xml sin esta asignación y sin definición de los servlet. OJO con esto.</de:text>
+            <de:replies/>
+          </de:comment>
+        </de:file>
+      </de:folder>
+    </de:project>
+  </de:files>
+</de:comments>
