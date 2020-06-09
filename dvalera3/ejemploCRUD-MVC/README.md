@@ -1,4 +1,4 @@
-El ejercicio de javaEE correspondiente al curso lleva como nombre ejemploCRUD-MVC,  es el nombre que he decidido ponerle,  se trata de el manejo de los frameworks CRUD y MVC , que en èste caso se han implementado bajo el lenguaje de programaciòn Java.
+El ejercicio de java2EE correspondiente al curso lleva como nombre ejemploCRUD-MVC,  es el nombre que he decidido ponerle,  se trata de el manejo de los frameworks CRUD y MVC , que en èste caso se han implementado bajo el lenguaje de programaciòn Java.
 
 He utilizado el IDE de Eclipse , el contenedor de servlets Tomcat, el gestor de base de datos relacionales Mysql, asì como distintas librerìas de apache, y lenguajes de programaciòn  entre los que cabe destacar Javascript para el lado del cliente.
 
