@@ -1,7 +1,7 @@
 package com.dvalera.acceso.controlador;
 
 import java.io.IOException;
-/**
+/** 
  * Implementation class Error
  * @author d¡ego valera hernandez
  *
