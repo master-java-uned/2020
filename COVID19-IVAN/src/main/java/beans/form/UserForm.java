@@ -220,14 +220,18 @@ public class UserForm
 	 */
 	public FormStatus validate() 
 	{
-		// Comprobamos que no tenga campos vacios
+		/**
+		 *  Comprobamos que no tenga campos vacios
+		 */
 		FormStatus form = checkFieldsEmpty();
 		if(form.isSuccess() == false) return form;
 		
 		switch(getForm()) 
 		{
 			case LOGIN:
-				// Comprobar si el usuario existe en la base de datos y coincide la contrase�a.
+				/**
+				 *  Comprobar si el usuario existe en la base de datos y coincide la contrase�a.
+				 */
 				// return new FormStatus("The user and/or password are incorrect");
 				break;
 			case REGISTER:
@@ -241,11 +245,15 @@ public class UserForm
 					 return new FormStatus("The password doesn't match");
 				 }
 				 
-				 // Comprobar que el usuario no existe ya en la base de datos.
+				 /**
+				  *  Comprobar que el usuario no existe ya en la base de datos.
+				  */
 				 // return new FormStatus("User already exists");
 				 break;
 			case FORGOT:
-				// Comprobar si el email existe en la base de datos
+				/**
+				 *  Comprobar si el email existe en la base de datos
+				 */
 				// return new FormStatus("An email will be sent to that account if it exists in our records.");
 				break;
 		}

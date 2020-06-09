@@ -57,7 +57,6 @@ public class Covid
 	 * Poblacion
 	 */
 	private String popData2018;
-	
 	/**
 	 * Continente
 	 */

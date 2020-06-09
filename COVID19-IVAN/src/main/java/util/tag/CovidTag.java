@@ -21,6 +21,7 @@ public class CovidTag extends TagSupport
 	private int cuenta = 0;
 
 	@SuppressWarnings("unchecked")
+	@Override
 	public int doStartTag() 
 	{
 		/**
@@ -65,14 +66,15 @@ public class CovidTag extends TagSupport
 		return EVAL_BODY_INCLUDE;
 	}
 
+	@Override
 	public int doAfterBody() 
 	{
 		try 
 		{
 			this.pageContext.getOut().println("<tr>");
-			this.pageContext.getOut().println("<td><img class='flag-icon' src='images/flags/"+ listCovids.get(cuenta).getCountryterritoryCode().toLowerCase() + ".png'>"+ listCovids.get(cuenta).getCountriesAndTerritories() + "</td>");
-			this.pageContext.getOut().println("<td>" + listCovids.get(cuenta).getCasesFormated() + "</td>");
-			this.pageContext.getOut().println("<td>" + listCovids.get(cuenta).getDeathsFormated() + "</td>");
+				this.pageContext.getOut().println("<td><img class='flag-icon' src='images/flags/"+ listCovids.get(cuenta).getCountryterritoryCode().toLowerCase() + ".png'>"+ listCovids.get(cuenta).getCountriesAndTerritories() + "</td>");
+				this.pageContext.getOut().println("<td>" + listCovids.get(cuenta).getCasesFormated() + "</td>");
+				this.pageContext.getOut().println("<td>" + listCovids.get(cuenta).getDeathsFormated() + "</td>");
 			this.pageContext.getOut().println("</tr>");
 		} 
 		catch (Exception e)

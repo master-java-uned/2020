@@ -17,6 +17,7 @@ public class DataMapChartTag extends TagSupport
 {
 	private static final long serialVersionUID = 1L;
 	
+	@Override
 	public int doStartTag() 
 	{
 		/**
@@ -111,7 +112,7 @@ public class DataMapChartTag extends TagSupport
 				this.pageContext.getOut().println("CreateMap(casesData);");
 				this.pageContext.getOut().println("setMyBarChart2(countries, deaths, cases);");
 				
-				this.pageContext.getOut().println("</script>");
+			this.pageContext.getOut().println("</script>");
 		} 
 		catch (IOException e) 
 		{

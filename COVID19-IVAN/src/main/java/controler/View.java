@@ -46,13 +46,13 @@ public class View extends HttpServlet
 		 */
 		HttpSession session = request.getSession();
 		
-		
 		String country = "";
 		
 		if(request.getParameter("country") == null || request.getParameter("country") == "" ) 
 		{
 			request.getRequestDispatcher("relogin").forward(request,response);
 		}
+		
 		/**
 		 * Comprobamos que no este logueado ya !
 		 */
@@ -69,53 +69,50 @@ public class View extends HttpServlet
 		{
 			request.getRequestDispatcher("relogin").forward(request,response);
 		}
-		
 
-			/**
-			 *  Creamos un objeto para manejar los datos del Covid desde la base de datos
-			 */
-			CovidDAOImpl covidDAO = new CovidDAOImpl();
+		/**
+		 *  Creamos un objeto para manejar los datos del Covid desde la base de datos
+		 */
+		CovidDAOImpl covidDAO = new CovidDAOImpl();
 								       
-			try 
-			{
-				/**
-				 *  Pido los datos en total agrupados por pais
-				 */
-				List<Covid> listCovid = covidDAO.getAllByCountry(country);
+		try 
+		{
+			/**
+			 *  Pido los datos en total agrupados por pais
+			 */
+			List<Covid> listCovid = covidDAO.getAllByCountry(country);
 						
-				/**
-				 *  Paso dichos datos a la session para printarlos en la vista
-				 */
-				session.setAttribute("actual-page","view");
+			/**
+			 *  Paso dichos datos a la session para printarlos en la vista
+			 */
+			session.setAttribute("actual-page","view");
 
-				session.setAttribute("listCountry",listCovid);
-				System.out.println("size:"+listCovid.size());
-			}
-			catch (SQLException e) 
-			{
-				e.printStackTrace();
-			}
+			session.setAttribute("listCountry",listCovid);
+			System.out.println("size:"+listCovid.size());
+		}
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
 			
-			try {
-				/**
-				 *  Pido los datos total de casos y muertes
-				 */
-				Covid totalData = covidDAO.getMaxCasesAndDeath(country);
+		try {
+			/**
+			*  Pido los datos total de casos y muertes
+			*/
+			Covid totalData = covidDAO.getMaxCasesAndDeath(country);
 				
-				/**
-				 *  Paso dichos datos a la session para printarlos en la vista
-				 */
-				System.out.println("totalDataCountry:"+totalData);
+			/**
+			*  Paso dichos datos a la session para printarlos en la vista
+			*/
+			System.out.println("totalDataCountry:"+totalData);
 				
-				session.setAttribute("totalDataCountry",totalData);
-				
-			}
-			catch (SQLException e)
-			{
-				e.printStackTrace();
-			}
+			session.setAttribute("totalDataCountry",totalData);	
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
 		
-			request.getRequestDispatcher("view.jsp?country="+country).forward(request,response);	
-		
+		request.getRequestDispatcher("view.jsp?country="+country).forward(request,response);	
 	}
 }

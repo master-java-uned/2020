@@ -16,6 +16,7 @@ public class AdminMenuTag extends TagSupport
 {
 	private static final long serialVersionUID = 1L;
 
+	@Override
 	public int doStartTag() 
 	{
 		HttpSession session = this.pageContext.getSession();

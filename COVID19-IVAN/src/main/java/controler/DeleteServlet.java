@@ -56,7 +56,7 @@ public class DeleteServlet extends HttpServlet
 		covidDAO.deleteAllCovid();
 		
 		/**
-		 * Guardamos en la sesion los datos recuperados.
+		 * Borramos de la session los siguientes datos.
 		 */
 		session.removeAttribute("listAllCountries");
 		session.removeAttribute("totalData");

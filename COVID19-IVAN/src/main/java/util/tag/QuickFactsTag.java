@@ -20,7 +20,7 @@ public class QuickFactsTag extends TagSupport
 	String totalConfirmed = "-";
 	String totalDeceased = "-";
 	
-	@SuppressWarnings("null")
+	@Override
 	public int doStartTag() 
 	{
 		boolean viewCountry = false;
