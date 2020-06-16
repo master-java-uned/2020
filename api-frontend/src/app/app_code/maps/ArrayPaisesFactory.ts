@@ -25,16 +25,16 @@ export abstract class ArrayPaisesFactory{
     switch (tipo) {
       case(tiposMaps.CASOS_ACUMULADOS_X_FECHA):
         return new ArrayPaisesCasosAcumuladoPorFecha(fecha);
-        break;
+        // break;
       case(tiposMaps.CASOS_X_FECHA):
         return new ArrayPaisesCasosPorFecha(fecha);
-        break;
+        // break;
       case(tiposMaps.MUERTES_ACUMULADAS_X_FECHA):
         return new ArrayPaisesMuertesAcumuladoPorFecha(fecha);
-        break;
+        // break;
       case(tiposMaps.MUERTES_X_FECHA):
         return new ArrayPaisesMuertesPorFecha(fecha);
-        break;
+        // break;
     }
   }
 
