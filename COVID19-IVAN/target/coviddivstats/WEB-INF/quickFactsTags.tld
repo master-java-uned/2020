@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE taglib>
+<taglib>
+	<tlib-version>1.2.5</tlib-version>
+	<jsp-version>1.2</jsp-version>
+	<short-name>quickFactsTags</short-name>
+	<description>Printa los valores de muertos y casos totales.</description>
+	<tag>
+		<name>quick-facts</name>
+		<tag-class>util.tag.QuickFactsTag</tag-class>
+	</tag>
+</taglib>

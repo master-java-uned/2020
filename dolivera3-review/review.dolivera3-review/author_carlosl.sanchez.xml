@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<de:comments xmlns:de="http://de.tukl.softech.agileReview">
+  <de:author name="carlosl.sanchez"/>
+  <de:files>
+    <de:project name="coviStats1">
+      <de:folder name="WebContent">
+        <de:file name="index.jsp">
+          <de:comment id="c0" author="carlosl.sanchez" reviewID="dolivera3-review" creation-date="2020-06-08T16:07:35.648+02:00" last-modified="2020-06-08T16:07:56.914+02:00" priority="0" recipient="Que es esto?" status="0" revision="0">
+            <de:text>Puede que el código UTF8 no esté bien cuida bien este aspecto.</de:text>
+            <de:replies/>
+          </de:comment>
+        </de:file>
+      </de:folder>
+    </de:project>
+    <de:project name="coviddivstats-maven">
+      <de:folder name="src">
+        <de:folder name="main">
+          <de:folder name="java">
+            <de:folder name="beans">
+              <de:folder name="form">
+                <de:file name="FormStatus.java">
+                  <de:comment id="c1" author="carlosl.sanchez" reviewID="dolivera3-review" creation-date="2020-06-20T23:27:22.370+02:00" last-modified="2020-06-20T23:28:04.993+02:00" priority="0" recipient="Gestión de Errores" status="0" revision="0">
+                    <de:text>Te recomiendo que gestiones los errores con una clase propia, seguramente ayudaría más a saber lanzar y procesar error.</de:text>
+                    <de:replies/>
+                  </de:comment>
+                </de:file>
+                <de:file name="UserForm.java">
+                  <de:comment id="c2" author="carlosl.sanchez" reviewID="dolivera3-review" creation-date="2020-06-20T23:29:08.257+02:00" last-modified="2020-06-20T23:29:30.890+02:00" priority="0" recipient="Genial!" status="1" revision="0">
+                    <de:text>Muy bueno tener la gestión de enumerados.</de:text>
+                    <de:replies/>
+                  </de:comment>
+                </de:file>
+              </de:folder>
+            </de:folder>
+            <de:folder name="controler">
+              <de:file name="CountryCovidDateServlet.java">
+                <de:comment id="c3" author="carlosl.sanchez" reviewID="dolivera3-review" creation-date="2020-06-21T13:01:57.837+02:00" last-modified="2020-06-21T13:02:11.221+02:00" priority="0" recipient="Genial!" status="0" revision="0">
+                  <de:text>Habría que comprobar si es una fecha válida y sino lanzar una excepción</de:text>
+                  <de:replies/>
+                </de:comment>
+                <de:comment id="c4" author="carlosl.sanchez" reviewID="dolivera3-review" creation-date="2020-06-21T13:03:06.210+02:00" last-modified="2020-06-21T13:03:21.778+02:00" priority="0" recipient="Genial!" status="0" revision="0">
+                  <de:text>gestión explícita de errores.
+
+Throw de tu propio error.</de:text>
+                  <de:replies/>
+                </de:comment>
+              </de:file>
+              <de:file name="ForgotServlet.java">
+                <de:comment id="c5" author="carlosl.sanchez" reviewID="dolivera3-review" creation-date="2020-06-21T13:04:03.437+02:00" last-modified="2020-06-21T13:04:14.052+02:00" priority="0" recipient="Genial!" status="0" revision="0">
+                  <de:text>sería bueno añadir documentación</de:text>
+                  <de:replies/>
+                </de:comment>
+              </de:file>
+              <de:file name="GetQuickFactServlet.java">
+                <de:comment id="c6" author="carlosl.sanchez" reviewID="dolivera3-review" creation-date="2020-06-21T13:04:30.612+02:00" last-modified="2020-06-21T13:05:23.123+02:00" priority="0" recipient="Genial!" status="0" revision="0">
+                  <de:text>Control explícito de errores, con gestión proia 
+
+Throw new tuerror.</de:text>
+                  <de:replies/>
+                </de:comment>
+              </de:file>
+              <de:file name="Login.java">
+                <de:comment id="c7" author="carlosl.sanchez" reviewID="dolivera3-review" creation-date="2020-06-21T13:07:17.446+02:00" last-modified="2020-06-21T13:07:41.593+02:00" priority="0" recipient="Genial!" status="0" revision="0">
+                  <de:text>no es mala la idea, pero lo suyo es lanzar un error como lo indica JAVA.
+
+Esto tenemos que atenderlo para que lo comprendas</de:text>
+                  <de:replies/>
+                </de:comment>
+              </de:file>
+              <de:file name="RegisterServlet.java">
+                <de:comment id="c8" author="carlosl.sanchez" reviewID="dolivera3-review" creation-date="2020-06-21T13:08:52.974+02:00" last-modified="2020-06-21T13:09:11.650+02:00" priority="0" recipient="Genial!" status="0" revision="0">
+                  <de:text>Lo dicho. acá mejro hacer un throw y gestionarlo como un error de JAVA.</de:text>
+                  <de:replies/>
+                </de:comment>
+              </de:file>
+              <de:file name="UploadServlet.java">
+                <de:comment id="c9" author="carlosl.sanchez" reviewID="dolivera3-review" creation-date="2020-06-21T13:11:37.342+02:00" last-modified="2020-06-21T13:12:07.923+02:00" priority="0" recipient="Gestión correcta de errores." status="0" revision="0">
+                  <de:text>Mejor gestionar errores, no así. En todos los casos anteriores igual.</de:text>
+                  <de:replies/>
+                </de:comment>
+              </de:file>
+            </de:folder>
+            <de:folder name="database">
+              <de:file name="DataBase.java">
+                <de:comment id="c10" author="carlosl.sanchez" reviewID="dolivera3-review" creation-date="2020-06-21T13:14:41.958+02:00" last-modified="2020-06-21T13:14:49.977+02:00" priority="0" recipient="Gestión correcta de errores." status="0" revision="0">
+                  <de:text>Gestión explícita de errores.</de:text>
+                  <de:replies/>
+                </de:comment>
+                <de:comment id="c11" author="carlosl.sanchez" reviewID="dolivera3-review" creation-date="2020-06-21T13:15:10.404+02:00" last-modified="2020-06-21T13:15:47.560+02:00" priority="0" recipient="Gestión correcta de errores." status="0" revision="0">
+                  <de:text>recomiendo:
+
+try{
+     connection.close();
+     connection = null;
+}catch (Exception e){}</de:text>
+                  <de:replies/>
+                </de:comment>
+              </de:file>
+            </de:folder>
+          </de:folder>
+          <de:folder name="webapp">
+            <de:file name="login.jsp">
+              <de:comment id="c12" author="carlosl.sanchez" reviewID="dolivera3-review" creation-date="2020-06-21T13:26:28.853+02:00" last-modified="2020-06-21T13:26:42.681+02:00" priority="0" recipient="Documentar librerías" status="0" revision="0">
+                <de:text>Indicar fuente y funcionalidad.</de:text>
+                <de:replies/>
+              </de:comment>
+              <de:comment id="c13" author="carlosl.sanchez" reviewID="dolivera3-review" creation-date="2020-06-21T13:29:53.131+02:00" last-modified="2020-06-21T13:30:06.983+02:00" priority="0" recipient="Idioma" status="0" revision="0">
+                <de:text>Ponerlo en español :-)</de:text>
+                <de:replies/>
+              </de:comment>
+              <de:comment id="c14" author="carlosl.sanchez" reviewID="dolivera3-review" creation-date="2020-06-21T13:30:22.563+02:00" last-modified="2020-06-21T13:30:36.958+02:00" priority="0" recipient="Documentar" status="0" revision="0">
+                <de:text>Indicar fuentes y funcionalidades básicas.</de:text>
+                <de:replies/>
+              </de:comment>
+            </de:file>
+          </de:folder>
+        </de:folder>
+      </de:folder>
+    </de:project>
+  </de:files>
+</de:comments>
