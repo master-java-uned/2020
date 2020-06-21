@@ -39,7 +39,7 @@ public class Persona {
 	
 	/**
 	 * 
-	 * Constructor class Persona con cuatro atributos
+	 * Constructor class Persona con cuatro atributos(uso lado cliente)
 	 * 
 	 * @param nombre
 	 * @param apellidos
