@@ -56,7 +56,7 @@ public class AllCountryCovidServlet extends HttpServlet
          * Creo objeto para acceder a los datos del Covid.
          * Los agrego a la sesion
          */
-        CovidDAOImpl covidDAO = new CovidDAOImpl();
+        CovidDAOImpl covidDAO = new CovidDAOImpl(); /*-?|Carlos Luis Sánchez Bocanegra|carlosl.sanchez|c2|?*/
        
 		try 
 		{
@@ -65,7 +65,7 @@ public class AllCountryCovidServlet extends HttpServlet
 		}
 		catch (SQLException e) 
 		{
-			e.printStackTrace();
+			e.printStackTrace(); /*-?|Carlos Luis Sánchez Bocanegra|carlosl.sanchez|c1|?*/
 		}
         
 		/**

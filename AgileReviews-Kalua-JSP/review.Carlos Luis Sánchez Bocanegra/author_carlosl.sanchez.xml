@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<de:comments xmlns:de="http://de.tukl.softech.agileReview">
+  <de:author name="carlosl.sanchez"/>
+  <de:files>
+    <de:project name="coviddivstats-maven">
+      <de:folder name="src">
+        <de:folder name="main">
+          <de:folder name="java">
+            <de:folder name="beans">
+              <de:folder name="form">
+                <de:file name="UserForm.java">
+                  <de:comment id="c0" author="carlosl.sanchez" reviewID="Carlos Luis Sánchez Bocanegra" creation-date="2020-06-21T14:17:14.272+02:00" last-modified="2020-06-21T14:17:25.747+02:00" priority="0" recipient="Magnífico!" status="1" revision="0">
+                    <de:text/>
+                    <de:replies/>
+                  </de:comment>
+                </de:file>
+              </de:folder>
+            </de:folder>
+            <de:folder name="controler">
+              <de:file name="AllCountryCovidServlet.java">
+                <de:comment id="c1" author="carlosl.sanchez" reviewID="Carlos Luis Sánchez Bocanegra" creation-date="2020-06-21T14:20:07.640+02:00" last-modified="2020-06-21T14:23:14.166+02:00" priority="2" recipient="Gestión de errores" status="0" revision="0">
+                  <de:text>Para esto necesitas tener claro que necesitas una clase creada como Error y lanzarlo para que se capture y gestioanrlo.
+
+Es importante este punto que lo controeles y te pasa en todos los ejemplos. Ya lo hablaremos.</de:text>
+                  <de:replies/>
+                </de:comment>
+                <de:comment id="c2" author="carlosl.sanchez" reviewID="Carlos Luis Sánchez Bocanegra" creation-date="2020-06-21T14:24:41.172+02:00" last-modified="2020-06-21T14:27:23.231+02:00" priority="0" recipient="Propuesta" status="0" revision="0">
+                  <de:text>mejor:
+
+CovidDAO CovidDAO = new CovidDAOImpl();
+
+Esto es como usará los interfaces en Spring...llevando el new en ApplicationContext.</de:text>
+                  <de:replies/>
+                </de:comment>
+              </de:file>
+            </de:folder>
+          </de:folder>
+          <de:folder name="webapp">
+            <de:file name="login.jsp">
+              <de:comment id="c3" author="carlosl.sanchez" reviewID="Carlos Luis Sánchez Bocanegra" creation-date="2020-06-21T14:25:53.345+02:00" last-modified="2020-06-21T14:27:01.679+02:00" priority="0" recipient="Documentar" status="0" revision="0">
+                <de:text>Lo suyo es indicar la funcionalidad y fuente del script.....</de:text>
+                <de:replies/>
+              </de:comment>
+            </de:file>
+          </de:folder>
+        </de:folder>
+      </de:folder>
+    </de:project>
+  </de:files>
+</de:comments>

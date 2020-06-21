@@ -151,7 +151,7 @@ public class UserForm
 	 */
 	public enum Form  /*-?|dolivera3-review|carlosl.sanchez|c2|*/
 	{
-		LOGIN, REGISTER, FORGOT
+		LOGIN, REGISTER, FORGOT /*-?|Carlos Luis Sánchez Bocanegra|carlosl.sanchez|c0|?*/
 	} /*-|dolivera3-review|carlosl.sanchez|c2|?*/
 		
 	/**
