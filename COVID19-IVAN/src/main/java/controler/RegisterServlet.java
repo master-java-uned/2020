@@ -80,10 +80,10 @@ public class RegisterServlet extends HttpServlet
 			 */
 			switch (registroStatus.getStatus()) 
 			{
-				case "REGISTER_ERROR":
+				case "REGISTER_ERROR": /*-?|dolivera3-review|carlosl.sanchez|c8|*/
 					System.out.println("Fallo en el registro: " + registroStatus.getData());
 					
-					break;
+					break; /*-|dolivera3-review|carlosl.sanchez|c8|?*/
 	
 				case "REGISTER_CORRECT":
 					System.out.println("Registro ok code verification: " + registroStatus.getData() + " USER ID:"+ registroStatus.getUser().getID());

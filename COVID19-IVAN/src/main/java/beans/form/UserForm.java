@@ -149,10 +149,10 @@ public class UserForm
 	/**
 	 * Enum con las operaciones del Formulario: LOGIN, REGISTER, FORGOT
 	 */
-	public enum Form 
+	public enum Form  /*-?|dolivera3-review|carlosl.sanchez|c2|*/
 	{
 		LOGIN, REGISTER, FORGOT
-	}
+	} /*-|dolivera3-review|carlosl.sanchez|c2|?*/
 		
 	/**
 	 * Comprobamos que los campos del formulario no vengan vacios.

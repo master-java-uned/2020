@@ -46,7 +46,7 @@ public class ForgotServlet extends HttpServlet
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		UserForm userForm = new UserForm(request.getParameter("email"));
+		UserForm userForm = new UserForm(request.getParameter("email")); /*-?|dolivera3-review|carlosl.sanchez|c5|*/
 		
 		FormStatus form = userForm.validate();
 		if(form.isSuccess()) 
@@ -57,5 +57,5 @@ public class ForgotServlet extends HttpServlet
 		{
 			System.out.println("Fallo en el registro: " + form.getError());
 		}
-	}
+	} /*-|dolivera3-review|carlosl.sanchez|c5|?*/
 }

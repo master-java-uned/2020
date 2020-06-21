@@ -96,10 +96,10 @@ public class Login extends HttpServlet
 				/**
 				 *  En caso de ser USER_ERROR, añadimos el error y apuntamos el dato del error.			
 				 */
-				case "USER_ERROR":		
+				case "USER_ERROR":		 /*-?|dolivera3-review|carlosl.sanchez|c7|*/
 					data.put("status", "ERROR");
 					data.put("data", userStatus.getData());
-					break;
+					break; /*-|dolivera3-review|carlosl.sanchez|c7|?*/
 				/**
 				 *  En caso de ser USER_VALIDATION, sabremos que ese usuario le falta validad el correo
 				 *  Añadimos a la session su usuario con sus datos recuperados de la base de datos, y apuntamos que

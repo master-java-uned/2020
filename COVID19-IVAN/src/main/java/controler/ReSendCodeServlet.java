@@ -60,8 +60,8 @@ public class ReSendCodeServlet extends HttpServlet
 			 * Enviamos el email.
 			 */
 			MailUtil.sendEmail(userResend.getEmail(),"Account Verification", "Code Verification: <b>"+userResend.getValidation()+"</b>");
-			
-			res.getWriter().print("Code was sent to: "+userResend.getEmail());			
+
+			res.getWriter().print("Code was sent to: "+userResend.getEmail());
 		}
 	}
 }

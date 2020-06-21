@@ -86,7 +86,7 @@ public class GetQuickFactServlet extends HttpServlet
 		}
 		catch (SQLException e) 
 		{
-			e.printStackTrace();
+			e.printStackTrace(); /*-?|dolivera3-review|carlosl.sanchez|c6|?*/
 		}
 	}
 }

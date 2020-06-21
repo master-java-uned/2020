@@ -50,16 +50,16 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                        	                        	
+
  							<header:quick-facts/>
- 							
+
                             <div class="sb-sidenav-menu-heading">GENERAL</div>
-                            
+
                             <a class="nav-link" href="./relogin">
                                 <span class="sb-nav-link-icon"><i class="fas fa-rss"></i></span>
                                 Stats
                             </a>
-                            
+
                             <a class="nav-link collapse current" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="true" aria-controls="collapseLayouts">
                                 <span class="sb-nav-link-icon">
                                     <i class="fas fa-globe-europe"></i></span>
@@ -87,9 +87,7 @@
                                 <span class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></span>
                                 Graphics
                             </a>
-                            
 							<menu:admin/> 
-							                            
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
@@ -102,7 +100,7 @@
                 <main>
                     <div class="container-fluid">
                         <h1 class="mt-4"></h1>
-                      	
+
                         <div class="row my-charts">
                         	<div class="col-xl-6">
                                 <div class="card mb-4">
@@ -166,11 +164,9 @@
 							<span class="sr-only">Loading...</span>
 						</div>
 			        </div>
-		        
 				</div>
 			</div>
 		</div>
-		
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
         <script src="js/scripts.js"></script>
@@ -178,8 +174,6 @@
 		<script src="js/jquery-jvectormap-2.0.5.min.js"></script>
 		<script src="js/jquery-jvectormap-world-mill.js"></script>
 		<script src="js/index.js"></script>
-		
 		<script-data:country-chart/>
-		
     </body>
 </html>

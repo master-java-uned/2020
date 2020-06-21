@@ -18,7 +18,7 @@ public class FormStatus
 	/**
 	 * Recojo el error aqui en caso de que lo hubiera.
 	 */
-	private String error;
+	private String error; /*-?|dolivera3-review|carlosl.sanchez|c1|?*/
 	
 	/**
 	 *  Constructor de la clase sin parametrtos, significara, que todo fue OK y no registro errores.

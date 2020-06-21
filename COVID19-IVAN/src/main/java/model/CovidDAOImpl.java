@@ -328,7 +328,6 @@ public class CovidDAOImpl implements CovidDAO
 	 */
 	public List<Covid> getAllByCountry(String countryName) throws SQLException
 	{
-		
 		// String sql = "SELECT `dateRep`,`cases`,`deaths`,`countryterritoryCode` FROM `covid` WHERE countriesAndTerritories = ? ORDER BY dateRep";
 		String sql = "select `dateRep`,`cases`,`deaths`,`countryterritoryCode` from  covid where covid.countriesAndTerritories = ? and covid.dateRep >= (select MIN(dateRep) from covid where (cases > 0 or deaths > 0) and countriesAndTerritories = ? order by covid.dateRep) order by covid.dateRep";
 		

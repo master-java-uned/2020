@@ -67,14 +67,14 @@ public class DataBase
 
 				connection = DriverManager.getConnection(url , user, password);	
 			} 
-			catch (SQLException e)
+			catch (SQLException e) /*-?|dolivera3-review|carlosl.sanchez|c10|*/
 			{
 				System.out.println("Error al abrir la conexion: " + e.getMessage());
 			}
 			catch (Exception e)
 			{
 				System.out.println("Error al abrir la conexion: " + e.getMessage());
-			}
+			} /*-|dolivera3-review|carlosl.sanchez|c10|?*/
 		}
 		return connection;
 	}
@@ -87,8 +87,8 @@ public class DataBase
 	{
 		if(connection != null || !connection.isClosed()) 
 		{
-			connection.close();
-			connection = null;
+			connection.close(); /*-?|dolivera3-review|carlosl.sanchez|c11|*/
+			connection = null; /*-|dolivera3-review|carlosl.sanchez|c11|?*/
 		}
 	}
 	

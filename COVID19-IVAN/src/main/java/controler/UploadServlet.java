@@ -100,10 +100,10 @@ public class UploadServlet extends HttpServlet
                 }
                 System.out.println("File uploaded successfully.");
             } 
-            catch (Exception ex)
+            catch (Exception ex) /*-?|dolivera3-review|carlosl.sanchez|c9|*/
             {
             	System.err.println("File upload failed due to : " + ex);
-            }
+            } /*-|dolivera3-review|carlosl.sanchez|c9|?*/
         }
         else
         {

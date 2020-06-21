@@ -53,7 +53,7 @@ public class CountryCovidDateServlet extends HttpServlet
 		 * Obtengo las fechas.
 		 */
 		String initialDate = "2019/12/29";
-		String maxdate = request.getParameter("maxdate");
+		String maxdate = request.getParameter("maxdate"); /*-?|dolivera3-review|carlosl.sanchez|c3|?*/
 
 		/**
 		 * Aqui mapeare los datos.
@@ -83,7 +83,7 @@ public class CountryCovidDateServlet extends HttpServlet
 		}
 		catch (SQLException e)
 		{
-			e.printStackTrace();
+			e.printStackTrace(); /*-?|dolivera3-review|carlosl.sanchez|c4|?*/
 		}
 		
 		/**
