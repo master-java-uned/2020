@@ -65,14 +65,15 @@ public class CovidCountryTag extends TagSupport
 		return EVAL_BODY_INCLUDE;
 	}
 
+	@Override
 	public int doAfterBody() 
 	{
 		try 
 		{
 			this.pageContext.getOut().println("<tr>");
-			this.pageContext.getOut().println("<td>" + listCovids.get(cuenta).getDateRep() + "</td>");
-			this.pageContext.getOut().println("<td>" + listCovids.get(cuenta).getCasesFormated() + "</td>");
-			this.pageContext.getOut().println("<td>" + listCovids.get(cuenta).getDeathsFormated() + "</td>");
+				this.pageContext.getOut().println("<td>" + listCovids.get(cuenta).getDateRep() + "</td>");
+				this.pageContext.getOut().println("<td>" + listCovids.get(cuenta).getCasesFormated() + "</td>");
+				this.pageContext.getOut().println("<td>" + listCovids.get(cuenta).getDeathsFormated() + "</td>");
 			this.pageContext.getOut().println("</tr>");
 		} 
 		catch (Exception e)

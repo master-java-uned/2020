@@ -295,6 +295,14 @@ public class CovidDAOImpl implements CovidDAO
 		return list;
 	}
 	
+	/**
+	 * Obtengo todos los datos de covid, por paises, pasando el minimo de casso y fecha minima.
+	 * 
+	 * @param minCases Minimo de casos.
+	 * @param minDate Fecha minima.
+	 * @return Una lista de Covid.
+	 * @throws SQLException.
+	 */
 	public List<Covid> getAllByCountries(int minCases,String minDate) throws SQLException
 	{
 		String sql = "SELECT `countriesAndTerritories`,`countryterritoryCode`,sum(cases)'totalcases' ,sum(`deaths`) 'totaldeaths' FROM `covid` WHERE dateRep > ? group by countriesAndTerritories HAVING SUM(`cases`) > ? ORDER BY sum(cases) DESC";
@@ -320,11 +328,11 @@ public class CovidDAOImpl implements CovidDAO
 	}
 	
 	/**
-	 * Obtengo los datos de covid, por pais, pasando el pais que quierp.
+	 * Obtengo los datos de covid, por pais, pasando el pais que quiero.
 	 * 
-	 * @param countryName Pais
-	 * @return Una lista de Covid
-	 * @throws SQLException
+	 * @param countryName Pais.
+	 * @return Una lista de Covid.
+	 * @throws SQLException.
 	 */
 	public List<Covid> getAllByCountry(String countryName) throws SQLException
 	{
@@ -352,11 +360,17 @@ public class CovidDAOImpl implements CovidDAO
 		return list;
 	}
 	
+	
+	/**
+	 * Obtengo los datos de covid, por pais, pasando el minimo de casos.
+	 * 
+	 * @param minCases Minimo de casos.
+	 * @return Una lista de Covid.
+	 * @throws SQLException.
+	 */
 	public List<Covid> getAllByCountries(int minCases) throws SQLException
 	{
 		String sql = "SELECT `countriesAndTerritories`,`countryterritoryCode`,sum(cases)'totalcases' ,sum(`deaths`) 'totaldeaths'  FROM `covid` group by countriesAndTerritories HAVING SUM(`cases`) > ? ORDER BY sum(cases) DESC";
-		
-		
 		
 		PreparedStatement statement = DataBase.getConnection().prepareStatement(sql);
 		statement.setInt(1, minCases);
@@ -376,7 +390,12 @@ public class CovidDAOImpl implements CovidDAO
 		
 		return list;
 	}
-		
+	
+	/**
+	 * Obtengo el total de casos y muertes.
+	 * @return Un objeto covid con los datos.
+	 * @throws SQLException.
+	 */
 	public Covid getMaxCasesAndDeath() throws SQLException
 	{
 		String sql = "SELECT sum(cases)'totalcases' ,sum(`deaths`) 'totaldeaths'  FROM `covid`";
@@ -395,7 +414,11 @@ public class CovidDAOImpl implements CovidDAO
 		return covid;
 	}
 	
-	
+	/**
+	 * Obtengo el total de casos y muertes.
+	 * @return Un objeto covid con los datos.
+	 * @throws SQLException.
+	 */	
 	public Covid getMaxCasesAndDeath(String country) throws SQLException
 	{
 		String sql = "SELECT `countriesAndTerritories`,`countryterritoryCode`,sum(cases)'totalcases' ,sum(`deaths`) 'totaldeaths'  FROM `covid` WHERE `countriesAndTerritories` = ?";
@@ -417,6 +440,11 @@ public class CovidDAOImpl implements CovidDAO
 		return covid;
 	}
 	
+	/**
+	 * Obtengo el total de filas contendias en la tabla covid.
+	 * @return el numero de filas.
+	 * @throws SQLException.
+	 */
 	public int getRowsCovid() throws SQLException
 	{
 		String sql = "SELECT Count(*) as totalRow FROM `covid`";
@@ -427,12 +455,17 @@ public class CovidDAOImpl implements CovidDAO
 		if (rs.next()) 
 		{
 		   return rs.getInt("totalRow");
-
 		}
 		
 		return 0;
 	}
 		
+	/**
+	 * Convierto un resulset de la base de datos a Lista de Covid.
+	 * @param rs Resulset.
+	 * @return Lista de covid.
+	 * @throws SQLException
+	 */
 	private List<Covid> convertToList(ResultSet rs) throws SQLException 
 	{
 	    List<Covid> list = new ArrayList<Covid>();
@@ -456,7 +489,12 @@ public class CovidDAOImpl implements CovidDAO
 
 	    return list;
 	}
-		
+	
+    /**
+     * Inserta un registro de Covid.
+     * @param covid Los datos de Covid a insertar.
+     * @return Si hizo la operacion fue exitosa o no.
+     */	
 	public boolean insertCovid(Covid covid)
 	{
 		boolean state = false;
@@ -484,6 +522,11 @@ public class CovidDAOImpl implements CovidDAO
 		return state;
 	}
     
+	/**
+	 * Formatea el nombre del pais.
+	 * @param name Nombre del pais sin formato.
+	 * @return el nombre del pais formateado.
+	 */
 	public String formatCountryName(String name) 
 	{
 		if(countryNames.containsKey(name))
@@ -493,6 +536,11 @@ public class CovidDAOImpl implements CovidDAO
 		return name;
 	}
 	
+	/**
+	 * Formatea el codigo del pais.
+	 * @param name codigo del pais sin formato.
+	 * @return el codigo del pais formateado.
+	 */
 	public String formatCountryCode(String name) 
 	{
 		if(countryCode.containsKey(name))
@@ -502,6 +550,12 @@ public class CovidDAOImpl implements CovidDAO
 		return "NO >>" + name;
 	}
 	
+	/**
+	 * Formateo manual de la fecha para coincidir con la
+	 *  fecha que me devuelve el xlsx.
+	 * @param date la fecha.
+	 * @return la fecha formateada.
+	 */
 	public String formatDateManual(String date)
 	{
 		date = date.replace(".","");
@@ -525,6 +579,13 @@ public class CovidDAOImpl implements CovidDAO
 		return date;
 	}
 	
+	
+	/**
+	 * Formateo de fecha.
+	 * @param datestr fecha.
+	 * @return fecha formateada.
+	 * @throws ParseException.
+	 */
 	public String formatDate(String datestr) throws ParseException 
 	{
 		SimpleDateFormat  dt = new SimpleDateFormat("d-MMM.-yyyy", new Locale("es_ES"));
@@ -534,7 +595,11 @@ public class CovidDAOImpl implements CovidDAO
 		return dt1.format(date);
 	}
 	
-	
+	/**
+	 * Obtener todos Registros del Covid.
+	 * @return Lista de Covid.
+	 * @throws SQLException 
+	 */
 	@Override
 	public List<Covid> getAllCovid() throws SQLException
 	{
@@ -545,12 +610,22 @@ public class CovidDAOImpl implements CovidDAO
 		return convertToList(rs);
 	}
 
+	/**
+	 * Obtener el registro de Covid ,pasando su pais.
+	 * @param username El nombre del usuario.
+	 * @return El registro de Covid.
+	 */
 	@Override
-	public Covid getCovid(String country) {
-		// TODO Auto-generated method stub
+	public Covid getCovid(String country)
+	{
+		// no implementado
 		return null;
 	}
-
+	
+	/**
+     * Elimina todo el registro de covid.
+     * @return Si hizo la operacion fue exitosa o no.
+     */
 	@Override
 	public boolean deleteAllCovid() 
 	{

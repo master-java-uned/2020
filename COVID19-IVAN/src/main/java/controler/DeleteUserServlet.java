@@ -43,13 +43,12 @@ public class DeleteUserServlet extends HttpServlet
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		/**
-		 *  Recuperamos la sesion.
-		 */
-				
+		 *  Obtengo el id de usuario del pasado para borrar.
+		 */	
 		int userID = Integer.parseInt(request.getParameter("userID"));
 		
 		/**
-		 *  Creamos un objeto para manejar los datos del Covid, en este caso borrarlos desde la base de datos.
+		 *  Creamos un objeto para manejar los datos del Usuario, en este caso borrarlos desde la base de datos.
 		 */
 		UserDAOImpl userDAO = new UserDAOImpl();
 		userDAO.deleteUser(userID);
