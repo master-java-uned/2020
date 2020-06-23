@@ -9,13 +9,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class PollingServiceImpl implements PollingService {
 
     private Records countries = new Records();
 
-    @Scheduled (fixedDelay = 30000)
+    @Scheduled (fixedDelay = 60000)
     public void run(){
         String uri ="https://opendata.ecdc.europa.eu/covid19/casedistribution/json/";
         RestTemplate restTemplate = new RestTemplate();
@@ -27,7 +28,9 @@ public class PollingServiceImpl implements PollingService {
     }
 
     public String outputMapData(){
+
         String outputData = new Gson().toJson(countries.getRecords() );
+
         return outputData;
     }
 

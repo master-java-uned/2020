@@ -7,6 +7,7 @@ import {HttpClient} from "@angular/common/http";
 
 import {ModeloDatosCovid} from "./models/ModeloDatosCovid";
 import {HeadersHelpers} from "./app_code/viewsUtils/HeadersHelpers";
+import {$} from 'protractor';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -31,6 +32,21 @@ export class AppComponent {
 
 
   connection(){
+    let ws = new SockJS(this.url);
+    this.client = Stomp.over(ws);
+    let that = this;
+    this.client.connect({}, function(frame) {
+      that.client.subscribe("/topic/updateData", (message) => {
+        // debugger;
+        if(message.body) {
+          this.message = message.body;
+          ModeloDatosCovid.init(this.message);
+          // $(".msg").html(this.message)
+
+        }
+      });
+    });
+
     /**
      * Peter Fight
      *
@@ -46,35 +62,23 @@ export class AppComponent {
      * actualicen los datos cada 30 segundos, eso para Telegram...
      */
 
-    let p = Promise;
-    return this.httpClient.get('http://127.0.0.1:8080/users/getJson',
-      {
-        headers: HeadersHelpers.getHeadersANON()
-      })
-      .toPromise().then(function(JSON){
-        /**
-         * ModeloDatosCovid es una clase estática compartida por toda la aplicación que contiene los datos
-         * descargados del servidor.
-         */
-        ModeloDatosCovid.init(JSON);
-      });
-
-
-
-    // let ws = new SockJS(this.url);
-    // this.client = Stomp.over(ws);
-    // let that = this;
-    // this.client.connect({}, function(frame) {
-    //   that.client.subscribe("/topic/updateData", (message) => {
-    //     debugger;
-    //     if(message.body) {
-    //       this.message = message.body;
-    //
-    //       $(".msg").html(this.message)
-    //
-    //     }
+    // let p = Promise;
+    // return this.httpClient.get('http://127.0.0.1:8080/users/getJson',
+    //   {
+    //     headers: HeadersHelpers.getHeadersANON()
+    //   })
+    //   .toPromise().then(function(JSON){
+    //     /**
+    //      * ModeloDatosCovid es una clase estática compartida por toda la aplicación que contiene los datos
+    //      * descargados del servidor.
+    //      */
+    //     console.log(JSON);
+    //     ModeloDatosCovid.init(JSON);
     //   });
-    // });
+
+
+
+
   }
 }
 

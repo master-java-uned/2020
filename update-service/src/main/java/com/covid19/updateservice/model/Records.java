@@ -15,4 +15,6 @@ public class Records {
     public void setRecords(List<CountryCovidInformation> records) {
         this.records = records;
     }
+
+
 }

@@ -20,10 +20,28 @@ public class MessageProducer {
     @Autowired
     private  PollingService pollingService;
 
-    @Scheduled(fixedRate = 30000)
+    private String count= "fistAccess";
+
+    @Scheduled(cron = "0/30 * * * * ?")
+    public void initProduce() {
+        String msg = pollingService.outputMapData();
+        System.out.println("****************************** count" + count);
+        if( (!msg.equals(null)  || !msg .equals("undefined") ) && (count.equals("fistAccess"))) {
+            kafkaTemplate.send(kafkaInputMapData, msg);
+            System.out.println("mi primera vez");
+            count = "accessed";
+        }
+        if (msg.equals(null)  || msg .equals("undefined") )  {
+            kafkaTemplate.send(kafkaInputMapData, "[{}]");
+            System.out.println("error");
+        }
+    }
+
+    @Scheduled(cron = "* * 0/12 * * ?")
     public void produce() {
         String msg = pollingService.outputMapData();
-        kafkaTemplate.send(kafkaInputMapData, msg);
+        if( !msg.equals(null)  || !msg .equals("undefined"))
+            kafkaTemplate.send(kafkaInputMapData, msg);
     }
 
 }
