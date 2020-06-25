@@ -31,13 +31,13 @@ Lleva una animación de animate.css para la primera vez que se muestre
           </div>
           <form class="user" [formGroup]="datosFormulario" (ngSubmit)="onSubmit(datosFormulario.value)">
             <div class="form-group">
-              <input (change)="validacionDinamica()" formControlName="Email" name="Email"
+              <input (change)="validacionDinamica(false)" formControlName="Email" name="Email"
                      class="col-11 float-left form-control form-control-user" type="email" id="Email"
                      aria-describedby="emailHelp" placeholder="Correo electrónico..." name="email">
               <span class="text-danger col-1">*</span>
             </div>
             <div class="form-group mt-5">
-              <input (change)="validacionDinamica()" formControlName="Password" name="Password"
+              <input (change)="validacionDinamica(false)" formControlName="Password" name="Password"
                      class="col-11 float-left form-control form-control-user" type="password" id="Pasword"
                      placeholder="Password..." name="password">
               &nbsp;<span class="text-danger float-left col-1">*</span>

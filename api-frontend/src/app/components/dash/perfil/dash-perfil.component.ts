@@ -8,7 +8,7 @@
 import {Component, NgModule, VERSION, Input, OnInit} from '@angular/core';
 import {DomSanitizer, Meta, Title} from '@angular/platform-browser';
 import {FormGroup, FormControl, Validators, AbstractControl, ValidatorFn, FormBuilder} from '@angular/forms';
-import {ValidationErrors} from "@angular/forms/src/directives/validators";
+import {ValidationErrors} from "@angular/forms";
 import {Router} from "@angular/router";
 import {BaseLayout} from "../../../app_code/viewsUtils/BaseLayout";
 import {userAdapters} from "../../../adapters/userAdapters";
@@ -159,7 +159,7 @@ export class DashPerfilComponent extends BaseLayout implements OnInit {
       reader.readAsDataURL(file);
       reader.onload = () => {
         this.fileName = file.name + " " + file.type;
-        this.filePreview = 'data:image/png' + ';base64,' + reader.result.split(',')[1];
+        this.filePreview = 'data:image/png' + ';base64,' + (<string>reader.result).split(',')[1];
       };
     }
   }

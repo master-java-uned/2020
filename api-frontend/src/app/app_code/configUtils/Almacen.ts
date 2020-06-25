@@ -2,9 +2,9 @@
  * Created by PeterFight (03/05/2020):
  * Clase Almacen para devolver las variables de entorno atendiendo a si el entorno es producción o pruebas.
  */
-import {environment} from "../../../environments/environment";
+
 import {environmentDebug} from "../../../environments/environment.debug";
-import {environmentProd} from "../../../environments/environment.prod";
+import {environment} from "../../../environments/environment.prod";
 
 export class Almacen{
     //Aquí está la gracia. Si tenemos más de dos environments (p.ej. niespruebas niesproducción)
@@ -14,6 +14,6 @@ export class Almacen{
     //Te devuelve la url base de la aplicación, con ella puedes hacer lo que quieras: el límite lo pone
     //tu imaginación de developer.
     static getBaseUrl(){
-      return this.produccion == true? environmentProd.baseUrl:environmentDebug.baseUrl;
+      return this.produccion == true? environment.baseUrl:environmentDebug.baseUrl;
     }
 }

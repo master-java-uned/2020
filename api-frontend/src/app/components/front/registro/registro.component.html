@@ -41,27 +41,27 @@ FORMULARIO
             </div>
             <div class="form-group row text-center">
               <div class="col-12 d-inline">
-                <input  (change)="validacionDinamica()" formControlName="Email"  name="Email" class="col-11 float-left form-control form-control-user" type="email" id="Email" aria-describedby="emailHelp" placeholder="Correo electrónico..." name="email">
+                <input  (change)="validacionDinamica(false)" formControlName="Email"  name="Email" class="col-11 float-left form-control form-control-user" type="email" id="Email" aria-describedby="emailHelp" placeholder="Correo electrónico..." name="email">
                 <span class="text-danger col-1">*</span>
               </div>
             </div>
             <div class="form-group row">
               <div class="col-sm-6 mb-3 mb-sm-0">
-                <input  (change)="validacionDinamica()" formControlName="Nombre"   name="Nombre" class="col-10 float-left form-control form-control-user" type="text" id="Nombre" placeholder="Nombre..." name="first_name">
+                <input  (change)="validacionDinamica(false)" formControlName="Nombre"   name="Nombre" class="col-10 float-left form-control form-control-user" type="text" id="Nombre" placeholder="Nombre..." name="first_name">
                 &nbsp;<span class="text-danger float-left col-1">*</span>
               </div>
               <div class="col-sm-6">
-                <input  (change)="validacionDinamica()" formControlName="Apellidos"  name="Apellidos" class="col-10 float-left form-control form-control-user" type="text" id="Apellidos" placeholder="Apellidos..." name="last_name">
+                <input  (change)="validacionDinamica(false)" formControlName="Apellidos"  name="Apellidos" class="col-10 float-left form-control form-control-user" type="text" id="Apellidos" placeholder="Apellidos..." name="last_name">
                 &nbsp;<span class="text-danger float-left col-1">*</span>
               </div>
             </div>
             <div class="form-group row">
               <div class="col-sm-6 mb-3 mb-sm-0">
-                <input  (change)="validacionDinamica()" formControlName="Password"  name="Password" class="col-10 float-left form-control form-control-user" type="password" id="Pasword" placeholder="Password..." name="password">
+                <input  (change)="validacionDinamica(false)" formControlName="Password"  name="Password" class="col-10 float-left form-control form-control-user" type="password" id="Pasword" placeholder="Password..." name="password">
                 &nbsp;<span class="text-danger float-left col-1">*</span>
               </div>
               <div class="col-sm-6">
-                <input  (change)="validacionDinamica()" formControlName="RepitePassword"  name="RepitePassword" class="col-10 float-left form-control form-control-user" type="password" id="RepitePassword" placeholder="Repite el password..." name="password_repeat">
+                <input  (change)="validacionDinamica(false)" formControlName="RepitePassword"  name="RepitePassword" class="col-10 float-left form-control form-control-user" type="password" id="RepitePassword" placeholder="Repite el password..." name="password_repeat">
                 &nbsp;<span class="text-danger float-left col-1">*</span>
               </div>
             </div>

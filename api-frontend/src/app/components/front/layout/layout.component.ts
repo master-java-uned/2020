@@ -16,7 +16,7 @@ import {ModeloDatosCovid} from "../../../models/ModeloDatosCovid";
   selector: 'app-default',
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.css',
-    "/../../../../assets/css/bootstrap.min.css",
+    // "/../../../../assets/css/bootstrap.min.css",
     "../../../../assets/css/nunitoFontGoogle.css",
     "../../../../assets/css/audiowidefont.css"
     ],

@@ -22,6 +22,8 @@ import {DashLayoutComponent} from "./components/dash/layout/dash-layout.componen
 import {DashDefaultComponent} from "./components/dash/default/dash-default.component";
 import {NoencontradoComponent} from "./components/shared/404/noencontrado/noencontrado.component";
 import { ClonarComponent } from './components/dash/clonar/clonar.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../../src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,7 @@ import { ClonarComponent } from './components/dash/clonar/clonar.component';
         FormsModule,
         HttpClientModule,
         ReactiveFormsModule,
+        ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     ],
   providers: [ {
     provide:HTTP_INTERCEPTORS, useClass:BasicAuthService, multi:true
