@@ -1,0 +1,5 @@
+[2020-05-07 18:49:45,242] DEBUG preRegister called. Server=com.sun.jmx.mbeanserver.JmxMBeanServer@66d3c617, name=log4j:logger=state.change.logger (state.change.logger)
+[2020-05-07 18:55:56,013] TRACE [Controller id=0 epoch=1] Received response {error_code=0,_tagged_fields={}} for request UPDATE_METADATA with correlation id 0 sent to broker DESKTOP-004Q2KR.mshome.net:9092 (id: 0 rack: null) (state.change.logger)
+[2020-05-07 20:18:25,746] TRACE [Controller id=0 epoch=2] Received response {error_code=0,_tagged_fields={}} for request UPDATE_METADATA with correlation id 0 sent to broker DESKTOP-004Q2KR.mshome.net:9092 (id: 0 rack: null) (state.change.logger)
+[2020-05-07 20:18:31,419] TRACE [Controller id=0 epoch=2] Changed partition map-data-output-0 state from NonExistentPartition to NewPartition with assigned replicas 0 (state.change.logger)
+[2020-05-07 20:18:50,265] TRACE [Controller id=0 epoch=2] Changed state of replica 0 for partition map-data-output-0 from NonExistentReplica to NewReplica (state.change.logger)

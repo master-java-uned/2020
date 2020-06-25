@@ -5,6 +5,9 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Component;
 
+/**
+ * This class is not neccesary
+ */
 @Component
 public class MessageConsumer {
     private String stompTopic = "/topic/updateData";
