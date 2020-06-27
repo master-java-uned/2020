@@ -1,7 +1,7 @@
 /**
  * Clase para la gestión de errores numerados y traducidos.
  *
- * (27/06/2020) All my comments and fucking variables translated
+ * (27/06/2020) All my comments and variables translated
  * at Victor's good practice accomplishment request)
  *
  LocalizedErrors is the class that stores error codes along with all translations

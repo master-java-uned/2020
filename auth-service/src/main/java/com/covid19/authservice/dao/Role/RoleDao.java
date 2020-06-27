@@ -1,7 +1,7 @@
 /**
  * Peter Fight
  *
- * (27/06/2020) All my comments and fucking variables translated
+ * (27/06/2020) All my comments and variables translated
  * at Victor's good practice accomplishment request)
  *
  Interface to force me to implement the findByRef (not the id id that
