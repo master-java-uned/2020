@@ -2,7 +2,7 @@
  * Peter Fight
  * 10/05/2020
  *
- * (27/06/2020) All my comments and fucking variables translated
+ * (27/06/2020) All my comments and variables translated
  * at Victor's good practice accomplishment request)
  *
  * Class for error management. The error codes are linked to the validationMessages properties files

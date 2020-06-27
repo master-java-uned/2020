@@ -1,7 +1,7 @@
 /**
  * Peter Fight
  *
- * (27/06/2020) All my comments and fucking variables translated
+ * (27/06/2020) All my comments and variables translated
  * at Victor's good practice accomplishment request)
  *
  * Controller that is called by the angular front methods.

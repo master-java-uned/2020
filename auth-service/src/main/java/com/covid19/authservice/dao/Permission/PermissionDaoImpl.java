@@ -1,7 +1,7 @@
 /**
  * Peter Fight
  *
- * (27/06/2020) All my comments and fucking variables translated
+ * (27/06/2020) All my comments and variables translated
  * at Victor's good practice accomplishment request)
  *
  I create the abstract class so that I can implement only the interface method
