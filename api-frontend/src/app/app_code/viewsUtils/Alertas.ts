@@ -3,11 +3,16 @@ Peter fight, empleo la librería sweetAlert para mostrar alertas chulas
 MIRA AQUÍ --> https://www.npmjs.com/package/sweetalert
  */
 
-import swal from "sweetalert";
+import Swal from "sweetalert2";
 
 export class alertas{
   static exito(titulo, mensaje){
-    swal(
+    // swal(
+    //   titulo,
+    //   mensaje,
+    //   'success'
+    // )
+    Swal.fire(
       titulo,
       mensaje,
       'success'
@@ -15,7 +20,12 @@ export class alertas{
   }
   static error(titulo, mensaje)
   {
-    swal(
+    // swal(
+    //   titulo,
+    //   mensaje,
+    //   'error'
+    // )
+    Swal.fire(
       titulo,
       mensaje,
       'error'

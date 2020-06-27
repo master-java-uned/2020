@@ -1,8 +1,12 @@
 /**
  * Peter fight
  *
- * aquí había dos campos string user y admin. Mi no entiende... será un campo nombre permiso y luego
- * ya si eso si es admin o user... Yo manoseo y ya.
+ * (27/06/2020) All my comments and fucking variables translated
+ * at Victor's good practice accomplishment request)
+ *
+ Here were two string user and admin fields. My does not understand ...
+ it will be a field name permission and then Now if that is admin or user ...
+ I grope and go.
  */
 
 package com.covid19.authservice.model;
@@ -19,16 +23,17 @@ import java.util.List;
 public class Role {
 
     /**
-     * Le meto un enum de los posibles. Para mí no tenía sentido tener dos variables user y admin en role,
-     * no pillo de qué va el rollo, y me he puesto muy nervioso... Óstia!! así que lo hago My Waaaaaay!!!
-     * New York, New Yooork!!!
+     I put an enum of the possible ones. It didn't make sense to me to have
+     two variables user and admin in role, I do not catch what the roll is
+     about, and I have become very nervous ... Ostia !! so I do it My Waaaaaay !!!
+     New York, New Yooork !!!
      */
-    public static enum rolesPosibles{
-        ANONIMO (new Long(1)),
+    public static enum availableRoles {
+        ANONYMOUS(new Long(1)),
         ADMIN (new Long(2)),
         SUPERADMIN(new Long(3));
         private final Long value;
-        rolesPosibles(Long i) {
+        availableRoles(Long i) {
             this.value = i;
         }
         public Long getId(){
@@ -36,10 +41,10 @@ public class Role {
         }
     }
     /**
-     * Si no pillas que hago aquí, a estudiar POO!!!
+     * If you don't get what I do here, to study POO !!!
      * @param rol
      */
-    public Role(rolesPosibles rol)
+    public Role(availableRoles rol)
     {
         this.rolName = rol.name();
         this.refId = rol.value;
@@ -47,7 +52,7 @@ public class Role {
 
 
     /**
-     * SECCIÓN VARIABLES Y OTRAS PARIDETAS AL USO
+     * SECTION VARIABLES AND OTHER PARIDETS FOR USE
      */
     private List<Permission> permissions = new ArrayList<Permission>();
 
@@ -66,8 +71,8 @@ public class Role {
         return rolName;
     }
 
-    public void setRolName(String permisoName) {
-        this.rolName = permisoName;
+    public void setRolName(String roleName) {
+        this.rolName = roleName;
     }
 
     public Long getId() {

@@ -1,8 +1,11 @@
 /**
  * Peter Fight
  *
- * Interface para obligarme a implementar el findByRef (no el id chorras que se inventa el neo, sino el
- * que impongo yo por la fuerza de las armas.
+ * (27/06/2020) All my comments and fucking variables translated
+ * at Victor's good practice accomplishment request)
+ *
+ Interface to force me to implement the findByRef (not the id id that
+ invents the neo, but the that I impose by force of arms.
  */
 
 package com.covid19.authservice.dao.Role;

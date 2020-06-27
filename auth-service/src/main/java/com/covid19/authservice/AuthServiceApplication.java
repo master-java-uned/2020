@@ -1,4 +1,9 @@
 package com.covid19.authservice;
+/**
+ *
+ * Modified by Peter Fight
+ *
+ */
 
 import com.covid19.authservice.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,12 +28,12 @@ public class AuthServiceApplication {
     }
 
     /**
-     * Estas cosas de java molan. Osea que tengo un voidMain sin complicaciones y con una anotación
-     * le meto lo que me salga de los cAjones. Pues pa lante. Hace falta preparar la db, pues este me parece
-     * un sitio chachi.
+     These java stuff is cool. So I have a voidMain without complications and with an annotation
+     I put what comes out of the drawers. Well, stop. It is necessary to prepare the db, because this seems to me
+     a chachi site.
      */
     @PostConstruct
-    private void initCosicasDB() {
-        serv.initCosicasDb();
+    private void initPrettyThingsDB() {
+        serv.initPrettyThingsDb();
     }
 }
