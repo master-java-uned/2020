@@ -37,7 +37,7 @@ export class AppComponent {
     let that = this;
     this.client.connect({}, function(frame) {
       that.client.subscribe("/topic/updateData", (message) => {
-        // debugger;
+        debugger;
         if(message.body) {
           this.message = message.body;
           ModeloDatosCovid.init(this.message);

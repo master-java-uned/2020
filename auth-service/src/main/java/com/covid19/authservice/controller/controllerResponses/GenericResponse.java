@@ -2,60 +2,63 @@
  * Peter Fight
  * 10/05/2020
  *
- * Clase genérica para devolver un objeto uniforme de respuesta que contenga código de error (0 si no hay error)
- * Mensajes de error en todos los idiomas, más vale que sobre información que no que falte... Y lo que se nos ocurra.
+ * (27/06/2020) All my comments and fucking variables translated
+ * at Victor's good practice accomplishment request)
+ *
+
+ Generic class to return a uniform response object containing error code
+ (0 if there is no error) Error messages in all languages, better than
+ information that is not missing ... And what we can think of.
  */
 
 package com.covid19.authservice.controller.controllerResponses;
 
-import com.covid19.common.validaciones.ErrorValidacion;
-import com.covid19.common.validaciones.Errores;
-import com.covid19.common.validaciones.LocalizedErrores;
+import com.covid19.common.peterFightValidations.ValidationError;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
-import java.util.ResourceBundle;
 
 public class GenericResponse {
 
-    public List<ErrorValidacion> getListadoErrores() {
-        return listadoErrores;
+    public List<ValidationError> getErrorsList() {
+        return errorsList;
     }
 
-    public void setListadoErrores(List<ErrorValidacion> listadoErrores) {
-        this.listadoErrores = listadoErrores;
+    public void setErrorsList(List<ValidationError> errorsList) {
+        this.errorsList = errorsList;
     }
 
-    private List<ErrorValidacion> listadoErrores;
+    private List<ValidationError> errorsList;
 
 
     /**
-     * Respuesta, object mapeable a lo que convenga, que contendrá la respuesta en sí, si no se produce
-     * ningún error
+     Response, object mappable to whatever is convenient, which will contain the
+     response itself, if it does not occur no mistake
      */
-    private Object respuesta;
-    public Object getRespuesta() {
-        return respuesta;
+    private Object response;
+    public Object getResponse() {
+        return response;
     }
 
-    public void setRespuesta(Object respuesta) {
-        this.respuesta = respuesta;
+    public void setResponse(Object response) {
+        this.response = response;
     }
 
 
     /**
-     * Si la respuesta tiene listado de errores, algo ha ido mal y el objeto respuesta vendrá nulo.
-     * Si hay errores, devuelvo el código y todas las traducciones (es gratis), más vale que sobre información
-     * que no que falte, o tener que pasar el locale en la petición, porque quizás luego el cliente traduce
-     * la página y el error no lo podría traducir.
+     If the response has a list of errors, something has gone wrong and the
+     response object will be null. If there are errors, I return the code and
+     all translations (it's free), better than information
+     not that it is missing, or having to pass the locale in the request,
+     because perhaps later the client translates
+     the page and the error could not translate it.
      *
-     * @param respuesta El objeto a devolver (serializable en JSON)
-     * @param codigosError Los códigos de error en su caso. En tal caso monto la respuesta con todos los locales.
+     * @param response The object to return (serializable in JSON)
+     * @param errorCodes The error codes in your case. In such case
+     *                     I mount the answer with all the premises.
      */
-    public GenericResponse(Object respuesta, List<ErrorValidacion> codigosError)
+    public GenericResponse(Object response, List<ValidationError> errorCodes)
     {
-        this.respuesta = respuesta;
-        this.listadoErrores = codigosError;
+        this.response = response;
+        this.errorsList = errorCodes;
     }
 }
