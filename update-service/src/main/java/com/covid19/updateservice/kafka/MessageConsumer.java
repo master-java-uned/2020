@@ -14,9 +14,10 @@ public class MessageConsumer {
     @Autowired
     private SimpMessagingTemplate messagingTemplate;
 
-    @KafkaListener(topics = "${kafka.output.topic}", groupId = "${spring.kafka.consumer.group-id}")
-    public void consumeMessage(String msg) {
-        System.out.println("Message received: " + msg.substring(0,20));
-        messagingTemplate.convertAndSend(stompTopic, msg);
-    }
+//    @KafkaListener(topics = "${kafka.output.topic}", groupId = "${spring.kafka.consumer.group-id}")
+//    public void consumeMessage(String msg) {
+//        System.out.println("Message received: " + msg.substring(0,25));
+////        System.out.println("Message received: " + msg);
+//        messagingTemplate.convertAndSend(stompTopic, msg);
+//    }
 }

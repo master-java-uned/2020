@@ -1,5 +1,5 @@
 package com.covid19.updateservice.service;
 
 public interface PollingService {
-    public String outputMapData();
+    public String outputMapData() throws Exception;
 }

@@ -21,16 +21,17 @@ public class PollingServiceImpl implements PollingService {
         String uri ="https://opendata.ecdc.europa.eu/covid19/casedistribution/json/";
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<Records> response = restTemplate.getForEntity(uri,Records.class);
-        System.out.println("response" + response);
-        if (response.getStatusCode().value() == 200) {
-            countries = response.getBody();
+        try {
+            if (response.getStatusCode().value() == 200) {
+                countries = response.getBody();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 
     public String outputMapData(){
-
         String outputData = new Gson().toJson(countries.getRecords() );
-
         return outputData;
     }
 
