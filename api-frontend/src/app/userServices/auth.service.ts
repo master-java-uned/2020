@@ -66,7 +66,7 @@ export class AuthService {
    */
   async authenticate(authenticationRequest) {
     let p = Promise;
-    return this.httpClient.post('http://127.0.0.1:8080/users/login',//TODO: meter la url por variable global
+    return this.httpClient.post('http://127.0.0.1:8090/users/login',//TODO: meter la url por variable global
       JSON.stringify(authenticationRequest),
       {
         headers: HeadersHelpers.getHeadersANON()
@@ -98,7 +98,7 @@ export class AuthService {
    */
   async registrame_PerFavoooore(user) {
     let p = Promise;
-    return this.httpClient.post('http://127.0.0.1:8080/users/register',//TODO: meter la url por variable global
+    return this.httpClient.post('http://127.0.0.1:8090/users/register',//TODO: meter la url por variable global
       JSON.stringify(user),
       {
         headers: HeadersHelpers.getHeadersANON()

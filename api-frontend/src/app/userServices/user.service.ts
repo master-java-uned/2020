@@ -29,7 +29,7 @@ export class UserService {
    */
   async quienSoy() {
     let p = Promise;
-    return this.httpClient.post('http://127.0.0.1:8080/users/getUser',//TODO: meter la url por variable global
+    return this.httpClient.post('http://127.0.0.1:8090/users/getUser',//TODO: meter la url por variable global
       sessionStorage.getItem('token'),
       {
         headers: HeadersHelpers.getHeadersANON()
@@ -41,7 +41,7 @@ export class UserService {
   async modificaUser(usuario)
   {
     let p = Promise;
-    return this.httpClient.post("http://127.0.0.1:8080/users/modificaUser",
+    return this.httpClient.post("http://127.0.0.1:8090/users/modificaUser",
       JSON.stringify(usuario),
       {
       headers: HeadersHelpers.getHeadersANON()
@@ -53,7 +53,7 @@ export class UserService {
   async clonarOvejitas(cantidad:number)
   {
     let p = Promise;
-    return this.httpClient.post("http://127.0.0.1:8080/users/ovejitasDolly",
+    return this.httpClient.post("http://127.0.0.1:8090/users/ovejitasDolly",
       JSON.stringify(cantidad),
       {
         headers: HeadersHelpers.getHeadersANON()
@@ -65,7 +65,7 @@ export class UserService {
   async getUsersPaged(pageSize:number, indicePage:number)
   {
     let p = Promise;
-    return this.httpClient.get("http://127.0.0.1:8080/users/getUsersPaged?pageSize="+pageSize+"&indicePage="+indicePage,
+    return this.httpClient.get("http://127.0.0.1:8090/users/getUsersPaged?pageSize="+pageSize+"&indicePage="+indicePage,
       {
         headers: HeadersHelpers.getHeadersANON()
       })

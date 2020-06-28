@@ -1,7 +1,10 @@
 /**
  * Peter Fight
  *
- * Servicio para la gestión de usuarios
+ * (27/06/2020) All my comments and variables translated
+ * at Victor's good practice accomplishment request)
+ *
+ * Service for user management
  */
 
 package com.covid19.authservice.service;
@@ -14,14 +17,11 @@ import com.covid19.authservice.model.User;
 import com.covid19.common.exception.DataAccessException;
 import com.covid19.authservice.model.Permission;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
-import org.springframework.data.domain.Pageable;
 import java.util.ArrayList;
 import java.util.List;
 @Service
@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
     RoleDao roleDao;
 
     /**
-     * QUitado el find by username or password, al final busco por uno o por el otro
+     * Removed the find by username or password, at the end I search for one or the other
      * @param email
      * @return
      */
@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     * QUitado el find by username or password, al final busco por uno o por el otro
+     * Removed the find by username or password, at the end I search for one or the other
      * @param username
      * @return
      */
@@ -66,7 +66,7 @@ public class UserServiceImpl implements UserService {
 
 
     /**
-     * TODO: Este método NO SIRVE para paginar
+     * This method is NOT USEFUL for paging
      * @return
      * @throws DataAccessException
      */
@@ -78,16 +78,18 @@ public class UserServiceImpl implements UserService {
 
 
     /**
-     * Peter Fight, guarda un usuario, tiene la excepción genérica para debuggear, una vez debuggeado... Cap problema.
+     * Peter Fight,
+     Save a user, have generic exception to debug,
+     once debugged ... Any problem.
      *
-     * @param usuario
+     * @param user
      * @return
      */
     @Override
-    public User registerUser(User usuario){
+    public User registerUser(User user){
         try {
-            userDao.save(usuario);
-            return usuario;
+            userDao.save(user);
+            return user;
         }
         catch (Exception e)
         {
@@ -100,59 +102,60 @@ public class UserServiceImpl implements UserService {
     /**
      * Peter Fight
      *
-     * Este método lo lanzo cuando arranca la aplicación y me creará todas las tablas que necesitamos,
-     * for example: los roles, los permisos y esas cosas.
+     I throw this method when the application starts and it will create all the
+     tables we need, for example: roles, permissions and stuff.
      *
-     * NO ME MATO MUCHO, ESTO ES PARA QUE ARRANQUE, NO CREO QUE EN PRODUCCIÓN TUVIESEMOS LA BBDD VACÍA,
-     * COMO MUCHO LA TENDRÍAMOS VACÍA LA PRIMERA VEZ Y LUEGO COMENTARÍAMOS LA LLAMADA A ESTE MÉTODO. he dicho.
+     I DON'T KILL MYSELF VERY MUCH, THIS IS TO START IT, I DON'T THINK THAT IN
+     PRODUCTION WE HAD THE EMPTY BBDD, AS MUCH WE WOULD HAVE IT EMPTY THE FIRST
+     TIME AND THEN WE WOULD COMMENT THE CALL TO THIS METHOD. I said.
      */
     @Override
-    public void initCosicasDb(){
-        Permission permisoAdmin = new Permission(Permission.permisosPosibles.ADMIN);
-        Permission permisoUser = new Permission(Permission.permisosPosibles.USER);
-        Role roleAdmin = new Role(Role.rolesPosibles.ADMIN);
-        Role roleUser = new Role(Role.rolesPosibles.ANONIMO);
-        Role roleSuperAdmin = new Role(Role.rolesPosibles.SUPERADMIN);
+    public void initPrettyThingsDb(){
+        Permission adminPermission = new Permission(Permission.AvailablePermissions.ADMIN);
+        Permission userPermission = new Permission(Permission.AvailablePermissions.USER);
+        Role adminRole = new Role(Role.availableRoles.ADMIN);
+        Role userRole = new Role(Role.availableRoles.ANONYMOUS);
+        Role superAdminRole = new Role(Role.availableRoles.SUPERADMIN);
 
         try {
-            if(permissionDao.findByRefId(Permission.permisosPosibles.ADMIN.getId()) == null)
+            if(permissionDao.findByRefId(Permission.AvailablePermissions.ADMIN.getId()) == null)
             {
-                this.permissionDao.save(permisoAdmin);
+                this.permissionDao.save(adminPermission);
             }
-            if(permissionDao.findByRefId(Permission.permisosPosibles.USER.getId()) == null) {
-                this.permissionDao.save(permisoUser);
+            if(permissionDao.findByRefId(Permission.AvailablePermissions.USER.getId()) == null) {
+                this.permissionDao.save(userPermission);
             }
-            if(roleDao.findByRefId(Role.rolesPosibles.ADMIN.getId()) == null)
-            {
-                List<Permission> add = new ArrayList<Permission>();
-                add.add(permisoAdmin);
-                roleAdmin.setPermissions(add);
-                roleDao.save(roleAdmin);
-            }
-            if(roleDao.findByRefId(Role.rolesPosibles.SUPERADMIN.getId()) == null)
+            if(roleDao.findByRefId(Role.availableRoles.ADMIN.getId()) == null)
             {
                 List<Permission> add = new ArrayList<Permission>();
-                add.add(permisoAdmin);
-                roleSuperAdmin.setPermissions(add);
-                roleDao.save(roleSuperAdmin);
+                add.add(adminPermission);
+                adminRole.setPermissions(add);
+                roleDao.save(adminRole);
             }
-            if(roleDao.findByRefId(Role.rolesPosibles.ANONIMO.getId()) == null)
+            if(roleDao.findByRefId(Role.availableRoles.SUPERADMIN.getId()) == null)
             {
                 List<Permission> add = new ArrayList<Permission>();
-                add.add(permisoUser);
-                roleUser.setPermissions(add);
-                roleDao.save(roleUser);
+                add.add(adminPermission);
+                superAdminRole.setPermissions(add);
+                roleDao.save(superAdminRole);
+            }
+            if(roleDao.findByRefId(Role.availableRoles.ANONYMOUS.getId()) == null)
+            {
+                List<Permission> add = new ArrayList<Permission>();
+                add.add(userPermission);
+                userRole.setPermissions(add);
+                roleDao.save(userRole);
             }
 
             if(userDao.findByUsername("admin@admin.com") == null) {
                 /**
-                 * creo un superadmin por defecto
+                 * I create a default superadmin
                  */
                 User superadmin = new User();
                 superadmin.setUsername("admin@admin.com");
                 superadmin.setEmail("admin@admin.com");
                 superadmin.setPassword(BCrypt.hashpw("123456", BCrypt.gensalt(10)));
-                superadmin.setRole(roleSuperAdmin);
+                superadmin.setRole(superAdminRole);
                 userDao.save(superadmin);
             }
         }
@@ -163,13 +166,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User updateUser(User usuario){
-        userDao.save(usuario);
+    public User updateUser(User user){
+        userDao.save(user);
         /**
-         * Y a correr!!!
-         * La vida puede ser maravillosa... Daimiel!!!
+         And to run !!!
+         Life can be wonderful ... Daimiel !!!
          */
-        return usuario;
+        return user;
     }
 
 
@@ -178,8 +181,8 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public Page<User> getUsersPaged(int pageSize, int indicePage){
-        Page<User> users = userDao.findAll(PageRequest.of(indicePage, pageSize));
+    public Page<User> getUsersPaged(int pageSize, int pageIndex){
+        Page<User> users = userDao.findAll(PageRequest.of(pageIndex, pageSize));
         return users;
     }
 }

@@ -1,7 +1,10 @@
 /**
  * Peter Fight
  *
- * Interfaz del servicio para la gestión de usuarios
+ * (27/06/2020) All my comments and variables translated
+ * at Victor's good practice accomplishment request)
+ *
+ * Service interface for user management
  */
 
 package com.covid19.authservice.service;
@@ -22,7 +25,7 @@ public interface UserService {
     public List<User> findUsers() throws DataAccessException;
 
     /**
-     * Este método lo quito, es una guarrada, o le paso mail o username...
+     * I remove this method, it is a dirty one, I send it mail or username ...
      * @param email
      * @return
      * @throws DataAccessException
@@ -31,15 +34,15 @@ public interface UserService {
 
     User findByEmail(String email);
     User findByUsername(String username);
-    User registerUser(User usuario);
+    User registerUser(User user);
 
 
-    void initCosicasDb();
+    void initPrettyThingsDb();
 
 
-    User updateUser(User usuario);
+    User updateUser(User user);
 
 
 
-    Page<User> getUsersPaged(int pageSize, int indicePage);
+    Page<User> getUsersPaged(int pageSize, int pageIndex);
 }

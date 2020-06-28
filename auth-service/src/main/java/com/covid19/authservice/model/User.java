@@ -1,14 +1,18 @@
 /**
  * Víctor
  *
- * Modified by Peter Fight, para el tema de los métodos de validación e incluir la imagen
+ * Modified by Peter Fight
+ *
+ * (27/06/2020) All my comments and variables translated
+ * at Victor's good practice accomplishment request)
+ *
  */
 
 package com.covid19.authservice.model;
 
 import com.covid19.authservice.service.UserService;
 import com.covid19.common.exception.DataAccessException;
-import com.covid19.common.validaciones.Errores;
+import com.covid19.common.peterFightValidations.peterFightErrors;
 import org.neo4j.ogm.annotation.GeneratedValue;
 import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
@@ -168,30 +172,31 @@ public class User extends DataAccessException  implements Cloneable {
 
 
     /**
-     * Le paso el userService en el validate para comprobar que el username no esté pillado por nadie.
-     * Estaría guay que el username fuese el mail o el dni... pero somos tan guais que no lo facemos.
+     I pass the userService in the validate to verify that the username is
+     not caught by anyone. It would be cool if the username was the mail
+     or the ID ... but we are so cool that we do not face it.
      * @param userService
      * @return
      */
     public List<Integer> validate(UserService userService) throws DataAccessException {
         /**
-         * capturar luego el código de error con esto
+         * then catch the error code with this
          */
-       List<Integer> respuestaValidacion = new ArrayList<Integer>();
+       List<Integer> validationResponse = new ArrayList<Integer>();
         if(this.getFirstName() == null || this.getFirstName().length() == 0)
         {
-            respuestaValidacion.add(Errores.CODIGOS.NOMBRE_INCORRECTO.getId());//Nombre incorrecto
+            validationResponse.add(peterFightErrors.CODES.INCORRECT_NAME.getId());//Nombre incorrecto
         }
         if(this.getLastName() == null || this.getLastName().length() == 0)
         {
-            respuestaValidacion.add(Errores.CODIGOS.APELLIDO_INCORRECTO.getId());
+            validationResponse.add(peterFightErrors.CODES.INCORRECT_SURNAME.getId());
         }
         if(this.getPassword() == null || this.getPassword().length() == 0)
         {
-            respuestaValidacion.add(Errores.CODIGOS.FALTA_PASSWORD.getId());
+            validationResponse.add(peterFightErrors.CODES.PASSWORD_MISSING.getId());
         }
         if(this.getEmail() == null || this.getEmail().length() == 0){
-            respuestaValidacion.add(Errores.CODIGOS.FALTA_EMAIL.getId());
+            validationResponse.add(peterFightErrors.CODES.EMAIL_MISSING.getId());
         }
         else {
             String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." +
@@ -202,47 +207,47 @@ public class User extends DataAccessException  implements Cloneable {
             Pattern pat = Pattern.compile(emailRegex);
             if(!pat.matcher(email).matches()){
                 //No es un email válido
-                respuestaValidacion.add(Errores.CODIGOS.EMAIL_INCORRECTO.getId());
+                validationResponse.add(peterFightErrors.CODES.INCORRECT_EMAIL.getId());
             }
         }
         /**
-         * Compruebo que el username no esté pillado
+         * I check that the username is not caught
          */
         User usuario = userService.findByUsername(this.getUsername().toLowerCase());
         if(usuario != null)
         {
             //Catapuuumba, el username está pillado. Fuck you!
-            respuestaValidacion.add(Errores.CODIGOS.USERNAME_YA_PILLADO.getId());
+            validationResponse.add(peterFightErrors.CODES.USERNAME_ALREADY_TAKEN.getId());
         }
 
-        return respuestaValidacion;
+        return validationResponse;
     }
 
 
 
     /**
-     * Validación para cuando se trata de modificar un usuario
-     *
-     * No compruebo ni que el username esté pillado (obviamente lo está si estamos modificando)
-     * ni compruebo que lleve el password. Si no lo está modificando el campo no vendrá relleno.
+     Validation for when it comes to modifying a user
+
+     I do not even check that the username is caught (obviously it is if we are modifying)
+     nor do I verify that it carries the password. If you are not modifying it the field will not come filled.
      * @param userService
      * @return
      */
     public List<Integer> validateForModify(UserService userService) throws DataAccessException {
         /**
-         * capturar luego el código de error con esto
+         * Then catch the error code with this
          */
-        List<Integer> respuestaValidacion = new ArrayList<Integer>();
+        List<Integer> validationResponse = new ArrayList<Integer>();
         if(this.getFirstName() == null || this.getFirstName().length() == 0)
         {
-            respuestaValidacion.add(Errores.CODIGOS.NOMBRE_INCORRECTO.getId());//Nombre incorrecto
+            validationResponse.add(peterFightErrors.CODES.INCORRECT_NAME.getId());//Nombre incorrecto
         }
         if(this.getLastName() == null || this.getLastName().length() == 0)
         {
-            respuestaValidacion.add(Errores.CODIGOS.APELLIDO_INCORRECTO.getId());
+            validationResponse.add(peterFightErrors.CODES.INCORRECT_SURNAME.getId());
         }
         if(this.getEmail() == null || this.getEmail().length() == 0){
-            respuestaValidacion.add(Errores.CODIGOS.FALTA_EMAIL.getId());
+            validationResponse.add(peterFightErrors.CODES.EMAIL_MISSING.getId());
         }
         else {
             String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." +
@@ -252,12 +257,12 @@ public class User extends DataAccessException  implements Cloneable {
 
             Pattern pat = Pattern.compile(emailRegex);
             if(!pat.matcher(email).matches()){
-                //No es un email válido
-                respuestaValidacion.add(Errores.CODIGOS.EMAIL_INCORRECTO.getId());
+                //It's not a valid email
+                validationResponse.add(peterFightErrors.CODES.INCORRECT_EMAIL.getId());
             }
         }
 
-        return respuestaValidacion;
+        return validationResponse;
     }
 
 
@@ -266,10 +271,10 @@ public class User extends DataAccessException  implements Cloneable {
     public User clone() throws
             CloneNotSupportedException
     {
-        User ovejitaClonada = (User)super.clone();
-        //No vayamos a liarla en la base de datos.
-        ovejitaClonada.setId(null);
-        return ovejitaClonada;
+        User clonedSheep = (User)super.clone();
+        // Let's not mess it up in the database.
+        clonedSheep.setId(null);
+        return clonedSheep;
     }
 
 }

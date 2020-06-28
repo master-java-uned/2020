@@ -57,7 +57,7 @@
     "rxjs": "~6.5.5",
     "sockjs-client": "^1.4.0",
     "stompjs": "^2.3.3",
-    "sweetalert": "~2.1.2",
+    "sweetalert2": "^9.15.2",
     "ts-loader": "^7.0.5",
     "vm": "^0.1.0",
     "web-animations-js": "^2.3.1",

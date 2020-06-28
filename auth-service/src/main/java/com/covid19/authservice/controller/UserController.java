@@ -1,7 +1,11 @@
 /**
  * Peter Fight
  *
- * Controlador al que llaman los métodos del front de angular.
+ * (27/06/2020) All my comments and variables translated
+ * at Victor's good practice accomplishment request)
+ *
+ * Controller that is called by the angular front methods.
+ *
  */
 
 package com.covid19.authservice.controller;
@@ -13,19 +17,16 @@ import com.covid19.authservice.model.Role;
 import com.covid19.authservice.model.User;
 import com.covid19.authservice.service.JwtUserDetailsService;
 import com.covid19.authservice.service.UserService;
-import com.covid19.authservice.service.UserServiceImpl;
 import com.covid19.common.exception.DataAccessException;
 import com.covid19.common.exception.UnAuthorizedAccessException;
-import com.covid19.common.exception.ValidationException;
-import com.covid19.common.validaciones.Errores;
+import com.covid19.common.exception.PeterFightValidationException;
+import com.covid19.common.peterFightValidations.peterFightErrors;
 import net.minidev.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
 //import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
@@ -37,7 +38,6 @@ import org.springframework.web.bind.annotation.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -65,7 +65,7 @@ public class UserController {
 
     /**
      * Víctor -> TODO: documentame
-     * amos... que devuelve un tokata con el user encriptado...
+     * ... it returns a tokata with the encrypted user ...
      * @param authenticationRequest
      * @return
      * @throws Exception
@@ -79,18 +79,19 @@ public class UserController {
         accessToken.put("token", token);
 
         /**
-         * Peter fight, le digo que devuelva el rolId para que lo gestione el front, si alguien hackear el
-         * session storage del cliente, luego no le funcionarán los métodos del server, así que no problem.
+         I tell it to return the rolId to be managed by the front, if someone hack the
+         session storage of the client, then the server methods will not work, so no problem.
          *
          */
-        accessToken.put("rolId", userDetails.getAuthorities().stream().findFirst().get().getAuthority());//Y chinpún
+        accessToken.put("rolId", userDetails.getAuthorities().stream().findFirst().get().getAuthority());
+        //And chinpún
 
         return ResponseEntity.ok(accessToken);
     }
 
     /**
      * Víctor -> TODO: documentar
-     * ...amos, que llama al authenticationmanager
+     * ...amos, calls the authenticationmanager
      * @param userName
      * @param password
      * @throws Exception
@@ -110,8 +111,9 @@ public class UserController {
     }
 
     /**
-     * Esto no mola, cuando tengamos 100003293247938923 usuarios (pongamos al cabo de un mes), la app casca
-     * fijo y tenemos a toda la comunidad de los batas-blancas en contra alzando auscultadores a modo de látigo
+     This is not cool, when we have 100003293247938923 users (say after a month),
+     the casca app fixed and we have the whole community of the white coats
+     against raising auscultators as a whip
      * @return
      * @throws DataAccessException
      */
@@ -124,7 +126,9 @@ public class UserController {
     /**
      * Made by PeterFight
      *
-     * Registro al user, le paso el user en JSON y a funcionar. Léanse los comentarios para conocer los detalles
+     *
+     I register the user, I pass the user in JSON and it will work.
+     Read comments for details
      *
      * @param userToRegister
      * @return
@@ -134,46 +138,46 @@ public class UserController {
             , consumes = MediaType.APPLICATION_JSON_VALUE
             , produces = MediaType.APPLICATION_JSON_VALUE)
     public GenericResponse registerUser(@RequestBody User userToRegister) throws Exception {
-        List<Integer> resultadoValidacion = userToRegister.validate(userService);
+        List<Integer> validationResult = userToRegister.validate(userService);
         try {
-            if (resultadoValidacion.size() > 0) {
+            if (validationResult.size() > 0) {
                 /**
-                 * ATENCIÓN! el usuario es tonto y puede hacernos quedar mal. A saco con él.
+                 * ATTENTION! the user is stupid and can make us look bad. A sack with him.
                  */
-                throw new ValidationException(resultadoValidacion);
+                throw new PeterFightValidationException(validationResult);
             } else {
                 /**
-                 * Validación ok, registro al usuario
-                 * 3... -> Tres puntos suspensivos porque sí.
-                 * 2.. -> Dos puntos porque es el dos.
-                 * 1. -> Un punto porque es el uno,
-                 * ...VAMOOOOS!!! --> Seguro que no funciona a la primera, palabrita.
+                 Validation ok, user registration
+                 3 ... -> Three ellipsis for yes.
+                 2 .. -> Two points because it is two.
+                 1. -> A point because it is the one,
+                 ... VAMOOOOS !!! -> It sure doesn't work the first time, little word.
                  */
-                //por defecto lo meto con el rol anónimo
-                userToRegister.setRole(roleDao.findByRefId(Role.rolesPosibles.ADMIN.getId()));
-                //Establezco el username y el mail en minúsculas para normalizar
+                //by default I put it with the anonymous role
+                userToRegister.setRole(roleDao.findByRefId(Role.availableRoles.ADMIN.getId()));
+                //I set username and mail to lowercase to normalize
                 userToRegister.setUsername(userToRegister.getUsername().toLowerCase());
                 userToRegister.setEmail(userToRegister.getUsername().toLowerCase());
-                User usuarioInsertado = userService.registerUser(userToRegister);
-                if (usuarioInsertado == null) {
+                User insertedUser = userService.registerUser(userToRegister);
+                if (insertedUser == null) {
                     /**
-                     * Si llega aquí el tonto soy yo, pero lo meto como validationException para echar
-                     * balones fuera... Los eternos becarios semos asín. Queremos más dinero!!!!
+                     If the fool arrives here it is me, but I put it as a validationException
+                     to throw balls out ... The eternal fellows are asin. We want more money !!!!
                      */
-                    throw new ValidationException(
-                            new ArrayList<> //single line instanciación in Java style's
-                                    (Arrays.asList(Errores.CODIGOS.ERROR_INSERTAR_USER.getId())));
+                    throw new PeterFightValidationException(
+                            new ArrayList<> //single line instantiation in Java style's
+                                    (Arrays.asList(peterFightErrors.CODES.ERROR_INSERTING_USER.getId())));
                 } else {
-                    return getSalidaServicio(new GenericResponse(true, null));
+                    return getServiceOutput(new GenericResponse(true, null));
                 }
             }
-        } catch (ValidationException e) {
-            return getSalidaServicio(new GenericResponse(null, e.getLocalizedErrores()));
+        } catch (PeterFightValidationException e) {
+            return getServiceOutput(new GenericResponse(null, e.getLocalizedErrors()));
         }
         catch(Exception e)
         {
             e.printStackTrace();
-            return getSalidaServicio(new GenericResponse(
+            return getServiceOutput(new GenericResponse(
                     null,  null));
         }
         finally {
@@ -186,38 +190,39 @@ public class UserController {
      *
      * Made by PeterFight
      *
-     * Para probar los listados de usuarios y para dar más porte a la bbdd, creo este método que clona
-     * el usuario en cuestión tantas veces como nos indique. Esto mola para cuando vayamos a jugar con
-     * los listados de usuarios.
+     To test the user lists and to give more weight to the bbdd, I create this
+     method that clones the user in question as many times as indicated.
+     çThis is cool when we go play with user listings.
      *
-     * @param tokata el tokata devuelto al logarse
-     * @param cantidadOvejitas la cantidad de ovejitas a añadir
+     * @param sheepNumber the amount of sheep to add
      * @return GenericResponse
-     * @throws Exception no throws nada, y punto.
+     * @throws Exception throws anything, and dot.
      */
     @RequestMapping(value = "/ovejitasDolly", method = RequestMethod.POST)
-    public GenericResponse ovejitasDolly(@RequestBody int cantidadOvejitas) throws Exception {
+    public GenericResponse dollySheeps(@RequestBody int sheepNumber) throws Exception {
         /**
-         * Ni try ni leches, yo no fallo, soy una mente regida (y rigída) por las matemáticas discretas!!!
+         * Neither try nor milk, I do not fail, I am a mind governed (and rigid)
+         * by discrete mathematics !!!
          */
         String usernamekata = getUsernamekataFromTokata("");
-        //Saco el username del tokata y encuentro el user
-        User ovejitaDolly = userService.findByUsername(usernamekata);
+        //I remove the username from the tokata and find the user
+        User dollySheeps = userService.findByUsername(usernamekata);
         //Para tantas veces como se desee, clono una ovejita
-        for(int i = 0; i < cantidadOvejitas; i++)
+        for(int i = 0; i < sheepNumber; i++)
         {
-            User ovejita = ovejitaDolly.clone();
-            ovejita.setUsername(String.format("%s_clonNumber%d",ovejitaDolly.getUsername(),i));
-            userService.registerUser(ovejita);
+            User sheep = dollySheeps.clone();
+            sheep.setUsername(String.format("%s_clonNumber%d",dollySheeps.getUsername(),i));
+            userService.registerUser(sheep);
         }
-        return getSalidaServicio(new GenericResponse(true, null));
+        return getServiceOutput(new GenericResponse(true, null));
     }
 
 
     /**
      * Peter Fight
      *
-     * Método para usar en aquellos endpoints que menejan tokata
+     * Method to use in those endpoints that handle tokata
+     *
      */
     private String getUsernamekataFromTokata(String tokata)
     {
@@ -228,9 +233,9 @@ public class UserController {
         {
             throw new UnAuthorizedAccessException();
             /**
-             * Yo lanzo esto, si existe supongo que funciona, si no funciona... cabeza bajo el ala. No doy
-             * soporte a código que no es mío cuando voy mal de tiempo. En cualquier caso controlo el error
-             * a continuación.
+             I throw this, if it exists I suppose it works, if it doesn't work ...
+             head under the wing. I do not give I support code that is not mine
+             when I run out of time. In any case I control the error then.
              */
         }
         return ((UserDetails)jwtUser).getUsername();
@@ -242,9 +247,9 @@ public class UserController {
     /**
      * Peter Fight
      *
-     * Pfua nen!! estoy picando más código que en el trabajo... Ahora resulta que necesitamos un método
-     * que devuelva información del usuario... y todavía no he cobrado NADA! Óstia!!!!
-     * @param tokata
+     Pfua nen !! I'm chopping more code than at work ... Now it turns out we need
+     a method to return user information ... and I still haven't charged ANYTHING!
+     Ostia !!!!
      * @return
      * @throws Exception
      */
@@ -252,37 +257,41 @@ public class UserController {
     public GenericResponse getUser(@RequestBody String tokata) throws Exception {
         String usernamekata = getUsernamekataFromTokata(tokata);
         try {
-            User usuarioEnLiza = userService.findByUsername(usernamekata);
-            if (usuarioEnLiza == null) {
+            User user = userService.findByUsername(usernamekata);
+            if (user == null) {
                 /**
-                 * Houston, tenemos un problema, deberíamos haber devuelto una excepción 401 pero sin embargo
-                 * aquí estamos... con el Challenger despegado y expulsando fuego por la popa...
+                 Houston, we have a problem, we should have returned a 401
+                 exception but nevertheless here we are ... with the Challenger
+                 taking off and expelling fire from the stern ...
                  */
-                throw new ValidationException(
-                        new ArrayList<> //single line instanciación in Java style's. Qué poco me gusta JAVA.
-                                (Arrays.asList(Errores.CODIGOS.ERROR_INEXPLICABLE.getId())));
+                throw new PeterFightValidationException(
+                        new ArrayList<> //single line instantiation in Java style's.
+                                // How little I like JAVA.
+                                (Arrays.asList(peterFightErrors.CODES.UNEXPECTED_ERROR.getId())));
             }
 
             /**
-             * Vale, vamos guay, he sacado el user.
-             * devuelvo everything, password incluido... Vamos a ver, neurótico, si el password está
-             * hashcodeado, te reto a que lo desencriptes... Y todavía más, a que desencriptes el password
-             * que nadie te ha devuelto porque no te has logado. Qué rabia me da la gente insegura de las
-             * ñapas... CUANDO EL MUNDO EN SÍ MISMO ES <<LA ÑAPA UNIVERSAL>>... he dicho. Y no me hagas
-             * picar más código sin sentido, leñe... Bueno, lo borro de la respuesta porque soy un esclavo
-             * del imperio.
+             Ok, come on, cool, I got the user out.
+             I return everything, password included ... Let's see, neurotic,
+             if the password is hashcodeado, I challenge you to decrypt it ...
+             And even more, to decrypt the password that nobody has returned you
+             because you have not logged in. What rage do people unsure of
+             ñapas ... WHEN THE WORLD ITSELF IS << THE UNIVERSAL MAP >> ...
+             I said. And don't make me chop more nonsense code, read ...
+             Well, I delete it from the answer because I'm a slave
+             Empire.
              */
-            usuarioEnLiza.setPassword("PASSWORDS_EN_OFERTA -> passwordSuperSecretoHechoPúblico!");
-            return getSalidaServicio(new GenericResponse(usuarioEnLiza, null));
-            //y a funcionar!!
+            user.setPassword("PASSWORDS_EN_OFERTA -> passwordSuperSecretoHechoPúblico!");
+            return getServiceOutput(new GenericResponse(user, null));
+            //and to work !!
         }
-        catch (ValidationException e) {
-            return getSalidaServicio(new GenericResponse(null, e.getLocalizedErrores()));
+        catch (PeterFightValidationException e) {
+            return getServiceOutput(new GenericResponse(null, e.getLocalizedErrors()));
         }
         catch(Exception e)
         {
             e.printStackTrace();
-            return getSalidaServicio(new GenericResponse(
+            return getServiceOutput(new GenericResponse(
                     null,  null));
         }
         finally {
@@ -299,12 +308,11 @@ public class UserController {
     /**
      * Made by PeterFight
      *
-     * Método para modificar un user. Le paso el tokata y el user a modificar... a partir de ahí, si el
-     * user es válido y el user a modificar es el mismo del tokata:
-     *      Modifico al user.
-     *      Si el campo password me viene lleno, modifico el password.
+     Method to modify a user. I pass the tokata and the user to modify ... from there, if the
+     user is valid and the user to modify is the same as the tokata:
+     I modify the user.
+     If the password field comes full, I modify the password.
      *
-     * @param tokata
      * @param userToModify
      * @return
      * @throws Exception
@@ -316,61 +324,65 @@ public class UserController {
         String usernamekata = getUsernamekataFromTokata("");
 
 
-        List<Integer> resultadoValidacion = userToModify.validateForModify(userService);
+        List<Integer> validationResult = userToModify.validateForModify(userService);
         try {
-            if (resultadoValidacion.size() > 0) {
+            if (validationResult.size() > 0) {
                 /**
-                 * ATENCIÓN! el usuario es tonto y puede hacernos quedar mal. A saco con él.
+                 * ATTENTION! the user is stupid and can make us look bad. A sack with him.
                  */
-                throw new ValidationException(resultadoValidacion);
+                throw new PeterFightValidationException(validationResult);
             } else {
                 /**
-                 * Validación ok, modifico el usuario
+                 * Validation ok, I modify the user
                  */
-                User usuarioEnLiza = userService.findByUsername(usernamekata);
-                if (usuarioEnLiza == null) {
+                User user = userService.findByUsername(usernamekata);
+                if (user == null) {
                     /**
-                     * Houston, tenemos un problema, deberíamos haber devuelto una excepción 401 pero sin embargo
-                     * aquí estamos... con el Challenger despegado y expulsando fuego por la popa...
+
+                     Houston, we have a problem, we should have returned a
+                     401 exception but nevertheless here we are ... with the
+                     Challenger taking off and expelling fire from the stern ...
                      */
-                    throw new ValidationException(
-                            new ArrayList<> //single line instanciación in Java style's. Qué poco me gusta JAVA.
-                                    (Arrays.asList(Errores.CODIGOS.ERROR_INEXPLICABLE.getId())));
+                    throw new PeterFightValidationException(
+                            new ArrayList<> //single line instantiation in Java style's.
+                                    // How little I like JAVA.
+                                    (Arrays.asList(peterFightErrors.CODES.UNEXPECTED_ERROR.getId())));
                 }
                 /**
-                 * Mapeo los campos que quiero modificar
+                 * I map the fields that I want to modify
                  */
-                usuarioEnLiza.setImageBase64(userToModify.getImageBase64());
-                usuarioEnLiza.setEmail(userToModify.getEmail());
-                usuarioEnLiza.setFirstName(userToModify.getFirstName());
-                usuarioEnLiza.setLastName(userToModify.getLastName());
+                user.setImageBase64(userToModify.getImageBase64());
+                user.setEmail(userToModify.getEmail());
+                user.setFirstName(userToModify.getFirstName());
+                user.setLastName(userToModify.getLastName());
 
                 if(userToModify.getPassword().length() > 0)
                 {
-                    //Si el campo password me viene lleno lo modifico
-                    usuarioEnLiza.setPassword(userToModify.getPassword());
+                    //If the password field comes full, I modify it
+                    user.setPassword(userToModify.getPassword());
                 }
 
-                User usuarioModificado = userService.updateUser(usuarioEnLiza);
-                if (usuarioModificado == null) {
+                User modifiedUser = userService.updateUser(user);
+                if (modifiedUser == null) {
                     /**
-                     * Si llega aquí el tonto soy yo, pero lo meto como validationException para echar
-                     * balones fuera... Los eternos becarios semos asín. Queremos más dinero!!!!
+                     If the fool arrives here it is me, but I put it as a
+                     validationException to throw balls out ... The eternal
+                     fellows are asin. We want more money !!!!
                      */
-                    throw new ValidationException(
-                            new ArrayList<> //single line instanciación in Java style's
-                                    (Arrays.asList(Errores.CODIGOS.ERROR_MODIFICAR_USER.getId())));
+                    throw new PeterFightValidationException(
+                            new ArrayList<> //single line instantiation in Java style's
+                                    (Arrays.asList(peterFightErrors.CODES.ERROR_MODIFYING_USER.getId())));
                 } else {
-                    return getSalidaServicio(new GenericResponse(usuarioModificado, null));
+                    return getServiceOutput(new GenericResponse(modifiedUser, null));
                 }
             }
-        } catch (ValidationException e) {
-            return getSalidaServicio(new GenericResponse(null, e.getLocalizedErrores()));
+        } catch (PeterFightValidationException e) {
+            return getServiceOutput(new GenericResponse(null, e.getLocalizedErrors()));
         }
         catch(Exception e)
         {
             e.printStackTrace();
-            return getSalidaServicio(new GenericResponse(
+            return getServiceOutput(new GenericResponse(
                     null,  null));
         }
         finally {
@@ -389,17 +401,17 @@ public class UserController {
     @RequestMapping(value = "/getUsersPaged", method = RequestMethod.GET
 //            , consumes = MediaType.APPLICATION_JSON_VALUE
             , produces = MediaType.APPLICATION_JSON_VALUE)
-    public GenericResponse getUsersPaged(@RequestParam int pageSize, int indicePage) throws Exception {
+    public GenericResponse getUsersPaged(@RequestParam int pageSize, int pageIndex) throws Exception {
         String usernamekata = getUsernamekataFromTokata("");
         try{
-            Page<User> users = userService.getUsersPaged(pageSize,indicePage);
-            return getSalidaServicio(new GenericResponse(
+            Page<User> users = userService.getUsersPaged(pageSize,pageIndex);
+            return getServiceOutput(new GenericResponse(
                     users,  null));
         }
         catch(Exception e)
         {
             e.printStackTrace();
-            return getSalidaServicio(new GenericResponse(
+            return getServiceOutput(new GenericResponse(
                     null,  null));
         }
     }
@@ -410,13 +422,13 @@ public class UserController {
 
 
     @RequestMapping(value = "/getJson", method = RequestMethod.GET
-//            , consumes = MediaType.APPLICATION_JSON_VALUE
             , produces = MediaType.APPLICATION_JSON_VALUE)
     /**
-     * Meter la variable en cache para ahorrar tiempo.
-     *
-     * USO JCABI por facilidad de uso (recargo cada 1 hora). Funcionar funciona pero sigue tardando
-     * más que antes, supongo que por el tamaño del JSON que hay que descargarlo.
+     Caching the variable to save time.
+
+     USE JCABI for ease of use (surcharge every 1 hour). Working works but still
+     taking more than before, I suppose that due to the size of the JSON that
+     must be downloaded.
      */
     @Cacheable(lifetime = 1, unit = TimeUnit.HOURS)
     public String getJson() throws Exception {
@@ -437,16 +449,18 @@ public class UserController {
     /**
      * Made by Peter Fight
      *
-     * Este método lo creo por si tenemos que meter logs en un futuro. No, per favooore. Eso es propio
-     * de empresas millonarias, de la casta... no de cárnicas como Diós manda. Aquí hemos venido a sufrir!!!
-     *
-     * @param res la respuesta (aunque te sorprenda)
-     * @return GenericResponse -> Contiene un objeto Object muy molón porque admite lo que le echemos,
-     * es una mula de carga muy bonachona. También devuelve el listado de errores con las traducciones
-     * a todos los idiomas con los que trabajamos... si la variable errores viene lleno no mola :(
+
+     I create this method in case we have to enter logs in the future. No, please. That's own
+     of millionaire companies, of the caste ... not of meat like God commands. Here we have come to suffer !!!
+
+     * @param res the answer (even if it surprises you)
+     * @return GenericResponse -> It contains a very cool Object because it
+     * supports what we throw at it, It is a very good-natured pack mule.
+     * It also returns the list of errors with translations to all the languages
+     * ​​we work with ... if the error variable is full it doesn't cool :(
      */
-    private GenericResponse getSalidaServicio(GenericResponse res) {
-        //Aquí loggeo lo que haga falta
+    private GenericResponse getServiceOutput(GenericResponse res) {
+        //Here I log what it takes
         return res;
     }
 }

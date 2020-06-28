@@ -1,8 +1,11 @@
 /**
  * Peter Fight
  *
- * Creo la clase abstracta para poder implementar sólo el método de la interfaz que me interesa y no todos
- * los métodos que sería una liada gorda.
+ * (27/06/2020) All my comments and variables translated
+ * at Victor's good practice accomplishment request)
+ *
+ I create the abstract class so that I can implement only the interface method
+ that interests me and not all the methods that would be a fat bundle.
  */
 
 package com.covid19.authservice.dao.Permission;
@@ -16,10 +19,11 @@ import java.util.stream.Collectors;
 public abstract class PermissionDaoImpl  implements PermissionDao {
 
     /**
-     * Este find sirve para los permisos porque son pocos. Si tuviese que lanzar consultas Cypher con
-     * where no serviría porque primero cargo todos los datos y luego filtro. Las consultas a saco paco
-     * están hechas en el proyecto "made by me" que no fructificó y que están en la rama del máster que murió
-     * @return
+     This find is used for permissions because they are few. If I had to launch
+     Cypher queries with where would not work because first I load all the data
+     and then filter. Consultations to saco paco they are made in the "made by me"
+     project that did not bear fruit and are in the branch of the master who died
+      @return
      */
     @Override
     public Permission findByRefId(Long refId) {

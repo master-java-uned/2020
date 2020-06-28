@@ -1,8 +1,12 @@
 /**
  * Peter fight
  *
- * aquí había dos campos string user y admin. Mi no entiende... será un campo nombre permiso y luego
- * ya si eso si es admin o user... Yo manoseo y ya.
+ * (27/06/2020) All my comments and variables translated
+ * at Victor's good practice accomplishment request)
+ *
+ Here were two string user and admin fields. My does not understand ...
+ it will be a field name permission and then Now if that is admin or user ...
+ I grope and go.
  */
 
 
@@ -16,15 +20,16 @@ import org.neo4j.ogm.annotation.NodeEntity;
 @NodeEntity
 public class Permission  extends DataAccessException {
     /**
-     * Le meto un enum de los posibles. Para mí no tenía sentido tener dos variables user y admin en permisos,
-     * no pillo de qué va el rollo, y me he puesto muy nervioso... Óstia!! así que lo hago My Waaaaaay!!!
-     * New York, New Yooork!!!
+     I put an enum of the possible ones. It didn't make sense to me to have
+     two variables user and admin in permissions, I do not catch what the roll
+     is about, and I have become very nervous ... Ostia !! so I do it My Waaaaaay !!!
+     New York, New Yooork !!!
      */
-    public static enum permisosPosibles{
+    public static enum AvailablePermissions {
         USER (new Long(1)),
         ADMIN (new Long(2));
         private final Long value;
-        permisosPosibles(Long i) {
+        AvailablePermissions(Long i) {
             this.value = i;
         }
         public Long getId(){
@@ -33,12 +38,12 @@ public class Permission  extends DataAccessException {
     }
 
     /**
-     * Si no pillas que hago aquí, a estudiar POO!!!
+     * If you don't get what I do here, to study POO !!!
      * @param permisoConcreto
      */
-    public Permission(permisosPosibles permisoConcreto)
+    public Permission(AvailablePermissions permisoConcreto)
     {
-        this.permisoName = permisoConcreto.name();
+        this.permissionName = permisoConcreto.name();
         this.refId = permisoConcreto.value;
     }
 
@@ -47,14 +52,14 @@ public class Permission  extends DataAccessException {
     /**
      * SECCIÓN VARIABLES Y OTRAS PARIDETAS AL USO
      */
-    public Permission(){}//Constructor por defecto, para las cosas de las entidades
+    public Permission(){}//// If you don't get what I do here, to study POO !!!
 
-    public String getPermisoName() {
-        return permisoName;
+    public String getPermissionName() {
+        return permissionName;
     }
 
-    public void setPermisoName(String permisoName) {
-        this.permisoName = permisoName;
+    public void setPermissionName(String permissionName) {
+        this.permissionName = permissionName;
     }
 
     public Long getId() {
@@ -65,7 +70,7 @@ public class Permission  extends DataAccessException {
         this.id = id;
     }
 
-    public String permisoName;
+    public String permissionName;
 
     public Long getRefId() {
         return refId;
