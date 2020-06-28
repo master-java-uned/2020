@@ -1,2 +1,0 @@
-[2020-06-17 17:02:57,234] WARN Unable to read additional data from client sessionid 0x10003961bfd0004, likely client has closed socket (org.apache.zookeeper.server.NIOServerCnxn)
-[2020-06-17 17:03:12,220] WARN fsync-ing the write ahead log in SyncThread:0 took 2054ms which will adversely effect operation latency. File size is 67108880 bytes. See the ZooKeeper troubleshooting guide (org.apache.zookeeper.server.persistence.FileTxnLog)
