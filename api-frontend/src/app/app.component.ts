@@ -2,12 +2,10 @@ import { Component } from '@angular/core';
 import {DomSanitizer, SafeUrl, Title} from '@angular/platform-browser';
 import * as Stomp from 'stompjs';
 import * as SockJS from 'sockjs-client';
-
 import {HttpClient} from "@angular/common/http";
 
 import {ModeloDatosCovid} from "./models/ModeloDatosCovid";
-import {HeadersHelpers} from "./app_code/viewsUtils/HeadersHelpers";
-import {$} from 'protractor';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -35,9 +33,9 @@ export class AppComponent {
     let ws = new SockJS(this.url);
     this.client = Stomp.over(ws);
     let that = this;
-    this.client.connect({}, function(frame) {
-      that.client.subscribe("/topic/updateData", (message) => {
-        // debugger;
+    that.client.connect({}, function(frame) {
+      that.client.subscribe('/topic/updateData',  (message) => {
+        console.log(message.body)
         if(message.body) {
           this.message = message.body;
           ModeloDatosCovid.init(this.message);

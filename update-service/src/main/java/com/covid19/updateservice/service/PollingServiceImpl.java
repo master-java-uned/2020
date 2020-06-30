@@ -16,18 +16,15 @@ public class PollingServiceImpl implements PollingService {
 
     private Records countries = new Records();
 
-    @Scheduled (fixedDelay = 60000)
+    @Scheduled (fixedDelay = 30000)
     public void run(){
         String uri ="https://opendata.ecdc.europa.eu/covid19/casedistribution/json/";
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<Records> response = restTemplate.getForEntity(uri,Records.class);
-        try {
             if (response.getStatusCode().value() == 200) {
                 countries = response.getBody();
             }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+
     }
 
     public String outputMapData(){

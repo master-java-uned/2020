@@ -43,7 +43,9 @@ google es esta cosa. Meter angularUniversal es algo a contemplar... pero no ahor
       // not every request
       restartOnRequestAfter: false
     }
-    var global = window;
+    if (global === undefined) {
+        var global = window;
+    }
   </script>
 <!--  ESTAS IMPORTACIONES DE AQUÍ SOBRAN, PERO PARA EVITAR LIARLA LAS DEJO POR SI ACASO-->
   <script src="assets/js/jquery-jvectormap-2.0.5.min.js"></script>

@@ -22,7 +22,7 @@ public class MessageProducer {
 
     private String count= "fistAccess";
 
-    @Scheduled(cron = "0/30 * * * * ?")
+    @Scheduled(cron = "* 0/1 * * * ?")
     public void initProduce() throws Exception {
         String msg = pollingService.outputMapData();
         System.out.println("****************************** count" + count);
@@ -34,13 +34,14 @@ public class MessageProducer {
         if (msg.equals(null)  || msg .equals("undefined") || msg.equals("[]"))  {
 //            kafkaTemplate.send(kafkaInputMapData, "[{}]");
             System.out.println("error");
+            count= "fistAccess";
         }
     }
 
     @Scheduled(cron = "* * 0/12 * * ?")
     public void produce() throws Exception {
         String msg = pollingService.outputMapData();
-        if( !msg.equals(null)  || !msg .equals("undefined"))
+        if( !msg.equals(null)  && !msg .equals("undefined") && !msg.equals("[]"))
             kafkaTemplate.send(kafkaInputMapData, msg);
     }
 
