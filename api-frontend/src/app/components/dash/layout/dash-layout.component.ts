@@ -15,10 +15,11 @@ import {alertas} from "../../../app_code/viewsUtils/Alertas";
   selector: 'app-usuarios',
   templateUrl: './dash-layout.component.html',
   styleUrls: [
-    "../../../../assets/css/bootstrap.min.css",
-    "../../../../assets/css/nunitoFontGoogle.css",
-    "../../../../assets/css/audiowidefont.css",
-    './dash-layout.component.css'],
+    // "../../../../assets/css/bootstrap.min.css",
+    // "../../../../assets/css/nunitoFontGoogle.css",
+    // "../../../../assets/css/audiowidefont.css",
+    // './dash-layout.component.css'
+  ],
   encapsulation: ViewEncapsulation.None,
 })
 export class DashLayoutComponent extends BaseLayout implements OnInit {

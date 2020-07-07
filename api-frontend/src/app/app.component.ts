@@ -40,7 +40,12 @@ export class AppComponent {
           this.message = message.body;
           ModeloDatosCovid.init(this.message);
           // $(".msg").html(this.message)
-
+          /**
+           * Antes actualizaba el ngIf en base al valor de la variable estática.
+           * En la versión 8 por algún motivo no lo hace, no problem. Ñapa 4 it.
+           */
+          document.getElementById("cargandoMapa").style.display="none";
+          document.getElementById("cargadoMapa").classList.remove("d-none");
         }
       });
     });

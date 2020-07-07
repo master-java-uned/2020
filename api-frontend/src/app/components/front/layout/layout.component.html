@@ -20,17 +20,23 @@
       <ul class="nav navbar-nav mr-auto">
         <li class="nav-item" role="presentation"><a class="nav-link" routerLink="/sobre-nosotros">Sobre nosotros</a></li>
         <li class="nav-item" role="presentation"><a class="nav-link" routerLink="/contacto">Contacto</a></li>
-        <li class="nav-item" *ngIf="getModeloDatosCovid().distinctContinentes == undefined || getModeloDatosCovid().distinctContinentes.length == 0">
+
+<!--        <li class="nav-item" *ngIf="getModeloDatosCovid().distinctContinentes == undefined || getModeloDatosCovid().distinctContinentes.length == 0">-->
+<!--          <div class="spinner-grow text-info" role="status">-->
+<!--            <span class="sr-only"></span>-->
+<!--          </div>-->
+<!--          Cargando mapas, por favor, espere...-->
+<!--        </li>-->
+<!--        <li class="nav-item dropdown" *ngIf="getModeloDatosCovid().distinctContinentes != undefined && getModeloDatosCovid().distinctContinentes.length > 0">-->
+<!--          <a class="nav-link" routerLink="/mapa/Mapa">Ir al mapa</a>-->
+<!--        </li>-->
+        <li class="nav-item " id="cargandoMapa">
           <div class="spinner-grow text-info" role="status">
             <span class="sr-only"></span>
           </div>
-          Cargando mapas, por favor, espere...
+          Cargando mapas...
         </li>
-        <li class="nav-item dropdown" *ngIf="getModeloDatosCovid().distinctContinentes != undefined && getModeloDatosCovid().distinctContinentes.length > 0">
-<!--          <a class="dropdown-toggle nav-link"  data-toggle="dropdown" aria-expanded="false" href="#">Seleccione un mapa</a>-->
-<!--          <div class="dropdown-menu" role="menu" >-->
-<!--            <a *ngFor="let continente of getModeloDatosCovid().distinctContinentes" class="dropdown-item" role="presentation" routerLink="/mapa/{{continente}}">{{continente}}</a>-->
-<!--          </div>-->
+        <li class="nav-item dropdown  d-none" id="cargadoMapa">
           <a class="nav-link" routerLink="/mapa/Mapa">Ir al mapa</a>
         </li>
 

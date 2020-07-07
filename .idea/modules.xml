@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/api-gateway/api-gateway.iml" filepath="$PROJECT_DIR$/api-gateway/api-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/auth-service/auth-service.iml" filepath="$PROJECT_DIR$/auth-service/auth-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/config-server/config-server.iml" filepath="$PROJECT_DIR$/config-server/config-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dvalera3.iml" filepath="$PROJECT_DIR$/dvalera3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/telegram-service/telegram-service.iml" filepath="$PROJECT_DIR$/telegram-service/telegram-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/update-service/update-service.iml" filepath="$PROJECT_DIR$/update-service/update-service.iml" />
+    </modules>
+  </component>
+</project>

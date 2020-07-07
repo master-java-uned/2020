@@ -23,7 +23,8 @@ import {DashDefaultComponent} from "./components/dash/default/dash-default.compo
 import {NoencontradoComponent} from "./components/shared/404/noencontrado/noencontrado.component";
 import { ClonarComponent } from './components/dash/clonar/clonar.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../../src/environments/environment';
+// import { environment } from '../../src/environments/environment';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
