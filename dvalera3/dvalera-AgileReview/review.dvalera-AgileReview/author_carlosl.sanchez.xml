@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<de:comments xmlns:de="http://de.tukl.softech.agileReview">
+  <de:author name="carlosl.sanchez"/>
+  <de:files>
+    <de:project name="ejemploCRUD-MVC">
+      <de:folder name="src">
+        <de:folder name="com">
+          <de:folder name="dvalera">
+            <de:folder name="acceso">
+              <de:folder name="controlador">
+                <de:file name="Error.java">
+                  <de:comment id="c0" author="carlosl.sanchez" reviewID="dvalera-AgileReview" creation-date="2020-07-12T15:53:30.215+02:00" last-modified="2020-07-12T15:54:03.795+02:00" priority="0" recipient="Propuesta" status="0" revision="0">
+                    <de:text>Normalmente se suele hacer así
+// Descripción del método
+// @in (entradas)
+// @out (salidas)
+// @err (Errorres)</de:text>
+                    <de:replies/>
+                  </de:comment>
+                  <de:comment id="c1" author="carlosl.sanchez" reviewID="dvalera-AgileReview" creation-date="2020-07-12T15:54:27.805+02:00" last-modified="2020-07-12T15:55:06.108+02:00" priority="0" recipient="Propuesta" status="0" revision="0">
+                    <de:text>Importante considerar que estas en la clase error, no tiene sentido lanzar otros errores sino enviar tu propia clase de error.</de:text>
+                    <de:replies/>
+                  </de:comment>
+                </de:file>
+                <de:file name="GestServidor.java">
+                  <de:comment id="c2" author="carlosl.sanchez" reviewID="dvalera-AgileReview" creation-date="2020-07-12T15:56:36.844+02:00" last-modified="2020-07-12T15:58:21.778+02:00" priority="0" recipient="Propuesta" status="0" revision="0">
+                    <de:text>Gestionar convenientemente este salto a lanzar un error de opción incorrecta?</de:text>
+                    <de:replies/>
+                  </de:comment>
+                  <de:comment id="c3" author="carlosl.sanchez" reviewID="dvalera-AgileReview" creation-date="2020-07-12T15:58:28.756+02:00" last-modified="2020-07-12T15:59:06.370+02:00" priority="0" recipient="Propuesta" status="0" revision="0">
+                    <de:text>Debería lanzar mostrar y reenviar a una página de error que indique que hay un problema con base de datos. El controlador es quien determina</de:text>
+                    <de:replies/>
+                  </de:comment>
+                </de:file>
+              </de:folder>
+              <de:folder name="dao">
+                <de:file name="BaseDatos.java">
+                  <de:comment id="c4" author="carlosl.sanchez" reviewID="dvalera-AgileReview" creation-date="2020-07-12T17:36:52.761+02:00" last-modified="2020-07-12T17:37:10.894+02:00" priority="0" recipient="Propuesta" status="0" revision="0">
+                    <de:text>Hay que lanzar tu error para que el controlador lo gestiones a una vista de error.</de:text>
+                    <de:replies/>
+                  </de:comment>
+                  <de:comment id="c5" author="carlosl.sanchez" reviewID="dvalera-AgileReview" creation-date="2020-07-12T17:37:40.985+02:00" last-modified="2020-07-12T17:37:52.180+02:00" priority="0" recipient="Propuesta" status="0" revision="0">
+                    <de:text>Un PreparedStatement es más recomendable.</de:text>
+                    <de:replies/>
+                  </de:comment>
+                  <de:comment id="c6" author="carlosl.sanchez" reviewID="dvalera-AgileReview" creation-date="2020-07-12T17:38:12.604+02:00" last-modified="2020-07-12T17:38:12.977+02:00" priority="0" recipient="Propuesta" status="0" revision="0">
+                    <de:text/>
+                    <de:replies/>
+                  </de:comment>
+                </de:file>
+                <de:file name="Fichero.java">
+                  <de:comment id="c7" author="carlosl.sanchez" reviewID="dvalera-AgileReview" creation-date="2020-07-12T17:39:44.013+02:00" last-modified="2020-07-12T17:39:44.013+02:00" priority="0" recipient="" status="0" revision="0">
+                    <de:text/>
+                    <de:replies/>
+                  </de:comment>
+                  <de:comment id="c8" author="carlosl.sanchez" reviewID="dvalera-AgileReview" creation-date="2020-07-12T18:01:18.495+02:00" last-modified="2020-07-12T18:01:37.990+02:00" priority="0" recipient="Propuesta" status="0" revision="0">
+                    <de:text>Descripciónd el la funcionalidad</de:text>
+                    <de:replies/>
+                  </de:comment>
+                </de:file>
+              </de:folder>
+            </de:folder>
+          </de:folder>
+        </de:folder>
+      </de:folder>
+      <de:folder name="WEB-INF">
+        <de:file name="web.xml">
+          <de:comment id="c9" author="carlosl.sanchez" reviewID="dvalera-AgileReview" creation-date="2020-07-12T21:59:26.579+02:00" last-modified="2020-07-12T22:00:01.688+02:00" priority="0" recipient="Propuesta" status="0" revision="0">
+            <de:text>Web.xml debería definir los mappings y servlects.</de:text>
+            <de:replies/>
+          </de:comment>
+        </de:file>
+      </de:folder>
+    </de:project>
+  </de:files>
+</de:comments>
