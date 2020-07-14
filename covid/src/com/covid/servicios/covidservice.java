@@ -23,7 +23,7 @@ public class covidservice implements IcovidService{
             
             SimpleDriverDataSource ds = new SimpleDriverDataSource();
             ds.setDriver(new com.mysql.cj.jdbc.Driver());
-            ds.setUrl("jdbc:mysql://localhost:3306/covid_users");
+            ds.setUrl("jdbc:mysql://db:3306/covid_users");
             ds.setUsername("root");
             ds.setPassword("Malamen2019");
             
@@ -49,7 +49,7 @@ public class covidservice implements IcovidService{
             
             SimpleDriverDataSource ds = new SimpleDriverDataSource();
             ds.setDriver(new com.mysql.cj.jdbc.Driver());
-            ds.setUrl("jdbc:mysql://localhost:3306/covid_users");
+            ds.setUrl("jdbc:mysql://db:3306/covid_users");
             ds.setUsername("root");
             ds.setPassword("Malamen2019");
             

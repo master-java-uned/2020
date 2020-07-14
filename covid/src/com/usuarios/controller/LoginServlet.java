@@ -33,9 +33,9 @@ public class LoginServlet extends HttpServlet {
 		try {
  
 			usuarioDAO = new UsuariosDao(jdbcURL, jdbcUsername, jdbcPassword);
-		} catch (Exception e) {
+		} catch (Exception e) { /*-?|JSalacar_Review|carlosl.sanchez|c0|*/
 			// TODO: handle exception
-		}
+		} /*-|JSalacar_Review|carlosl.sanchez|c0|?*/
 	}
 	
     public LoginServlet() {
@@ -48,7 +48,7 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		try
 		{	    
@@ -74,11 +74,11 @@ public class LoginServlet extends HttpServlet {
 		} 
 				
 				
-		catch (Throwable theException) 	    
+		catch (Throwable theException) 	     /*-?|JSalacar_Review|carlosl.sanchez|c1|*/
 		{
 		     System.out.println(theException); 
 		}
-		       }
+		       } /*-|JSalacar_Review|carlosl.sanchez|c1|?*/
 	
 
 	/**

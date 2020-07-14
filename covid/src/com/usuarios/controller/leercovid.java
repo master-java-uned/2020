@@ -44,7 +44,7 @@ public class leercovid extends HttpServlet {
         request.setAttribute("covits", covid);
         
         
-        int rows = covidService.getNumberOfRows();
+        int rows = covidService.getNumberOfRows(); /*-?|JSalacar_Review|carlosl.sanchez|c2|*/
         
         
         int nOfPages = rows / recordsPerPage;
@@ -58,7 +58,7 @@ public class leercovid extends HttpServlet {
         request.setAttribute("recordsPerPage", recordsPerPage);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/vista/listcovits.jsp");
-        dispatcher.forward(request, response);
+        dispatcher.forward(request, response); /*-|JSalacar_Review|carlosl.sanchez|c2|?*/
     }
 	
 

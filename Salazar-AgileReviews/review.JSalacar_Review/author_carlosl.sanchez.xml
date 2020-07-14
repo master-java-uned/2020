@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<de:comments xmlns:de="http://de.tukl.softech.agileReview">
+  <de:author name="carlosl.sanchez"/>
+  <de:files>
+    <de:project name="COVID">
+      <de:folder name="src">
+        <de:folder name="com">
+          <de:folder name="usuarios">
+            <de:folder name="controller">
+              <de:file name="LoginServlet.java">
+                <de:comment id="c0" author="carlosl.sanchez" reviewID="JSalacar_Review" creation-date="2020-07-14T01:45:33.118+02:00" last-modified="2020-07-14T01:45:58.015+02:00" priority="0" recipient="" status="0" revision="0">
+                  <de:text>Debería redirigir a una vista jsp de Error y capturar los errores que le lanza al controlador.</de:text>
+                  <de:replies/>
+                </de:comment>
+                <de:comment id="c1" author="carlosl.sanchez" reviewID="JSalacar_Review" creation-date="2020-07-14T01:46:06.355+02:00" last-modified="2020-07-14T01:46:21.271+02:00" priority="0" recipient="" status="0" revision="0">
+                  <de:text>Lo mismo que antes con la gestión de errores. Lanzarlo a una vista jsp de error.</de:text>
+                  <de:replies/>
+                </de:comment>
+              </de:file>
+              <de:file name="leercovid.java">
+                <de:comment id="c2" author="carlosl.sanchez" reviewID="JSalacar_Review" creation-date="2020-07-14T01:46:44.259+02:00" last-modified="2020-07-14T01:46:56.402+02:00" priority="0" recipient="" status="0" revision="0">
+                  <de:text>Aunque no has tenido tiempo, recuerda que habría que comentar.</de:text>
+                  <de:replies/>
+                </de:comment>
+              </de:file>
+              <de:file name="AdminUsuarios.java">
+                <de:comment id="c3" author="carlosl.sanchez" reviewID="JSalacar_Review" creation-date="2020-07-14T01:47:15.546+02:00" last-modified="2020-07-14T01:47:23.574+02:00" priority="0" recipient="" status="0" revision="0">
+                  <de:text>Lo suyo es utilizar JUnit.</de:text>
+                  <de:replies/>
+                </de:comment>
+              </de:file>
+            </de:folder>
+          </de:folder>
+        </de:folder>
+      </de:folder>
+    </de:project>
+  </de:files>
+</de:comments>

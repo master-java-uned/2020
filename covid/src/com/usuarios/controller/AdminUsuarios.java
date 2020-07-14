@@ -52,8 +52,8 @@ public class AdminUsuarios extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("Hola Servlet..");
-		String action = request.getParameter("action");
+		System.out.println("Hola Servlet.."); /*-?|JSalacar_Review|carlosl.sanchez|c3|*/
+		String action = request.getParameter("action"); /*-|JSalacar_Review|carlosl.sanchez|c3|?*/
 		System.out.println(action);
 		try {
 			switch (action) {
