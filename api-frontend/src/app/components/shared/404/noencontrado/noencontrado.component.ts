@@ -13,10 +13,12 @@ import {DomSanitizer, Meta, Title} from "@angular/platform-browser";
 @Component({
   selector: 'app-noencontrado',
   templateUrl: './noencontrado.component.html',
-  styleUrls: ['./noencontrado.component.css',
-    "../../../../../assets/css/bootstrap.min.css",
-    "../../../../../assets/css/nunitoFontGoogle.css",
-    "../../../../../assets/css/audiowidefont.css"],
+  styleUrls: [
+    // './noencontrado.component.css',
+    // "../../../../../assets/css/bootstrap.min.css",
+    // "../../../../../assets/css/nunitoFontGoogle.css",
+    // "../../../../../assets/css/audiowidefont.css"
+  ],
   encapsulation: ViewEncapsulation.None
 })
 export class NoencontradoComponent extends BaseLayout implements OnInit  {

@@ -5,18 +5,18 @@
  * usará un origen de datos para los mapas, y está bien que una vez cargados y formateados los datos, sean
  * accesibles everYWHERE!!!
  */
+import {LayoutComponent} from "../components/front/layout/layout.component";
 
 
-
-export class ModeloDatosCovid {
-  static JSON:any = {};
+export abstract class ModeloDatosCovid {
+  public static JSON:any = "";
 
   /**
    * Inicio el cacharro. Saco los distintos continentes, por el momento no lo uso, y luego el país y la info
    * @param JSON
    */
-  static init(JSON) {
-    ModeloDatosCovid.JSON = JSON;
+  static init(json) {
+    ModeloDatosCovid.JSON = JSON.parse(json);
     ModeloDatosCovid.getDistinctContinentes();
     /**
      * Primero saco los distintes paises con su info
@@ -26,6 +26,10 @@ export class ModeloDatosCovid {
      * Luego, para cada pais, le añado su array de información por fecha
      */
     ModeloDatosCovid.setArrayDiasPaises();
+
+
+    LayoutComponent.setModeloDatosCovid(this);
+
     return true;
   }
 
@@ -37,13 +41,12 @@ export class ModeloDatosCovid {
   static getDistinctContinentes() {
     if (ModeloDatosCovid.distinctContinentes == undefined || ModeloDatosCovid.distinctContinentes.length == 0) {
       ModeloDatosCovid.distinctContinentes = [];
-      // ModeloDatosCovid.JSON.records.forEach(function (value) {
-      JSON.parse(ModeloDatosCovid.JSON).forEach(function (value) {
-          if (ModeloDatosCovid.distinctContinentes.indexOf(value.continentExp) === -1) {
-            ModeloDatosCovid.distinctContinentes.push(value.continentExp);
-          }
-        });
 
+      ModeloDatosCovid.JSON.forEach(function (value) {
+        if (ModeloDatosCovid.distinctContinentes.indexOf(value.continentExp) === -1) {
+          ModeloDatosCovid.distinctContinentes.push(value.continentExp);
+        }
+      });
     }
     return ModeloDatosCovid.distinctContinentes;
   }
@@ -59,8 +62,7 @@ export class ModeloDatosCovid {
       ModeloDatosCovid.distinctPaises = [];
 
       var paisesId = [];
-      // ModeloDatosCovid.JSON.records.forEach(function (value) {
-      JSON.parse(ModeloDatosCovid.JSON).forEach(function (value) {
+      ModeloDatosCovid.JSON.forEach(function (value) {
         if (paisesId.indexOf(value.countriesAndTerritories) === -1) {
           ModeloDatosCovid.distinctPaises.push({
             nombre: value.countriesAndTerritories,
@@ -84,8 +86,7 @@ export class ModeloDatosCovid {
     for (var i = 0; i < ModeloDatosCovid.distinctPaises.length; i++) {
       var pais = ModeloDatosCovid.distinctPaises[i];
       var arrayInfoDias = [];
-      // ModeloDatosCovid.JSON.records.forEach(function (value) {
-      JSON.parse(ModeloDatosCovid.JSON).forEach(function (value) {
+      ModeloDatosCovid.JSON.forEach(function (value) {
         if (pais.idPais == value.geoId) {
           arrayInfoDias.push({
             dia: value.dateRep,

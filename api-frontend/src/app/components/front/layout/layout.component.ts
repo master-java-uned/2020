@@ -6,8 +6,9 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {BaseLayout} from "../../../app_code/viewsUtils/BaseLayout";
 import {DomSanitizer, Meta} from "@angular/platform-browser";
 import {Router, NavigationEnd, NavigationStart} from '@angular/router';
-
 import {ModeloDatosCovid} from "../../../models/ModeloDatosCovid";
+
+// import {ModeloDatosCovid} from "../../../models/ModeloDatosCovid";
 
 /**
  * CARGO TODAS LAS HOJAS DE ESTILO
@@ -15,17 +16,17 @@ import {ModeloDatosCovid} from "../../../models/ModeloDatosCovid";
 @Component({
   selector: 'app-default',
   templateUrl: './layout.component.html',
-  styleUrls: ['./layout.component.css',
-    // "/../../../../assets/css/bootstrap.min.css",
-    "../../../../assets/css/nunitoFontGoogle.css",
-    "../../../../assets/css/audiowidefont.css"
+  styleUrls: [
+    // './layout.component.css',
+    //  "/../../../../assets/css/bootstrap.min.css",
+    // "../../../../assets/css/nunitoFontGoogle.css",
+    // "../../../../assets/css/audiowidefont.css"
     ],
     encapsulation: ViewEncapsulation.None,
 })
 export class LayoutComponent implements OnInit  {
   router: Router;
   constructor(sanitizer: DomSanitizer, meta: Meta, router: Router) {
-
   }
   ngOnInit() {
   }
@@ -46,5 +47,9 @@ export class LayoutComponent implements OnInit  {
 
   scrollTop() {
     window.scroll(0,0);
+  }
+
+  static setModeloDatosCovid(m: ModeloDatosCovid) {
+
   }
 }
