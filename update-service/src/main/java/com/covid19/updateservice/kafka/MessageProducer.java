@@ -22,24 +22,23 @@ public class MessageProducer {
 
     private String count= "fistAccess";
 
-//    @Scheduled(cron = "0 0/1 * 1/1 * ? ")
-//    public void initProduce() throws Exception {
-//        String msg = pollingService.outputMapData();
-//        System.out.println("****************************** count" + count);
-//        if( !msg.equals(null)  && !msg .equals("undefined") && !msg.equals("[]") && count.equals("fistAccess")) {
-//            kafkaTemplate.send(kafkaInputMapData, msg);
-//            System.out.println("mi primera vez");
-//            count = "accessed";
-//        }
-//        if (msg.equals(null)  || msg .equals("undefined") || msg.equals("[]"))  {
-////            kafkaTemplate.send(kafkaInputMapData, "[{}]");
-//            System.out.println("error");
-//            count= "fistAccess";
-//        }
-//    }
-
-//    @Scheduled(cron = "0 0 0/12 1/1 * ?")
     @Scheduled(cron = "0 0/1 * 1/1 * ? ")
+    public void initProduce() throws Exception {
+        String msg = pollingService.outputMapData();
+        System.out.println("****************************** count" + count);
+        if( !msg.equals(null)  && !msg .equals("undefined") && !msg.equals("[]") && count.equals("fistAccess")) {
+            kafkaTemplate.send(kafkaInputMapData, msg);
+            System.out.println("mi primera vez");
+            count = "accessed";
+        }
+        if (msg.equals(null)  || msg .equals("undefined") || msg.equals("[]"))  {
+            kafkaTemplate.send(kafkaInputMapData, "[{}]");
+            System.out.println("error");
+            count= "fistAccess";
+        }
+    }
+
+    @Scheduled(cron = "0 0 0/12 1/1 * ?")
     public void produce() throws Exception {
         String msg = pollingService.outputMapData();
         if( !msg.equals(null)  && !msg .equals("undefined") && !msg.equals("[]"))
