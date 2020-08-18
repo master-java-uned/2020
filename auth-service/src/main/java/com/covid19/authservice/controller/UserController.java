@@ -32,6 +32,7 @@ import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.BufferedReader;
@@ -154,6 +155,10 @@ public class UserController {
                 //Establezco el username y el mail en minúsculas para normalizar
                 userToRegister.setUsername(userToRegister.getUsername().toLowerCase());
                 userToRegister.setEmail(userToRegister.getUsername().toLowerCase());
+
+                //Si el campo password me viene lleno lo modifico
+                userToRegister.setPassword(BCrypt.hashpw(userToRegister.getPassword(), BCrypt.gensalt(10)));
+
                 User usuarioInsertado = userService.registerUser(userToRegister);
                 if (usuarioInsertado == null) {
                     /**
@@ -190,7 +195,6 @@ public class UserController {
      * el usuario en cuestión tantas veces como nos indique. Esto mola para cuando vayamos a jugar con
      * los listados de usuarios.
      *
-     * @param tokata el tokata devuelto al logarse
      * @param cantidadOvejitas la cantidad de ovejitas a añadir
      * @return GenericResponse
      * @throws Exception no throws nada, y punto.
@@ -348,7 +352,7 @@ public class UserController {
                 if(userToModify.getPassword().length() > 0)
                 {
                     //Si el campo password me viene lleno lo modifico
-                    usuarioEnLiza.setPassword(userToModify.getPassword());
+                    usuarioEnLiza.setPassword(BCrypt.hashpw(userToModify.getPassword(), BCrypt.gensalt(10)));
                 }
 
                 User usuarioModificado = userService.updateUser(usuarioEnLiza);
