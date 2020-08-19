@@ -24,7 +24,7 @@
       :absolute="false"
     >
       <v-container class="pa-0 ma-0 mt-5">
-        <div class="row mt-0 pa-0 ma-0">
+        <div class="row mt-0 pa-0 ma-0" style="width: 100vw;">
           <div class="pa-0 ma-0 col-md-6 col-lg-8 mx-auto text-center">
             <v-icon size="50">mdi-facebook</v-icon>
             <v-icon size="50">mdi-twitter</v-icon>
